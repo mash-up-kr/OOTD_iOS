@@ -79,7 +79,7 @@
 			children = (
 				6AE5656C24CAE39D00D2FF23 /* Utils */,
 				6AE5656924CADABE00D2FF23 /* Extensions */,
-				6AE5656524CAD6F500D2FF23 /* Resource */,
+				6AE5656524CAD6F500D2FF23 /* Resources */,
 				57E91CBD24C59BF100A39E0E /* Life Cycles */,
 				57E91CBC24C59BC100A39E0E /* Supports Items */,
 				57E91CBE24C59C1900A39E0E /* Main */,
@@ -122,12 +122,12 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		6AE5656524CAD6F500D2FF23 /* Resource */ = {
+		6AE5656524CAD6F500D2FF23 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				6AE5656624CAD70600D2FF23 /* Color.xcassets */,
 			);
-			path = Resource;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		6AE5656924CADABE00D2FF23 /* Extensions */ = {
