@@ -19,6 +19,7 @@
 		57E91CB224C5948100A39E0E /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 57E91CB124C5948100A39E0E /* RxRelay */; };
 		57E91CB424C5948100A39E0E /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 57E91CB324C5948100A39E0E /* RxSwift */; };
 		57E91CB924C595AC00A39E0E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 57E91CB824C595AC00A39E0E /* Kingfisher */; };
+		6AE5656724CAD70600D2FF23 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5656624CAD70600D2FF23 /* Color.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		57E91C9324C58EB900A39E0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57E91C9624C58EB900A39E0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57E91C9824C58EB900A39E0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6AE5656624CAD70600D2FF23 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 		57E91C8924C58EB600A39E0E /* OOTD */ = {
 			isa = PBXGroup;
 			children = (
+				6AE5656524CAD6F500D2FF23 /* Resource */,
 				57E91CBD24C59BF100A39E0E /* Life Cycles */,
 				57E91CBC24C59BC100A39E0E /* Supports Items */,
 				57E91CBE24C59C1900A39E0E /* Main */,
@@ -109,6 +112,14 @@
 				57E91C9024C58EB600A39E0E /* Main.storyboard */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		6AE5656524CAD6F500D2FF23 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				6AE5656624CAD70600D2FF23 /* Color.xcassets */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +197,7 @@
 			files = (
 				57E91C9724C58EB900A39E0E /* LaunchScreen.storyboard in Resources */,
 				57E91C9424C58EB900A39E0E /* Assets.xcassets in Resources */,
+				6AE5656724CAD70600D2FF23 /* Color.xcassets in Resources */,
 				57E91C9224C58EB600A39E0E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
