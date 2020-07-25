@@ -71,6 +71,10 @@ class HomeViewController: UIViewController, StoryboardView {
         self.reactor = HomeReactor()
     }
     
+    @IBOutlet weak var feedViewHeightConstraint: NSLayoutConstraint!
+    
+    private var didLayoutSubviewsInitially = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "icMenuFeedNormal"), selectedImage: UIImage(named: "icMenuFeedActive"))
@@ -109,6 +113,21 @@ class HomeViewController: UIViewController, StoryboardView {
     private func showActionSheet() {
         present(selectPictureActionController, animated: true, completion: nil)
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if !didLayoutSubviewsInitially {
+            feedViewHeightConstraint.constant = height.default
+            didLayoutSubviewsInitially.toggle()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toFeed" {
+            let feedViewController = segue.destination as! FeedViewController
+            feedViewController.delegate = self
+        }
+    }
 }
 
 extension HomeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -125,3 +144,18 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
     }
 }
 
+
+extension HomeViewController: FeedPanGestureDelegate {
+    var height: (default: CGFloat, expanded: CGFloat) {
+        let min = view.bounds.height - view.safeAreaInsets.top - headerWrapper.bounds.height
+        let max = view.bounds.height - view.safeAreaInsets.top - 40
+        return (min, max)
+    }
+    
+    func didPanBegin(needsExpanded: Bool) {
+        feedViewHeightConstraint.constant = needsExpanded ? height.expanded : height.default
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+}

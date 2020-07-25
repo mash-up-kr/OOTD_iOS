@@ -16,17 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHa-X2-iLl">
-                                <rect key="frame" x="0.0" y="712" width="414" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="40b-G7-xTI"/>
-                                </constraints>
-                                <connections>
-                                    <segue destination="L7P-Ee-eoA" kind="embed" id="Jyv-7N-QcQ"/>
-                                </connections>
-                            </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EON-Zn-D7R">
-                                <rect key="frame" x="0.0" y="44" width="414" height="668"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="396.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgSun" translatesAutoresizingMaskIntoConstraints="NO" id="QXo-dB-aWA">
                                         <rect key="frame" x="267" y="15" width="147" height="250"/>
@@ -223,7 +214,7 @@
                                 <constraints>
                                     <constraint firstItem="QXo-dB-aWA" firstAttribute="top" secondItem="EON-Zn-D7R" secondAttribute="top" constant="15" id="2xr-ir-xIN"/>
                                     <constraint firstAttribute="trailing" secondItem="QXo-dB-aWA" secondAttribute="trailing" id="44Q-LJ-BCy"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="c9V-UU-xoZ" secondAttribute="bottom" constant="25" id="4lg-lV-vAc"/>
+                                    <constraint firstAttribute="bottom" secondItem="c9V-UU-xoZ" secondAttribute="bottom" constant="25" id="4lg-lV-vAc"/>
                                     <constraint firstItem="c9V-UU-xoZ" firstAttribute="leading" secondItem="EON-Zn-D7R" secondAttribute="leading" constant="16" id="9F3-SR-HlW"/>
                                     <constraint firstItem="Dh3-F0-WDa" firstAttribute="leading" secondItem="EON-Zn-D7R" secondAttribute="leading" constant="20" id="Ik0-Oc-UMR"/>
                                     <constraint firstItem="c9V-UU-xoZ" firstAttribute="top" secondItem="Dh3-F0-WDa" secondAttribute="bottom" constant="28" id="KNx-Bk-fSc"/>
@@ -232,22 +223,33 @@
                                     <constraint firstItem="QXo-dB-aWA" firstAttribute="leading" secondItem="Dh3-F0-WDa" secondAttribute="trailing" constant="8" id="kCA-G2-mbz"/>
                                 </constraints>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHa-X2-iLl">
+                                <rect key="frame" x="0.0" y="446" width="414" height="450"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="450" id="Ch1-AZ-TjL"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="fKD-qv-zQM" kind="embed" identifier="toFeed" id="oVz-fx-qX6"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="EON-Zn-D7R" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7d9-dy-En5"/>
                             <constraint firstItem="aHa-X2-iLl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9nH-p4-pax"/>
+                            <constraint firstItem="EON-Zn-D7R" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CAE-Yw-JZv"/>
                             <constraint firstItem="EON-Zn-D7R" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CGx-2s-3Ft"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aHa-X2-iLl" secondAttribute="trailing" id="N2r-n0-UHm"/>
-                            <constraint firstItem="aHa-X2-iLl" firstAttribute="top" secondItem="EON-Zn-D7R" secondAttribute="bottom" id="Pg4-0o-wa7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EON-Zn-D7R" secondAttribute="trailing" id="nrI-pc-pD4"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aHa-X2-iLl" secondAttribute="bottom" id="zcw-rp-bTw"/>
+                            <constraint firstAttribute="bottom" secondItem="aHa-X2-iLl" secondAttribute="bottom" id="zcw-rp-bTw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="yby-KR-Vcv"/>
                     <connections>
                         <outlet property="averageTemperatureLabel" destination="7sU-Ov-1ki" id="PFO-zV-m6L"/>
+                        <outlet property="feedViewHeightConstraint" destination="Ch1-AZ-TjL" id="bpI-AY-ZIr"/>
                         <outlet property="headerAddButton" destination="UxP-4u-AmY" id="S9Q-ld-4T5"/>
                         <outlet property="headerWrapper" destination="EON-Zn-D7R" id="qEW-b7-RXf"/>
                         <outlet property="highestTemperatureLabel" destination="0jm-Rx-OSd" id="ShI-Mn-gNV"/>
@@ -266,20 +268,13 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="2UN-YW-jrb">
+        <!--Feed-->
+        <scene sceneID="DFT-J8-NHA">
             <objects>
-                <viewController id="L7P-Ee-eoA" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gFH-m9-nWb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="C1f-bO-5vQ"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qsb-uE-96I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Feed" id="fKD-qv-zQM" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Mr-wk-DqF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2055.072463768116" y="90.401785714285708"/>
+            <point key="canvasLocation" x="1703" y="138"/>
         </scene>
     </scenes>
     <resources>

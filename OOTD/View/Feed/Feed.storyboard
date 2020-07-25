@@ -69,7 +69,7 @@
                                     <outlet property="delegate" destination="AOz-RM-LwK" id="fQA-oc-Yve"/>
                                 </connections>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2j0-Ra-G4k" customClass="FeedContentCollectionView" customModule="OOTD" customModuleProvider="target">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2j0-Ra-G4k" customClass="FeedContentCollectionView" customModule="OOTD" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="40" width="414" height="856"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="6" minimumInteritemSpacing="6" id="fBn-Rg-kmq">
@@ -133,6 +133,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="KEt-Yv-0K7" firstAttribute="top" secondItem="XgH-Br-b5N" secondAttribute="top" id="2rs-0j-ra3"/>
                             <constraint firstItem="2j0-Ra-G4k" firstAttribute="top" secondItem="KEt-Yv-0K7" secondAttribute="bottom" id="Lcc-qD-pLk"/>
@@ -146,6 +147,9 @@
                             <constraint firstItem="2iK-pm-gRD" firstAttribute="leading" secondItem="KEt-Yv-0K7" secondAttribute="trailing" id="xbb-1v-b3U"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="k7I-5e-Jly"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="FSo-8u-9li" appends="YES" id="hPf-a4-Nwf"/>
+                        </connections>
                     </view>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
@@ -154,6 +158,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mGY-Dm-UdC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="FSo-8u-9li">
+                    <connections>
+                        <action selector="actionPan:" destination="AOz-RM-LwK" id="6Ry-M0-7Fw"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-159.42028985507247" y="-84.375"/>
         </scene>

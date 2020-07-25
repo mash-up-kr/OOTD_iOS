@@ -8,13 +8,24 @@
 
 import UIKit
 
+protocol FeedPanGestureDelegate: class {
+    var height: (default: CGFloat, expanded: CGFloat) { get }
+    func didPanBegin(needsExpanded: Bool)
+}
+
 class FeedViewController: UIViewController, StoryboardBuildable {
     
     @IBOutlet weak var filterCollectionView: FeedFilterCollectionView!
     @IBOutlet weak var contentCollectionView: FeedContentCollectionView!
+    
+    weak var delegate: FeedPanGestureDelegate!
 
     private let filters = FeedFilter.samples
     private let contents = FeedContent.samples
+    
+    private var isExpanded: Bool = false {
+        didSet { contentCollectionView.isScrollEnabled = isExpanded }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +33,24 @@ class FeedViewController: UIViewController, StoryboardBuildable {
     
     @IBAction func actionSelectFilter(_ sender: Any) {
         present(TagViewController.instantiate(userName: "포니"), animated: true, completion: nil)
+    }
+    
+    @IBAction func actionPan(_ recognizer: UIPanGestureRecognizer) {
+        switch recognizer.state {
+        case .began:
+            delegate.didPanBegin(needsExpanded: !isExpanded)
+            isExpanded.toggle()
+        default:
+            break
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard isExpanded else { return }
+        if scrollView == contentCollectionView, contentCollectionView.contentOffset.y < 0 {
+            delegate.didPanBegin(needsExpanded: false)
+            isExpanded.toggle()
+        }
     }
 }
 
