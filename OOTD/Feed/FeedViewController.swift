@@ -19,6 +19,10 @@ class FeedViewController: UIViewController, StoryboardBuildable {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    @IBAction func actionSelectFilter(_ sender: Any) {
+        present(TagViewController.instantiate(userName: "포니"), animated: true, completion: nil)
+    }
 }
 
 extension FeedViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {

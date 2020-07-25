@@ -13,11 +13,6 @@ class FeedFilterCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        layer.cornerRadius = 2
-    }
-    
     func configure(_ filter: FeedFilter) {
         titleLabel.text = filter.title
     }

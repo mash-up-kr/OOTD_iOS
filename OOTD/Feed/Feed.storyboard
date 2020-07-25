@@ -54,6 +54,11 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="58" height="24"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="titleLabel" destination="iFF-A3-CHf" id="SYm-ad-GUu"/>
                                         </connections>
@@ -114,6 +119,9 @@
                                             <constraint firstAttribute="width" constant="24" id="kL2-y7-1sd"/>
                                         </constraints>
                                         <state key="normal" image="filter"/>
+                                        <connections>
+                                            <action selector="actionSelectFilter:" destination="AOz-RM-LwK" eventType="touchUpInside" id="L0T-yK-cJS"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
