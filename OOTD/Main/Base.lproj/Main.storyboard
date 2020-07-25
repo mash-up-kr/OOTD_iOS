@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +11,83 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="OOTD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHa-X2-iLl">
+                                <rect key="frame" x="0.0" y="712" width="414" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="40b-G7-xTI"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="L7P-Ee-eoA" kind="embed" id="Jyv-7N-QcQ"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EON-Zn-D7R">
+                                <rect key="frame" x="0.0" y="44" width="414" height="668"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qs1-lj-LvX">
+                                        <rect key="frame" x="16" y="601" width="382" height="42"/>
+                                        <color key="backgroundColor" name="grey08"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="otN-ub-KmH"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <color key="titleColor" name="grey01"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="qs1-lj-LvX" secondAttribute="bottom" constant="25" id="WvJ-md-bWa"/>
+                                    <constraint firstAttribute="trailing" secondItem="qs1-lj-LvX" secondAttribute="trailing" constant="16" id="YYr-gE-XNZ"/>
+                                    <constraint firstItem="qs1-lj-LvX" firstAttribute="leading" secondItem="EON-Zn-D7R" secondAttribute="leading" constant="16" id="n4i-pq-EQH"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="EON-Zn-D7R" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7d9-dy-En5"/>
+                            <constraint firstItem="aHa-X2-iLl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9nH-p4-pax"/>
+                            <constraint firstItem="EON-Zn-D7R" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CGx-2s-3Ft"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aHa-X2-iLl" secondAttribute="trailing" id="N2r-n0-UHm"/>
+                            <constraint firstItem="aHa-X2-iLl" firstAttribute="top" secondItem="EON-Zn-D7R" secondAttribute="bottom" id="Pg4-0o-wa7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EON-Zn-D7R" secondAttribute="trailing" id="nrI-pc-pD4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aHa-X2-iLl" secondAttribute="bottom" id="zcw-rp-bTw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="headerWrapper" destination="EON-Zn-D7R" id="uc5-MT-fak"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="139" y="138"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="2UN-YW-jrb">
+            <objects>
+                <viewController id="L7P-Ee-eoA" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gFH-m9-nWb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qsb-uE-96I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1145" y="91"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="grey01">
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grey08">
+            <color red="0.31372549019607843" green="0.31764705882352939" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
