@@ -3,7 +3,9 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,13 +16,76 @@
                     <view key="view" contentMode="scaleToFill" id="XgH-Br-b5N">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KEt-Yv-0K7" customClass="FeedFilterCollectionView" customModule="OOTD" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="36"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="y1e-ee-sYh"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="whb-6v-ope">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="estimatedItemSize" width="58" height="24"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FeedFilterCollectionViewCell" id="fY2-PP-ooT" customClass="FeedFilterCollectionViewCell" customModule="OOTD" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="6" width="58" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="UkZ-mf-GJe">
+                                            <rect key="frame" x="0.0" y="0.0" width="58" height="24"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스타일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFF-A3-CHf">
+                                                    <rect key="frame" x="12" y="3" width="34" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" name="grey04"/>
+                                            <constraints>
+                                                <constraint firstItem="iFF-A3-CHf" firstAttribute="leading" secondItem="UkZ-mf-GJe" secondAttribute="leading" constant="12" id="IdS-HT-uMx"/>
+                                                <constraint firstItem="iFF-A3-CHf" firstAttribute="top" secondItem="UkZ-mf-GJe" secondAttribute="top" constant="3" id="dIv-PR-7gl"/>
+                                                <constraint firstAttribute="trailing" secondItem="iFF-A3-CHf" secondAttribute="trailing" constant="12" id="gUf-eL-KOe"/>
+                                                <constraint firstAttribute="bottom" secondItem="iFF-A3-CHf" secondAttribute="bottom" constant="3" id="j4b-r6-iKO"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="58" height="24"/>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="iFF-A3-CHf" id="SYm-ad-GUu"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="AOz-RM-LwK" id="Q0w-Vc-fDS"/>
+                                    <outlet property="delegate" destination="AOz-RM-LwK" id="fQA-oc-Yve"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="KEt-Yv-0K7" firstAttribute="top" secondItem="XgH-Br-b5N" secondAttribute="top" id="2rs-0j-ra3"/>
+                            <constraint firstItem="KEt-Yv-0K7" firstAttribute="leading" secondItem="k7I-5e-Jly" secondAttribute="leading" id="bvA-bI-HAo"/>
+                            <constraint firstItem="KEt-Yv-0K7" firstAttribute="trailing" secondItem="k7I-5e-Jly" secondAttribute="trailing" id="eZU-ih-smg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="k7I-5e-Jly"/>
                     </view>
+                    <size key="freeformSize" width="414" height="896"/>
+                    <connections>
+                        <outlet property="filterCollectionView" destination="KEt-Yv-0K7" id="zhk-lf-Ka3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mGY-Dm-UdC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="25" y="64"/>
+            <point key="canvasLocation" x="-158" y="-84"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="grey04">
+            <color red="0.81176470588235294" green="0.81176470588235294" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

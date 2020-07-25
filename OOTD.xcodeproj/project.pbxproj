@@ -25,6 +25,7 @@
 		6AE5657024CAE3C800D2FF23 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5656F24CAE3C800D2FF23 /* Reusable.swift */; };
 		6AE5657324CAE91700D2FF23 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5657224CAE91700D2FF23 /* Feed.storyboard */; };
 		6AE5657524CAE92A00D2FF23 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5657424CAE92A00D2FF23 /* FeedViewController.swift */; };
+		6AE5657724CC11B800D2FF23 /* FeedFilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5657624CC11B800D2FF23 /* FeedFilterCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		6AE5656F24CAE3C800D2FF23 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		6AE5657224CAE91700D2FF23 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		6AE5657424CAE92A00D2FF23 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		6AE5657624CC11B800D2FF23 /* FeedFilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedFilterCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 			children = (
 				6AE5657224CAE91700D2FF23 /* Feed.storyboard */,
 				6AE5657424CAE92A00D2FF23 /* FeedViewController.swift */,
+				6AE5657624CC11B800D2FF23 /* FeedFilterCollectionViewCell.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				57E91C8B24C58EB600A39E0E /* AppDelegate.swift in Sources */,
 				57E91C8D24C58EB600A39E0E /* SceneDelegate.swift in Sources */,
 				6AE5656B24CADAD700D2FF23 /* UIViewController+Storyboard.swift in Sources */,
+				6AE5657724CC11B800D2FF23 /* FeedFilterCollectionViewCell.swift in Sources */,
 				6AE5657524CAE92A00D2FF23 /* FeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
