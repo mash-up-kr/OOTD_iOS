@@ -1,5 +1,5 @@
 //
-//  UplaodFeedViewController.swift
+//  UploadFeedViewController.swift
 //  OOTD
 //
 //  Created by 이호찬 on 2020/07/26.
@@ -11,7 +11,14 @@ import RxSwift
 import RxCocoa
 import ReactorKit
 
-final class UplaodFeedViewController: UIViewController, StoryboardBuildable ,StoryboardView {
+final class UploadFeedViewController: UIViewController, StoryboardBuildable ,StoryboardView {
+    static func newViewController(image: UIImage) -> UIViewController {
+        let viewController = UploadFeedViewController.instantiate()
+        viewController.reactor = UploadFeedReactor(feedImage: image)
+        
+        return viewController
+    }
+    
     @IBOutlet weak var feedImageView: UIImageView!
     
     var disposeBag = DisposeBag()
@@ -19,14 +26,12 @@ final class UplaodFeedViewController: UIViewController, StoryboardBuildable ,Sto
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        reactor = UploadFeedReactor(feedImage: nil) // 나중에 외부에서 주입하도록 변경
-        
         feedImageView.image = reactor?.initialState.feedImage 
     }
     
 }
 
-extension UplaodFeedViewController {
+extension UploadFeedViewController {
     func bind(reactor: UploadFeedReactor) {
         
         

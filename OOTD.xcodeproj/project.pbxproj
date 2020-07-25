@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		30A54CD324CC8FBB00BCEE96 /* Revision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A54CD224CC8FBB00BCEE96 /* Revision.swift */; };
-		30A54CD924CCA21A00BCEE96 /* UplaodFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A54CD824CCA21A00BCEE96 /* UplaodFeedViewController.swift */; };
+		30A54CD924CCA21A00BCEE96 /* UploadFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A54CD824CCA21A00BCEE96 /* UploadFeedViewController.swift */; };
 		30A54CDB24CCA22500BCEE96 /* UploadFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A54CDA24CCA22500BCEE96 /* UploadFeed.storyboard */; };
 		30A54CDE24CCA35000BCEE96 /* UploadFeedReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A54CDD24CCA35000BCEE96 /* UploadFeedReactor.swift */; };
 		30A54CE024CCA7AF00BCEE96 /* UploadFeed.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30A54CDF24CCA7AF00BCEE96 /* UploadFeed.xcassets */; };
@@ -50,7 +50,7 @@
 
 /* Begin PBXFileReference section */
 		30A54CD224CC8FBB00BCEE96 /* Revision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Revision.swift; sourceTree = "<group>"; };
-		30A54CD824CCA21A00BCEE96 /* UplaodFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UplaodFeedViewController.swift; sourceTree = "<group>"; };
+		30A54CD824CCA21A00BCEE96 /* UploadFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFeedViewController.swift; sourceTree = "<group>"; };
 		30A54CDA24CCA22500BCEE96 /* UploadFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UploadFeed.storyboard; sourceTree = "<group>"; };
 		30A54CDD24CCA35000BCEE96 /* UploadFeedReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFeedReactor.swift; sourceTree = "<group>"; };
 		30A54CDF24CCA7AF00BCEE96 /* UploadFeed.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = UploadFeed.xcassets; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 		30A54CD724CCA19C00BCEE96 /* UploadFeed */ = {
 			isa = PBXGroup;
 			children = (
-				30A54CD824CCA21A00BCEE96 /* UplaodFeedViewController.swift */,
+				30A54CD824CCA21A00BCEE96 /* UploadFeedViewController.swift */,
 				30A54CDA24CCA22500BCEE96 /* UploadFeed.storyboard */,
 			);
 			path = UploadFeed;
@@ -455,7 +455,7 @@
 				6AE5656E24CAE3AD00D2FF23 /* StoryboardBuildable.swift in Sources */,
 				6ADFC14524CC38EB0008C561 /* TagCollectionHeaderView.swift in Sources */,
 				6ADFC13124CC203E0008C561 /* UIColor+Assets.swift in Sources */,
-				30A54CD924CCA21A00BCEE96 /* UplaodFeedViewController.swift in Sources */,
+				30A54CD924CCA21A00BCEE96 /* UploadFeedViewController.swift in Sources */,
 				57E91C8B24C58EB600A39E0E /* AppDelegate.swift in Sources */,
 				FEB2F26A24CC77850043A6F8 /* TagReactor.swift in Sources */,
 				57E91C8D24C58EB600A39E0E /* SceneDelegate.swift in Sources */,

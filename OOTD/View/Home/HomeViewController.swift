@@ -80,6 +80,9 @@ class HomeViewController: UIViewController, StoryboardView {
         imagePickerController.modalPresentationStyle = .fullScreen
     }
     
+}
+
+extension HomeViewController {
     func bind(reactor: HomeReactor) {
         headerAddButton.rx.tap
             .map { HomeReactor.Action.didTapHeaderAddFeedButton }
@@ -95,20 +98,38 @@ class HomeViewController: UIViewController, StoryboardView {
             .map { $0.isSelectPicture }
             .filter { $0 }
             .subscribe(onNext: { [weak self] _ in self?.showActionSheet() })
-        .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
         
         reactor.state
             .map { $0.tagViewController }
             .subscribe(onNext: { [weak self] tagViewController in
-                guard let tagViewController = tagViewController else { return }
-                self?.present(tagViewController, animated: true, completion: nil)
+                guard let self = self,
+                    let tagViewController = tagViewController else { return }
+                self.present(tagViewController, animated: true, completion: nil)
             })
-        .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
+        
+        reactor.state.compactMap { $0.selectedImage }
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.showUploadFeedViewController(image: $0)
+            })
+            .disposed(by: disposeBag)
+        
     }
-    
+}
+
+extension HomeViewController {
     private func showActionSheet() {
         present(selectPictureActionController, animated: true, completion: nil)
     }
+    
+    private func showUploadFeedViewController(image: UIImage) {
+        let viewController = UploadFeedViewController.newViewController(image: image)
+    
+        present(UINavigationController(rootViewController: viewController), animated: true, completion: nil)
+    }
+    
 }
 
 extension HomeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

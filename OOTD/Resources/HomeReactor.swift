@@ -20,12 +20,13 @@ class HomeReactor: Reactor {
         // TODO: 이름 고민중
         case showSelectPictureStyleSheet
         case showTagViewController
-        case createAddFeedViewController
+        case createAddFeedViewController(UIImage)
     }
     
     struct State {
         var isSelectPicture: Bool = false
         var tagViewController: TagViewController? = nil
+        var selectedImage: UIImage?
     }
     
     let initialState: State = State()
@@ -36,8 +37,8 @@ class HomeReactor: Reactor {
             return .just(.showSelectPictureStyleSheet)
         case .didTapFilter:
             return .just(.showTagViewController)
-        case .selectedPicture(let image):
-            return .just(.showTagViewController)
+        case let .selectedPicture(image):
+            return .just(.createAddFeedViewController(image))
         }
     }
     
@@ -48,8 +49,8 @@ class HomeReactor: Reactor {
             newState.isSelectPicture = true
         case .showTagViewController:
             newState.tagViewController = tagViewController()
-        case .createAddFeedViewController:
-            newState.tagViewController = nil
+        case let .createAddFeedViewController(image):
+            newState.selectedImage = image
         }
         return newState
     }
