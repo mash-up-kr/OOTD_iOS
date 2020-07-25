@@ -25,6 +25,8 @@ class HomeViewController: UIViewController, StoryboardView {
     @IBOutlet weak var nowWeatherAdditionalInfoLabel: UILabel!
     @IBOutlet weak var updatedDateLabel: UILabel!
     @IBOutlet weak var headerAddButton: UIButton!
+    @IBOutlet weak var feedViewHeightConstraint: NSLayoutConstraint!
+    private var didLayoutSubviewsInitially = false
     
     typealias Reactor = HomeReactor
     var disposeBag: DisposeBag = DisposeBag()
@@ -71,17 +73,28 @@ class HomeViewController: UIViewController, StoryboardView {
         self.reactor = HomeReactor()
     }
     
-    @IBOutlet weak var feedViewHeightConstraint: NSLayoutConstraint!
-    
-    private var didLayoutSubviewsInitially = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "icMenuFeedNormal"), selectedImage: UIImage(named: "icMenuFeedActive"))
         
-        
         imagePickerController.delegate = self
         imagePickerController.modalPresentationStyle = .fullScreen
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if !didLayoutSubviewsInitially {
+            feedViewHeightConstraint.constant = height.default
+            didLayoutSubviewsInitially.toggle()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toFeed" {
+            let feedViewController = segue.destination as! FeedViewController
+            feedViewController.delegate = self
+        }
     }
     
     func bind(reactor: HomeReactor) {
@@ -112,21 +125,6 @@ class HomeViewController: UIViewController, StoryboardView {
     
     private func showActionSheet() {
         present(selectPictureActionController, animated: true, completion: nil)
-    }
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        if !didLayoutSubviewsInitially {
-            feedViewHeightConstraint.constant = height.default
-            didLayoutSubviewsInitially.toggle()
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toFeed" {
-            let feedViewController = segue.destination as! FeedViewController
-            feedViewController.delegate = self
-        }
     }
 }
 

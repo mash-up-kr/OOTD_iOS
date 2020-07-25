@@ -223,33 +223,48 @@
                                     <constraint firstItem="QXo-dB-aWA" firstAttribute="leading" secondItem="Dh3-F0-WDa" secondAttribute="trailing" constant="8" id="kCA-G2-mbz"/>
                                 </constraints>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHa-X2-iLl">
-                                <rect key="frame" x="0.0" y="446" width="414" height="450"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mkf-P5-ADX">
+                                <rect key="frame" x="0.0" y="696" width="414" height="200"/>
+                                <subviews>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHa-X2-iLl">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                        <connections>
+                                            <segue destination="fKD-qv-zQM" kind="embed" identifier="toFeed" id="oVz-fx-qX6"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="450" id="Ch1-AZ-TjL"/>
+                                    <constraint firstAttribute="height" constant="200" id="06u-qj-Oeu"/>
+                                    <constraint firstItem="aHa-X2-iLl" firstAttribute="leading" secondItem="Mkf-P5-ADX" secondAttribute="leading" id="ADR-Di-AzQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="aHa-X2-iLl" secondAttribute="trailing" id="axV-NJ-WDK"/>
+                                    <constraint firstItem="aHa-X2-iLl" firstAttribute="top" secondItem="Mkf-P5-ADX" secondAttribute="top" id="eYD-6b-8k4"/>
+                                    <constraint firstAttribute="bottom" secondItem="aHa-X2-iLl" secondAttribute="bottom" id="rrL-6g-03G"/>
                                 </constraints>
-                                <connections>
-                                    <segue destination="fKD-qv-zQM" kind="embed" identifier="toFeed" id="oVz-fx-qX6"/>
-                                </connections>
-                            </containerView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="EON-Zn-D7R" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7d9-dy-En5"/>
-                            <constraint firstItem="aHa-X2-iLl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9nH-p4-pax"/>
                             <constraint firstItem="EON-Zn-D7R" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CAE-Yw-JZv"/>
                             <constraint firstItem="EON-Zn-D7R" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CGx-2s-3Ft"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aHa-X2-iLl" secondAttribute="trailing" id="N2r-n0-UHm"/>
+                            <constraint firstAttribute="bottom" secondItem="Mkf-P5-ADX" secondAttribute="bottom" id="LU1-1h-5vC"/>
+                            <constraint firstItem="Mkf-P5-ADX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eWy-CI-Fqx"/>
+                            <constraint firstItem="Mkf-P5-ADX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="lbt-AP-ggg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EON-Zn-D7R" secondAttribute="trailing" id="nrI-pc-pD4"/>
-                            <constraint firstAttribute="bottom" secondItem="aHa-X2-iLl" secondAttribute="bottom" id="zcw-rp-bTw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="yby-KR-Vcv"/>
                     <connections>
                         <outlet property="averageTemperatureLabel" destination="7sU-Ov-1ki" id="PFO-zV-m6L"/>
-                        <outlet property="feedViewHeightConstraint" destination="Ch1-AZ-TjL" id="bpI-AY-ZIr"/>
+                        <outlet property="feedViewHeightConstraint" destination="06u-qj-Oeu" id="Knn-KU-uG6"/>
                         <outlet property="headerAddButton" destination="UxP-4u-AmY" id="S9Q-ld-4T5"/>
                         <outlet property="headerWrapper" destination="EON-Zn-D7R" id="qEW-b7-RXf"/>
                         <outlet property="highestTemperatureLabel" destination="0jm-Rx-OSd" id="ShI-Mn-gNV"/>
