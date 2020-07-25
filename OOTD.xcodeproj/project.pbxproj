@@ -40,6 +40,7 @@
 		FE1F7E2C24CC4E9300306454 /* MainTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE1F7E2B24CC4E9300306454 /* MainTabBar.storyboard */; };
 		FE1F7E3524CC4F4500306454 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1F7E3424CC4F4500306454 /* MainTabBarViewController.swift */; };
 		FEB2F26624CC64100043A6F8 /* HomeReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB2F26524CC64100043A6F8 /* HomeReactor.swift */; };
+		FEB2F26A24CC77850043A6F8 /* TagReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB2F26924CC77850043A6F8 /* TagReactor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		FE1F7E2B24CC4E9300306454 /* MainTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBar.storyboard; sourceTree = "<group>"; };
 		FE1F7E3424CC4F4500306454 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		FEB2F26524CC64100043A6F8 /* HomeReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeReactor.swift; path = OOTD/Resources/HomeReactor.swift; sourceTree = SOURCE_ROOT; };
+		FEB2F26924CC77850043A6F8 /* TagReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TagReactor.swift; path = OOTD/Reactor/MainTabBar/TagReactor.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 		6A00561E24CC63290041C073 /* Tag */ = {
 			isa = PBXGroup;
 			children = (
+				FEB2F26924CC77850043A6F8 /* TagReactor.swift */,
 			);
 			path = Tag;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				6ADFC14524CC38EB0008C561 /* TagCollectionHeaderView.swift in Sources */,
 				6ADFC13124CC203E0008C561 /* UIColor+Assets.swift in Sources */,
 				57E91C8B24C58EB600A39E0E /* AppDelegate.swift in Sources */,
+				FEB2F26A24CC77850043A6F8 /* TagReactor.swift in Sources */,
 				57E91C8D24C58EB600A39E0E /* SceneDelegate.swift in Sources */,
 				6ADFC13A24CC2AD40008C561 /* FeedContent.swift in Sources */,
 				6AE5656B24CADAD700D2FF23 /* UIViewController+Storyboard.swift in Sources */,

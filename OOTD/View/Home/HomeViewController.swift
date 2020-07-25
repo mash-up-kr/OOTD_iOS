@@ -8,7 +8,9 @@
 
 import UIKit
 import ReactorKit
+import RxRelay
 
+// TODO: 공통으로 쓸 수 있는 ViewController 만들기
 class HomeViewController: UIViewController, StoryboardView {
     @IBOutlet weak var headerWrapper: UIView!
     @IBOutlet weak var locationLabel: UILabel!
@@ -41,7 +43,7 @@ class HomeViewController: UIViewController, StoryboardView {
             self.imagePickerController.sourceType = .photoLibrary
             self.present(self.imagePickerController, animated: true, completion: nil)
         }
-        let cancelAction = UIAlertAction(title: "취소하기", style: .cancel) { _ in
+        let cancelAction = UIAlertAction(title: "취소하기", style: .cancel) {    _ in
             print("취소 하기")
         }
         
@@ -52,6 +54,8 @@ class HomeViewController: UIViewController, StoryboardView {
         return alertController
     }()
     lazy var imagePickerController = UIImagePickerController()
+    
+    private let selectedImageRelay = PublishRelay<UIImage>()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -78,18 +82,27 @@ class HomeViewController: UIViewController, StoryboardView {
     
     func bind(reactor: HomeReactor) {
         headerAddButton.rx.tap
-            .debug("tap", trimOutput: true)
-            .map { HomeReactor.Action.add }
+            .map { HomeReactor.Action.didTapHeaderAddFeedButton }
             .bind(to: reactor.action )
             .disposed(by: disposeBag)
         
-        reactor.state.asObservable()
-            .map {
-                print($0.isSelectPicture)
-                return $0.isSelectPicture
-            }
+        selectedImageRelay
+            .map { HomeReactor.Action.selectedPicture($0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.isSelectPicture }
             .filter { $0 }
             .subscribe(onNext: { [weak self] _ in self?.showActionSheet() })
+        .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.tagViewController }
+            .subscribe(onNext: { [weak self] tagViewController in
+                guard let tagViewController = tagViewController else { return }
+                self?.present(tagViewController, animated: true, completion: nil)
+            })
         .disposed(by: disposeBag)
     }
     
@@ -105,7 +118,7 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            print("good")
+            selectedImageRelay.accept(originalImage)
         }
         
         imagePickerController.dismiss(animated: true, completion: nil)
