@@ -183,9 +183,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c9V-UU-xoZ">
                                         <rect key="frame" x="16" y="329.5" width="382" height="42"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UxP-4u-AmY">
-                                                <rect key="frame" x="0.0" y="0.0" width="382" height="42"/>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="무더운 오늘,  당신의 옷은?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9c-1A-Zvq">
                                                 <rect key="frame" x="15" y="12.5" width="147.5" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -199,6 +196,9 @@
                                                     <constraint firstAttribute="height" constant="24" id="hAU-YE-Atx"/>
                                                 </constraints>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UxP-4u-AmY">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="42"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" name="grey08"/>
                                         <constraints>
