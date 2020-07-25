@@ -26,6 +26,7 @@
 		6AE5656E24CAE3AD00D2FF23 /* StoryboardBuildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5656D24CAE3AD00D2FF23 /* StoryboardBuildable.swift */; };
 		6AE5657024CAE3C800D2FF23 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5656F24CAE3C800D2FF23 /* Reusable.swift */; };
 		FE1F7E2824CC1DF800306454 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1F7E2724CC1DF800306454 /* MainViewController.swift */; };
+		FE1F7E2A24CC2BAD00306454 /* Main.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE1F7E2924CC2BAD00306454 /* Main.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		6AE5656D24CAE3AD00D2FF23 /* StoryboardBuildable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardBuildable.swift; sourceTree = "<group>"; };
 		6AE5656F24CAE3C800D2FF23 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		FE1F7E2724CC1DF800306454 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		FE1F7E2924CC2BAD00306454 /* Main.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Main.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				6AE5656624CAD70600D2FF23 /* Color.xcassets */,
+				FE1F7E2924CC2BAD00306454 /* Main.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE1F7E2A24CC2BAD00306454 /* Main.xcassets in Resources */,
 				57E91C9724C58EB900A39E0E /* LaunchScreen.storyboard in Resources */,
 				57E91C9424C58EB900A39E0E /* Assets.xcassets in Resources */,
 				6AE5656724CAD70600D2FF23 /* Color.xcassets in Resources */,
