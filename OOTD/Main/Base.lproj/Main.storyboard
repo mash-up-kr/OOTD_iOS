@@ -28,37 +28,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EON-Zn-D7R">
                                 <rect key="frame" x="0.0" y="44" width="414" height="668"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c9V-UU-xoZ">
-                                        <rect key="frame" x="16" y="329.5" width="382" height="42"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="무더운 오늘,  당신의 옷은?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9c-1A-Zvq">
-                                                <rect key="frame" x="15" y="12.5" width="147.5" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" name="grey01"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icPlusWhite" translatesAutoresizingMaskIntoConstraints="NO" id="AXV-KZ-yCa">
-                                                <rect key="frame" x="343" y="9" width="24" height="24"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="24" id="2UI-qw-qBd"/>
-                                                    <constraint firstAttribute="height" constant="24" id="hAU-YE-Atx"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" name="grey08"/>
-                                        <constraints>
-                                            <constraint firstItem="E9c-1A-Zvq" firstAttribute="leading" secondItem="c9V-UU-xoZ" secondAttribute="leading" constant="15" id="5qA-Yi-9ju"/>
-                                            <constraint firstItem="E9c-1A-Zvq" firstAttribute="centerY" secondItem="c9V-UU-xoZ" secondAttribute="centerY" id="PLD-ka-sVO"/>
-                                            <constraint firstAttribute="trailing" secondItem="AXV-KZ-yCa" secondAttribute="trailing" constant="15" id="XmZ-Dt-msn"/>
-                                            <constraint firstItem="AXV-KZ-yCa" firstAttribute="centerY" secondItem="c9V-UU-xoZ" secondAttribute="centerY" id="rQ6-OM-egC"/>
-                                            <constraint firstAttribute="height" constant="42" id="tcZ-vD-qvE"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="2"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgSun" translatesAutoresizingMaskIntoConstraints="NO" id="QXo-dB-aWA">
+                                        <rect key="frame" x="267" y="15" width="147" height="250"/>
+                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dh3-F0-WDa">
                                         <rect key="frame" x="20" y="16" width="239" height="285.5"/>
                                         <subviews>
@@ -208,9 +180,44 @@
                                             <constraint firstItem="UBo-NH-PUf" firstAttribute="top" secondItem="Dh3-F0-WDa" secondAttribute="top" id="zft-qe-Vip"/>
                                         </constraints>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgSun" translatesAutoresizingMaskIntoConstraints="NO" id="QXo-dB-aWA">
-                                        <rect key="frame" x="267" y="15" width="147" height="250"/>
-                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c9V-UU-xoZ">
+                                        <rect key="frame" x="16" y="329.5" width="382" height="42"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UxP-4u-AmY">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="42"/>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="무더운 오늘,  당신의 옷은?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9c-1A-Zvq">
+                                                <rect key="frame" x="15" y="12.5" width="147.5" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" name="grey01"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icPlusWhite" translatesAutoresizingMaskIntoConstraints="NO" id="AXV-KZ-yCa">
+                                                <rect key="frame" x="343" y="9" width="24" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="24" id="2UI-qw-qBd"/>
+                                                    <constraint firstAttribute="height" constant="24" id="hAU-YE-Atx"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" name="grey08"/>
+                                        <constraints>
+                                            <constraint firstItem="E9c-1A-Zvq" firstAttribute="leading" secondItem="c9V-UU-xoZ" secondAttribute="leading" constant="15" id="5qA-Yi-9ju"/>
+                                            <constraint firstAttribute="trailing" secondItem="UxP-4u-AmY" secondAttribute="trailing" id="F79-DQ-jl9"/>
+                                            <constraint firstItem="E9c-1A-Zvq" firstAttribute="centerY" secondItem="c9V-UU-xoZ" secondAttribute="centerY" id="PLD-ka-sVO"/>
+                                            <constraint firstItem="UxP-4u-AmY" firstAttribute="top" secondItem="c9V-UU-xoZ" secondAttribute="top" id="SiX-pk-X5t"/>
+                                            <constraint firstAttribute="trailing" secondItem="AXV-KZ-yCa" secondAttribute="trailing" constant="15" id="XmZ-Dt-msn"/>
+                                            <constraint firstItem="UxP-4u-AmY" firstAttribute="leading" secondItem="c9V-UU-xoZ" secondAttribute="leading" id="dyL-sA-I7H"/>
+                                            <constraint firstItem="AXV-KZ-yCa" firstAttribute="centerY" secondItem="c9V-UU-xoZ" secondAttribute="centerY" id="rQ6-OM-egC"/>
+                                            <constraint firstAttribute="height" constant="42" id="tcZ-vD-qvE"/>
+                                            <constraint firstAttribute="bottom" secondItem="UxP-4u-AmY" secondAttribute="bottom" id="urI-j1-ec3"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -239,7 +246,19 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="averageTemperatureLabel" destination="7sU-Ov-1ki" id="ZYj-bG-xzz"/>
+                        <outlet property="headerAddButton" destination="UxP-4u-AmY" id="aSY-nb-k7e"/>
                         <outlet property="headerWrapper" destination="EON-Zn-D7R" id="uc5-MT-fak"/>
+                        <outlet property="highestTemperatureLabel" destination="0jm-Rx-OSd" id="H6z-gG-NGc"/>
+                        <outlet property="locationLabel" destination="UBo-NH-PUf" id="ais-p6-gQw"/>
+                        <outlet property="lowestTemperatureLabel" destination="Fv3-TN-S5Y" id="t8g-Ls-MGi"/>
+                        <outlet property="nowDateLabel" destination="kQK-lA-5I3" id="CVA-bV-8sz"/>
+                        <outlet property="nowTemperatureLabel" destination="QzQ-kt-QHy" id="gmk-Ob-aES"/>
+                        <outlet property="nowWeatherAdditionalInfoImageView" destination="1qE-Jl-czt" id="1qA-in-aXV"/>
+                        <outlet property="nowWeatherAdditionalInfoLabel" destination="fFe-yx-SzD" id="jwY-ht-eU6"/>
+                        <outlet property="nowWeatherImageView" destination="5lW-Jb-xzO" id="Vkt-x8-pFO"/>
+                        <outlet property="nowWeatherLabel" destination="fFe-yx-SzD" id="WJt-Ml-JY8"/>
+                        <outlet property="updatedDateLabel" destination="fHF-Un-2YZ" id="Tow-ct-aeD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
