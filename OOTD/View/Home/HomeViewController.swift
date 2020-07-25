@@ -25,6 +25,8 @@ class HomeViewController: UIViewController, StoryboardView {
     @IBOutlet weak var nowWeatherAdditionalInfoLabel: UILabel!
     @IBOutlet weak var updatedDateLabel: UILabel!
     @IBOutlet weak var headerAddButton: UIButton!
+    @IBOutlet weak var feedViewHeightConstraint: NSLayoutConstraint!
+    private var didLayoutSubviewsInitially = false
     
     typealias Reactor = HomeReactor
     var disposeBag: DisposeBag = DisposeBag()
@@ -75,14 +77,28 @@ class HomeViewController: UIViewController, StoryboardView {
         super.viewDidLoad()
         tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "icMenuFeedNormal"), selectedImage: UIImage(named: "icMenuFeedActive"))
         
-        
         imagePickerController.delegate = self
         imagePickerController.modalPresentationStyle = .fullScreen
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if !didLayoutSubviewsInitially {
+            feedViewHeightConstraint.constant = height.default
+            didLayoutSubviewsInitially.toggle()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toFeed" {
+            let feedViewController = segue.destination as! FeedViewController
+            feedViewController.delegate = self
+        }
+    }
 }
 
-extension HomeViewController {
+extension HomeViewController {    
     func bind(reactor: HomeReactor) {
         headerAddButton.rx.tap
             .map { HomeReactor.Action.didTapHeaderAddFeedButton }
@@ -146,3 +162,18 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
     }
 }
 
+
+extension HomeViewController: FeedPanGestureDelegate {
+    var height: (default: CGFloat, expanded: CGFloat) {
+        let min = view.bounds.height - view.safeAreaInsets.top - headerWrapper.bounds.height
+        let max = view.bounds.height - view.safeAreaInsets.top - 40
+        return (min, max)
+    }
+    
+    func didPanBegin(needsExpanded: Bool) {
+        feedViewHeightConstraint.constant = needsExpanded ? height.expanded : height.default
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+}
