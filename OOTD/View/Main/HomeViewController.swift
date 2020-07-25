@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  HomeViewController.swift
 //  OOTD
 //
 //  Created by HyeonTae Kim on 2020/07/25.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class HomeViewController: UIViewController {
     @IBOutlet weak var headerWrapper: UIView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var nowDateLabel: UILabel!
@@ -22,5 +22,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var nowWeatherAdditionalInfoLabel: UILabel!
     @IBOutlet weak var updatedDateLabel: UILabel!
     @IBOutlet weak var headerAddButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "icMenuFeedNormal"), selectedImage: UIImage(named: "icMenuFeedActive"))
+    }
     
 }

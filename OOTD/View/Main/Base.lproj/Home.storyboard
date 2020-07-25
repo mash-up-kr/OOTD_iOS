@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="OOTD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="OOTD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -245,25 +245,26 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="yby-KR-Vcv"/>
                     <connections>
-                        <outlet property="averageTemperatureLabel" destination="7sU-Ov-1ki" id="ZYj-bG-xzz"/>
-                        <outlet property="headerAddButton" destination="UxP-4u-AmY" id="aSY-nb-k7e"/>
-                        <outlet property="headerWrapper" destination="EON-Zn-D7R" id="uc5-MT-fak"/>
-                        <outlet property="highestTemperatureLabel" destination="0jm-Rx-OSd" id="H6z-gG-NGc"/>
-                        <outlet property="locationLabel" destination="UBo-NH-PUf" id="ais-p6-gQw"/>
-                        <outlet property="lowestTemperatureLabel" destination="Fv3-TN-S5Y" id="t8g-Ls-MGi"/>
-                        <outlet property="nowDateLabel" destination="kQK-lA-5I3" id="CVA-bV-8sz"/>
-                        <outlet property="nowTemperatureLabel" destination="QzQ-kt-QHy" id="gmk-Ob-aES"/>
-                        <outlet property="nowWeatherAdditionalInfoImageView" destination="1qE-Jl-czt" id="1qA-in-aXV"/>
-                        <outlet property="nowWeatherAdditionalInfoLabel" destination="fFe-yx-SzD" id="jwY-ht-eU6"/>
-                        <outlet property="nowWeatherImageView" destination="5lW-Jb-xzO" id="Vkt-x8-pFO"/>
-                        <outlet property="nowWeatherLabel" destination="fFe-yx-SzD" id="WJt-Ml-JY8"/>
-                        <outlet property="updatedDateLabel" destination="fHF-Un-2YZ" id="Tow-ct-aeD"/>
+                        <outlet property="averageTemperatureLabel" destination="7sU-Ov-1ki" id="PFO-zV-m6L"/>
+                        <outlet property="headerAddButton" destination="UxP-4u-AmY" id="S9Q-ld-4T5"/>
+                        <outlet property="headerWrapper" destination="EON-Zn-D7R" id="qEW-b7-RXf"/>
+                        <outlet property="highestTemperatureLabel" destination="0jm-Rx-OSd" id="ShI-Mn-gNV"/>
+                        <outlet property="locationLabel" destination="UBo-NH-PUf" id="lgt-wH-axH"/>
+                        <outlet property="lowestTemperatureLabel" destination="Fv3-TN-S5Y" id="6cq-Ev-wPb"/>
+                        <outlet property="nowDateLabel" destination="kQK-lA-5I3" id="8Tk-Lx-1Xh"/>
+                        <outlet property="nowTemperatureLabel" destination="QzQ-kt-QHy" id="PJR-Se-d71"/>
+                        <outlet property="nowWeatherAdditionalInfoImageView" destination="1qE-Jl-czt" id="ifF-QW-zHx"/>
+                        <outlet property="nowWeatherAdditionalInfoLabel" destination="npx-uW-Wbv" id="zSK-1b-UVz"/>
+                        <outlet property="nowWeatherImageView" destination="5lW-Jb-xzO" id="f7j-xK-72Y"/>
+                        <outlet property="nowWeatherLabel" destination="fFe-yx-SzD" id="W67-O1-TF4"/>
+                        <outlet property="updatedDateLabel" destination="fHF-Un-2YZ" id="4sD-y2-EsU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+            <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="2UN-YW-jrb">
@@ -278,7 +279,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qsb-uE-96I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1145" y="91"/>
+            <point key="canvasLocation" x="2055.072463768116" y="90.401785714285708"/>
         </scene>
     </scenes>
     <resources>
