@@ -72,7 +72,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2j0-Ra-G4k" customClass="FeedContentCollectionView" customModule="OOTD" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="40" width="414" height="856"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="6" minimumInteritemSpacing="6" id="fBn-Rg-kmq">
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="5" minimumInteritemSpacing="5" id="fBn-Rg-kmq">
                                     <size key="itemSize" width="185" height="185"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -98,7 +98,6 @@
                                                 <constraint firstAttribute="bottom" secondItem="1gH-hp-bMg" secondAttribute="bottom" id="xbT-DT-d7R"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="185" height="185"/>
                                         <connections>
                                             <outlet property="imageView" destination="1gH-hp-bMg" id="LQE-mh-vDm"/>
                                         </connections>
@@ -113,21 +112,18 @@
                                 <rect key="frame" x="350" y="0.0" width="64" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYj-JK-fdj">
-                                        <rect key="frame" x="20" y="8" width="24" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="FOZ-MP-xHb"/>
-                                            <constraint firstAttribute="width" constant="24" id="kL2-y7-1sd"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="40"/>
                                         <state key="normal" image="filter"/>
-                                        <connections>
-                                            <action selector="actionSelectFilter:" destination="AOz-RM-LwK" eventType="touchUpInside" id="L0T-yK-cJS"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="eYj-JK-fdj" firstAttribute="top" secondItem="2iK-pm-gRD" secondAttribute="top" id="063-Ek-A0f"/>
+                                    <constraint firstAttribute="trailing" secondItem="eYj-JK-fdj" secondAttribute="trailing" id="7uf-4h-I5J"/>
+                                    <constraint firstAttribute="bottom" secondItem="eYj-JK-fdj" secondAttribute="bottom" id="I38-kP-sMS"/>
                                     <constraint firstAttribute="width" constant="64" id="ds0-0t-jlf"/>
                                     <constraint firstItem="eYj-JK-fdj" firstAttribute="centerY" secondItem="2iK-pm-gRD" secondAttribute="centerY" id="nW1-QJ-2ay"/>
+                                    <constraint firstItem="eYj-JK-fdj" firstAttribute="leading" secondItem="2iK-pm-gRD" secondAttribute="leading" id="w7I-ZL-dld"/>
                                     <constraint firstItem="eYj-JK-fdj" firstAttribute="centerX" secondItem="2iK-pm-gRD" secondAttribute="centerX" id="yIf-Sq-DBy"/>
                                 </constraints>
                             </view>
@@ -154,15 +150,13 @@
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
                         <outlet property="contentCollectionView" destination="2j0-Ra-G4k" id="7EH-Fq-Vlr"/>
+                        <outlet property="filterButton" destination="eYj-JK-fdj" id="fsf-bN-gK0"/>
                         <outlet property="filterCollectionView" destination="KEt-Yv-0K7" id="zhk-lf-Ka3"/>
+                        <outlet property="panGestureRecognizer" destination="FSo-8u-9li" id="Xey-X0-d4R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mGY-Dm-UdC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="FSo-8u-9li">
-                    <connections>
-                        <action selector="actionPan:" destination="AOz-RM-LwK" id="6Ry-M0-7Fw"/>
-                    </connections>
-                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="FSo-8u-9li"/>
             </objects>
             <point key="canvasLocation" x="-159.42028985507247" y="-84.375"/>
         </scene>
