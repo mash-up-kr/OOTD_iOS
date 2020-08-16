@@ -17,7 +17,6 @@ protocol FeedPanGestureDelegate: AnyObject {
 }
 
 class FeedViewController: UIViewController, StoryboardBuildable {
-    
     @IBOutlet weak var filterCollectionView: FeedFilterCollectionView!
     @IBOutlet weak var contentCollectionView: FeedContentCollectionView!
     @IBOutlet weak var filterButton: UIButton!
@@ -25,8 +24,8 @@ class FeedViewController: UIViewController, StoryboardBuildable {
 
     weak var delegate: FeedPanGestureDelegate!
 
-    private let filters = FeedFilter.samples
-    private let contents = FeedContent.samples
+    private let tags = Tag.samples
+    private let feeds = Feed.samples
     private var disposeBag = DisposeBag()
     private var isExpanded: Bool = false {
         didSet { contentCollectionView.isScrollEnabled = isExpanded }
@@ -64,10 +63,10 @@ class FeedViewController: UIViewController, StoryboardBuildable {
 extension FeedViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView is FeedFilterCollectionView {
-            return filters.count
+            return tags.count
         }
         if collectionView is FeedContentCollectionView {
-            return contents.count
+            return feeds.count
         }
         return .zero
     }
@@ -75,12 +74,12 @@ extension FeedViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView is FeedFilterCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedFilterCollectionViewCell.reusableIdentifier, for: indexPath) as! FeedFilterCollectionViewCell
-            cell.configure(filters[indexPath.item])
+            cell.configure(tags[indexPath.item])
             return cell
         }
         if collectionView is FeedContentCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedContentCollectionViewCell.reusableIdentifier, for: indexPath) as! FeedContentCollectionViewCell
-            cell.configure(contents[indexPath.item])
+            cell.configure(feeds[indexPath.item])
             return cell
         }
         return collectionView.dequeueReusableCell(withReuseIdentifier: "NONE", for: indexPath)

@@ -12,7 +12,7 @@ class FeedContentCollectionView: UICollectionView { }
 class FeedContentCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
 
-    func configure(_ content: FeedContent) {
+    func configure(_ content: Feed) {
         imageView.backgroundColor = content.color
     }
 }

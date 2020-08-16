@@ -7,6 +7,7 @@
 //
 
 import ReactorKit
+import RxSwift
 
 class TagReactor: Reactor {
     enum Action {
@@ -19,6 +20,8 @@ class TagReactor: Reactor {
     }
 
     var initialState: State = State()
+
+    var ssSubject = PublishSubject<Tag>()
 
 //    func mutate(action: Action) -> Observable<Mutation> {
 //
