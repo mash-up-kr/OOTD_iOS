@@ -27,12 +27,12 @@ class HomeViewController: UIViewController, StoryboardView {
     @IBOutlet weak var headerAddButton: UIButton!
     @IBOutlet weak var feedViewHeightConstraint: NSLayoutConstraint!
     private var didLayoutSubviewsInitially = false
-    
+
     typealias Reactor = HomeReactor
     var disposeBag: DisposeBag = DisposeBag()
     lazy var selectPictureActionController: UIAlertController = {
-        let alertController = UIAlertController.init(title: "사진 선택", message: "피드에 추가할 사진을 선택해주세요!", preferredStyle: .actionSheet)
-        
+        let alertController = UIAlertController(title: "사진 선택", message: "피드에 추가할 사진을 선택해주세요!", preferredStyle: .actionSheet)
+
         let takePictureAction = UIAlertAction(title: "사진 찍기", style: .default) { [weak self] _ in
             guard let self = self else { return }
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -48,74 +48,74 @@ class HomeViewController: UIViewController, StoryboardView {
         let cancelAction = UIAlertAction(title: "취소하기", style: .cancel) {    _ in
             print("취소 하기")
         }
-        
+
         alertController.addAction(takePictureAction)
         alertController.addAction(selectPictureFromGallery)
         alertController.addAction(cancelAction)
-        
+
         return alertController
     }()
     lazy var imagePickerController = UIImagePickerController()
-    
+
     private let selectedImageRelay = PublishRelay<UIImage>()
-    
+
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         commonInit()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }
-    
+
     private func commonInit() {
         self.reactor = HomeReactor()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "icMenuFeedNormal"), selectedImage: UIImage(named: "icMenuFeedActive"))
-        
+
         imagePickerController.delegate = self
         imagePickerController.modalPresentationStyle = .fullScreen
     }
-    
+}
+
+extension HomeViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+
         if !didLayoutSubviewsInitially {
             feedViewHeightConstraint.constant = height.default
             didLayoutSubviewsInitially.toggle()
         }
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toFeed" {
             let feedViewController = segue.destination as! FeedViewController
             feedViewController.delegate = self
         }
     }
-}
 
-extension HomeViewController {    
     func bind(reactor: HomeReactor) {
         headerAddButton.rx.tap
             .map { HomeReactor.Action.didTapHeaderAddFeedButton }
             .bind(to: reactor.action )
             .disposed(by: disposeBag)
-        
+
         selectedImageRelay
             .map { HomeReactor.Action.selectedPicture($0) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
-        
+
         reactor.state
             .map { $0.isSelectPicture }
             .filter { $0 }
             .subscribe(onNext: { [weak self] _ in self?.showActionSheet() })
             .disposed(by: disposeBag)
-        
+
         reactor.state
             .map { $0.tagViewController }
             .subscribe(onNext: { [weak self] tagViewController in
@@ -124,14 +124,14 @@ extension HomeViewController {
                 self.present(tagViewController, animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
-        
+
         reactor.state.compactMap { $0.selectedImage }
+            .distinctUntilChanged()
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
                 self.showUploadFeedViewController(image: $0)
             })
             .disposed(by: disposeBag)
-        
     }
 }
 
@@ -139,29 +139,27 @@ extension HomeViewController {
     private func showActionSheet() {
         present(selectPictureActionController, animated: true, completion: nil)
     }
-    
+
     private func showUploadFeedViewController(image: UIImage) {
         let viewController = UploadFeedViewController.newViewController(image: image)
-    
+
         present(UINavigationController(rootViewController: viewController), animated: true, completion: nil)
     }
-    
 }
 
 extension HomeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         imagePickerController.dismiss(animated: true, completion: nil)
     }
-    
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             selectedImageRelay.accept(originalImage)
         }
-        
+
         imagePickerController.dismiss(animated: true, completion: nil)
     }
 }
-
 
 extension HomeViewController: FeedPanGestureDelegate {
     var height: (default: CGFloat, expanded: CGFloat) {
@@ -169,7 +167,7 @@ extension HomeViewController: FeedPanGestureDelegate {
         let max = view.bounds.height - view.safeAreaInsets.top - 40
         return (min, max)
     }
-    
+
     func didPanBegin(needsExpanded: Bool) {
         feedViewHeightConstraint.constant = needsExpanded ? height.expanded : height.default
         UIView.animate(withDuration: 0.3) {

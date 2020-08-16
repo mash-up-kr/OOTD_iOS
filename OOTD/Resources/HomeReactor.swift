@@ -15,22 +15,22 @@ class HomeReactor: Reactor {
         case didTapFilter
         case selectedPicture(UIImage)
     }
-    
+
     enum Mutation {
         // TODO: 이름 고민중
         case showSelectPictureStyleSheet
         case showTagViewController
         case createAddFeedViewController(UIImage)
     }
-    
+
     struct State {
         var isSelectPicture: Bool = false
-        var tagViewController: TagViewController? = nil
+        var tagViewController: TagViewController?
         var selectedImage: UIImage?
     }
-    
+
     let initialState: State = State()
-    
+
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .didTapHeaderAddFeedButton:
@@ -41,7 +41,7 @@ class HomeReactor: Reactor {
             return .just(.createAddFeedViewController(image))
         }
     }
-    
+
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         switch mutation {
@@ -54,7 +54,7 @@ class HomeReactor: Reactor {
         }
         return newState
     }
-    
+
     private func tagViewController() -> TagViewController? {
         return TagViewController.instantiate()
     }

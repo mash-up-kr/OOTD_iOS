@@ -9,9 +9,8 @@
 import UIKit
 
 class TagCollectionViewCell: UICollectionViewCell {
-    
     @IBOutlet weak var titleLabel: UILabel!
-    
+
     override var isSelected: Bool {
         didSet {
             if isSelected {
@@ -23,7 +22,7 @@ class TagCollectionViewCell: UICollectionViewCell {
             }
         }
     }
-    
+
     func configure(_ tag: Tag) {
         titleLabel.text = tag.title
     }

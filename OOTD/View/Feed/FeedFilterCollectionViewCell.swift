@@ -10,13 +10,12 @@ import UIKit
 
 class FeedFilterCollectionView: UICollectionView { }
 class FeedFilterCollectionViewCell: UICollectionViewCell {
-    
     @IBOutlet weak var titleLabel: UILabel!
-    
+
     func configure(_ filter: FeedFilter) {
         titleLabel.text = filter.title
     }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
     }

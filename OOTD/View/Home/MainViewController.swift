@@ -22,10 +22,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var nowWeatherAdditionalInfoLabel: UILabel!
     @IBOutlet weak var updatedDateLabel: UILabel!
     @IBOutlet weak var headerAddButton: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarItem = UITabBarItem(title: nil, image: <#T##UIImage?#>, selectedImage: <#T##UIImage?#>)
     }
-    
 }

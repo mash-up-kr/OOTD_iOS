@@ -11,29 +11,26 @@ import RxSwift
 import RxCocoa
 import ReactorKit
 
-final class UploadFeedViewController: UIViewController, StoryboardBuildable ,StoryboardView {
+final class UploadFeedViewController: UIViewController, StoryboardBuildable, StoryboardView {
     static func newViewController(image: UIImage) -> UIViewController {
         let viewController = UploadFeedViewController.instantiate()
         viewController.reactor = UploadFeedReactor(feedImage: image)
-        
+
         return viewController
     }
-    
+
     @IBOutlet weak var feedImageView: UIImageView!
-    
+
     var disposeBag = DisposeBag()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        feedImageView.image = reactor?.initialState.feedImage 
+
+        feedImageView.image = reactor?.initialState.feedImage
     }
-    
 }
 
 extension UploadFeedViewController {
     func bind(reactor: UploadFeedReactor) {
-        
-        
     }
 }

@@ -76,9 +76,7 @@ whitelist_rules:
 - first_where
 - nimble_operator
 - for_where
-- force_cast
 - force_try
-- force_unwrapping
 - generic_type_name
 - implicit_getter
 - operator_whitespace

@@ -9,9 +9,8 @@
 import UIKit
 
 class TagCollectionHeaderView: UICollectionReusableView {
-    
     @IBOutlet weak var titleLabel: UILabel!
-    
+
     func configure(userName: String) {
         titleLabel.text = "\(userName)님의 스타일을\n알려주세요!"
     }

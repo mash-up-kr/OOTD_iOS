@@ -10,11 +10,11 @@ import Foundation
 
 struct Revision<T> {
     private var version: UInt = 0
-    
+
     var value: T {
         didSet { version += 1 }
     }
-    
+
     init(value: T) {
         self.value = value
     }

@@ -10,19 +10,16 @@ import ReactorKit
 
 class TagReactor: Reactor {
     enum Action {
-        
     }
-    
+
     enum Mutation {
-        
     }
-    
+
     struct State {
-        
     }
-    
-    var initialState: State  = State()
-    
+
+    var initialState: State = State()
+
 //    func mutate(action: Action) -> Observable<Mutation> {
 //
 //    }

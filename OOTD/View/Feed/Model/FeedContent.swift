@@ -17,5 +17,4 @@ extension FeedContent {
                           FeedContent(color: .red), FeedContent(color: .red), FeedContent(color: .red),
                           FeedContent(color: .red), FeedContent(color: .red), FeedContent(color: .red),
                           FeedContent(color: .red), FeedContent(color: .red), FeedContent(color: .red)]
-
 }
