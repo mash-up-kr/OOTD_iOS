@@ -25,7 +25,7 @@ final class APIRequest {
 
 extension APIRequest {
     static func getTest() -> Single<Response> {
-        provider.rx.request(.test)
+        provider.rx.request(.getStyles)
             .filterTimeOutError()
             .filterSuccessfulStatusCodes()
     }
