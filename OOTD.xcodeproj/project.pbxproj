@@ -32,12 +32,13 @@
 		57E91CB224C5948100A39E0E /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 57E91CB124C5948100A39E0E /* RxRelay */; };
 		57E91CB424C5948100A39E0E /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 57E91CB324C5948100A39E0E /* RxSwift */; };
 		57E91CB924C595AC00A39E0E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 57E91CB824C595AC00A39E0E /* Kingfisher */; };
+		6AA7DC3B24E9234F0053B749 /* FeedReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA7DC3A24E9234F0053B749 /* FeedReactor.swift */; };
+		6AA7DC3E24E92DA40053B749 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA7DC3D24E92DA40053B749 /* Tag.swift */; };
 		6AD6CF8724CC1B790012745E /* Feed.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AD6CF8624CC1B790012745E /* Feed.xcassets */; };
 		6ADFC13124CC203E0008C561 /* UIColor+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFC13024CC203E0008C561 /* UIColor+Assets.swift */; };
 		6ADFC13324CC20F10008C561 /* UIView+Inspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFC13224CC20F10008C561 /* UIView+Inspectable.swift */; };
 		6ADFC13524CC2A9E0008C561 /* FeedContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFC13424CC2A9E0008C561 /* FeedContentCollectionViewCell.swift */; };
-		6ADFC13824CC2AC70008C561 /* FeedFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFC13724CC2AC70008C561 /* FeedFilter.swift */; };
-		6ADFC13A24CC2AD40008C561 /* FeedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFC13924CC2AD40008C561 /* FeedContent.swift */; };
+		6ADFC13A24CC2AD40008C561 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFC13924CC2AD40008C561 /* Feed.swift */; };
 		6ADFC13F24CC2D180008C561 /* Tag.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ADFC13E24CC2D180008C561 /* Tag.storyboard */; };
 		6ADFC14124CC2D2B0008C561 /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFC14024CC2D2B0008C561 /* TagViewController.swift */; };
 		6ADFC14324CC37340008C561 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFC14224CC37340008C561 /* TagCollectionViewCell.swift */; };
@@ -77,12 +78,13 @@
 		57E91C9324C58EB900A39E0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57E91C9624C58EB900A39E0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57E91C9824C58EB900A39E0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6AA7DC3A24E9234F0053B749 /* FeedReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedReactor.swift; sourceTree = "<group>"; };
+		6AA7DC3D24E92DA40053B749 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		6AD6CF8624CC1B790012745E /* Feed.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Feed.xcassets; sourceTree = "<group>"; };
 		6ADFC13024CC203E0008C561 /* UIColor+Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Assets.swift"; sourceTree = "<group>"; };
 		6ADFC13224CC20F10008C561 /* UIView+Inspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Inspectable.swift"; sourceTree = "<group>"; };
 		6ADFC13424CC2A9E0008C561 /* FeedContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedContentCollectionViewCell.swift; sourceTree = "<group>"; };
-		6ADFC13724CC2AC70008C561 /* FeedFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedFilter.swift; sourceTree = "<group>"; };
-		6ADFC13924CC2AD40008C561 /* FeedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedContent.swift; sourceTree = "<group>"; };
+		6ADFC13924CC2AD40008C561 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		6ADFC13E24CC2D180008C561 /* Tag.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tag.storyboard; sourceTree = "<group>"; };
 		6ADFC14024CC2D2B0008C561 /* TagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
 		6ADFC14224CC37340008C561 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 		6A00561D24CC63260041C073 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				6AA7DC3A24E9234F0053B749 /* FeedReactor.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -258,11 +261,18 @@
 			path = Tag;
 			sourceTree = "<group>";
 		};
+		6AA7DC3C24E92D1D0053B749 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6AA7DC3D24E92DA40053B749 /* Tag.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		6ADFC13624CC2ABC0008C561 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6ADFC13724CC2AC70008C561 /* FeedFilter.swift */,
-				6ADFC13924CC2AD40008C561 /* FeedContent.swift */,
+				6ADFC13924CC2AD40008C561 /* Feed.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -270,6 +280,7 @@
 		6ADFC13B24CC2CD60008C561 /* Tag */ = {
 			isa = PBXGroup;
 			children = (
+				6AA7DC3C24E92D1D0053B749 /* Model */,
 				6ADFC13E24CC2D180008C561 /* Tag.storyboard */,
 				6ADFC14024CC2D2B0008C561 /* TagViewController.swift */,
 				6ADFC14424CC38EB0008C561 /* TagCollectionHeaderView.swift */,
@@ -481,12 +492,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AA7DC3E24E92DA40053B749 /* Tag.swift in Sources */,
 				30A54CD324CC8FBB00BCEE96 /* Revision.swift in Sources */,
 				FE1F7E2824CC1DF800306454 /* HomeViewController.swift in Sources */,
 				6AE5657024CAE3C800D2FF23 /* Reusable.swift in Sources */,
 				6ADFC13824CC2AC70008C561 /* FeedFilter.swift in Sources */,
 				3006E2D224E92DBC0033A404 /* UIApplication+Extension.swift in Sources */,
 				6ADFC13324CC20F10008C561 /* UIView+Inspectable.swift in Sources */,
+				6AA7DC3B24E9234F0053B749 /* FeedReactor.swift in Sources */,
 				FE1F7E3524CC4F4500306454 /* MainTabBarViewController.swift in Sources */,
 				3006E2D624E92F4D0033A404 /* Response+Extension.swift in Sources */,
 				FEB2F26624CC64100043A6F8 /* HomeReactor.swift in Sources */,
@@ -500,7 +513,7 @@
 				FEB2F26A24CC77850043A6F8 /* TagReactor.swift in Sources */,
 				3006E2D024E92CD50033A404 /* RxMoyaNetworking+Extension.swift in Sources */,
 				57E91C8D24C58EB600A39E0E /* SceneDelegate.swift in Sources */,
-				6ADFC13A24CC2AD40008C561 /* FeedContent.swift in Sources */,
+				6ADFC13A24CC2AD40008C561 /* Feed.swift in Sources */,
 				30A54CDE24CCA35000BCEE96 /* UploadFeedReactor.swift in Sources */,
 				6AE5656B24CADAD700D2FF23 /* UIViewController+Storyboard.swift in Sources */,
 				6AE5657724CC11B800D2FF23 /* FeedFilterCollectionViewCell.swift in Sources */,

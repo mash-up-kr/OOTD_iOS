@@ -24,6 +24,6 @@ class TagCollectionViewCell: UICollectionViewCell {
     }
 
     func configure(_ tag: Tag) {
-        titleLabel.text = tag.title
+        titleLabel.text = tag.name
     }
 }
