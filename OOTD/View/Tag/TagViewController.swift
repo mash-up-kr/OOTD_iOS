@@ -7,17 +7,24 @@
 //
 
 import UIKit
+import ReactorKit
+import RxSwift
+import RxCocoa
 
 //typealias Tag = FeedFilter
-class TagViewController: UIViewController, StoryboardBuildable {
+class TagViewController: UIViewController, StoryboardBuildable, StoryboardView {
     @IBOutlet weak var collectionView: UICollectionView!
 
     private var userName = "포니"
-    private let tags = Tag.heavySamples
+    private var tags = Tag.heavySamples
+
+    var disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.allowsMultipleSelection = true
+
+        reactor?.action.onNext(.requestTags)
     }
 
     static func instantiate(userName: String) -> Self {
@@ -28,6 +35,19 @@ class TagViewController: UIViewController, StoryboardBuildable {
 
     @IBAction func actionComplete(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension TagViewController {
+    func bind(reactor: TagReactor) {
+        reactor.state.map { $0.tags }
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] tags in
+                guard let self = self else { return }
+                self.tags = tags
+                self.collectionView.reloadData()
+            })
+            .disposed(by: disposeBag)
     }
 }
 

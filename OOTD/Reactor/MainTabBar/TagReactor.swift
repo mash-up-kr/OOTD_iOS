@@ -26,8 +26,7 @@ class TagReactor: Reactor {
     }
 
     var initialState: State = State()
-
-    var ssSubject = PublishSubject<Tag>()
+    var tagsPublishSubject = PublishSubject<[Tag]>()
 
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {

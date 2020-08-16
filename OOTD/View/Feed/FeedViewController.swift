@@ -36,7 +36,10 @@ class FeedViewController: UIViewController, StoryboardBuildable {
 
         filterButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.present(TagViewController.instantiate(userName: "포니"), animated: true, completion: nil)
+                guard let self = self else { return }
+                let tagViewController = TagViewController.instantiate(userName: "포니")
+                tagViewController.reactor = TagReactor()
+                self.present(tagViewController, animated: true)
             })
             .disposed(by: disposeBag)
 
