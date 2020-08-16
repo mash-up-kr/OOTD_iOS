@@ -14,12 +14,12 @@ protocol Reusable {
 
 extension UITableViewCell: Reusable {
     static var reusableIdentifier: String {
-        return String(describing: self)
+        String(describing: self)
     }
 }
 
 extension UICollectionReusableView: Reusable {
     static var reusableIdentifier: String {
-        return String(describing: self)
+        String(describing: self)
     }
 }

@@ -13,8 +13,10 @@ struct FeedContent {
 }
 
 extension FeedContent {
-    static let samples = [FeedContent(color: .red), FeedContent(color: .red), FeedContent(color: .red),
-                          FeedContent(color: .red), FeedContent(color: .red), FeedContent(color: .red),
-                          FeedContent(color: .red), FeedContent(color: .red), FeedContent(color: .red),
-                          FeedContent(color: .red), FeedContent(color: .red), FeedContent(color: .red)]
+    static let samples = [
+        FeedContent(color: .red), FeedContent(color: .red), FeedContent(color: .red),
+        FeedContent(color: .red), FeedContent(color: .red), FeedContent(color: .red),
+        FeedContent(color: .red), FeedContent(color: .red), FeedContent(color: .red),
+        FeedContent(color: .red), FeedContent(color: .red), FeedContent(color: .red)
+    ]
 }

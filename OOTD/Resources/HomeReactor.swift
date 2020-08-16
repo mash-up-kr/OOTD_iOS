@@ -56,6 +56,6 @@ class HomeReactor: Reactor {
     }
 
     private func tagViewController() -> TagViewController? {
-        return TagViewController.instantiate()
+        TagViewController.instantiate()
     }
 }

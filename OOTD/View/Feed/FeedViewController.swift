@@ -10,6 +10,7 @@ import UIKit
 
 protocol FeedPanGestureDelegate: AnyObject {
     var height: (default: CGFloat, expanded: CGFloat) { get }
+
     func didPanBegin(needsExpanded: Bool)
 }
 

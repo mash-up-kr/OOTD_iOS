@@ -33,7 +33,7 @@ class TagViewController: UIViewController, StoryboardBuildable {
 
 extension TagViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tags.count
+        tags.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -49,6 +49,6 @@ extension TagViewController: UICollectionViewDataSource, UICollectionViewDelegat
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height * 200 / 667)
+        CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height * 200 / 667)
     }
 }

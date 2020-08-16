@@ -29,6 +29,7 @@ class HomeViewController: UIViewController, StoryboardView {
     private var didLayoutSubviewsInitially = false
 
     typealias Reactor = HomeReactor
+
     var disposeBag: DisposeBag = DisposeBag()
     lazy var selectPictureActionController: UIAlertController = {
         let alertController = UIAlertController(title: "사진 선택", message: "피드에 추가할 사진을 선택해주세요!", preferredStyle: .actionSheet)
