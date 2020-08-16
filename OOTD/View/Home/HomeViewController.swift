@@ -28,6 +28,13 @@ class HomeViewController: UIViewController, StoryboardView {
     @IBOutlet weak var feedViewHeightConstraint: NSLayoutConstraint!
     private var didLayoutSubviewsInitially = false
 
+    @IBOutlet weak var weatherSummaryView: UIView!
+    @IBOutlet weak var summaryIamgeView: UIImageView!
+    @IBOutlet weak var summaryAverageLabel: UILabel!
+    @IBOutlet weak var summaryhighestTemperatureLabel: UILabel!
+    @IBOutlet weak var summaryLowestTemperatureLabel: UILabel!
+    @IBOutlet weak var homeMainImageView: UIImageView!
+
     typealias Reactor = HomeReactor
 
     var disposeBag: DisposeBag = DisposeBag()
@@ -165,12 +172,14 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
 extension HomeViewController: FeedPanGestureDelegate {
     var height: (default: CGFloat, expanded: CGFloat) {
         let min = view.bounds.height - view.safeAreaInsets.top - headerWrapper.bounds.height
-        let max = view.bounds.height - view.safeAreaInsets.top - 40
+        let max = view.bounds.height - view.safeAreaInsets.top - 60
         return (min, max)
     }
 
     func didPanBegin(needsExpanded: Bool) {
         feedViewHeightConstraint.constant = needsExpanded ? height.expanded : height.default
+        weatherSummaryView.alpha = needsExpanded ? 1 : 0
+        homeMainImageView.alpha = needsExpanded ? 0 : 1
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
