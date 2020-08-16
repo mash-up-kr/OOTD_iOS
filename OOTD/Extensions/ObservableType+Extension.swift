@@ -13,6 +13,6 @@ import Moya
 
 extension ObservableType where Self.Element == Moya.Response {
     func mapData<D: Decodable>(_ type: D.Type, atKeyPath keyPath: String? = "data", using decoder: JSONDecoder = JSONDecoder(), failsOnEmptyData: Bool = true) -> Observable<D> {
-        return flatMap { Observable.just(try $0.mapData(type, atKeyPath: keyPath, using: decoder, failsOnEmptyData: failsOnEmptyData)) }
+        flatMap { Observable.just(try $0.mapData(type, atKeyPath: keyPath, using: decoder, failsOnEmptyData: failsOnEmptyData)) }
     }
 }

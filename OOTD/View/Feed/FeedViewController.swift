@@ -17,8 +17,8 @@ protocol FeedPanGestureDelegate: AnyObject {
 }
 
 class FeedViewController: UIViewController, StoryboardBuildable {
-    @IBOutlet weak var filterCollectionView: FeedFilterCollectionView!
-    @IBOutlet weak var contentCollectionView: FeedContentCollectionView!
+    @IBOutlet weak var tagCollectionView: FeedTagCollectionView!
+    @IBOutlet weak var collectionView: FeedCollectionView!
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet var panGestureRecognizer: UIPanGestureRecognizer!
 
@@ -28,7 +28,7 @@ class FeedViewController: UIViewController, StoryboardBuildable {
     private let feeds = Feed.samples
     private var disposeBag = DisposeBag()
     private var isExpanded: Bool = false {
-        didSet { contentCollectionView.isScrollEnabled = isExpanded }
+        didSet { collectionView.isScrollEnabled = isExpanded }
     }
 
     override func viewDidLoad() {
@@ -53,7 +53,7 @@ class FeedViewController: UIViewController, StoryboardBuildable {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard isExpanded else { return }
-        if scrollView == contentCollectionView, contentCollectionView.contentOffset.y < 0 {
+        if scrollView == collectionView, collectionView.contentOffset.y < 0 {
             delegate.didPanBegin(needsExpanded: false)
             isExpanded.toggle()
         }
@@ -62,23 +62,23 @@ class FeedViewController: UIViewController, StoryboardBuildable {
 
 extension FeedViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView is FeedFilterCollectionView {
+        if collectionView is FeedTagCollectionView {
             return tags.count
         }
-        if collectionView is FeedContentCollectionView {
+        if collectionView is FeedCollectionView {
             return feeds.count
         }
         return .zero
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView is FeedFilterCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedFilterCollectionViewCell.reusableIdentifier, for: indexPath) as! FeedFilterCollectionViewCell
+        if collectionView is FeedTagCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedTagCollectionViewCell.reusableIdentifier, for: indexPath) as! FeedTagCollectionViewCell
             cell.configure(tags[indexPath.item])
             return cell
         }
-        if collectionView is FeedContentCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedContentCollectionViewCell.reusableIdentifier, for: indexPath) as! FeedContentCollectionViewCell
+        if collectionView is FeedCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedCollectionViewCell.reusableIdentifier, for: indexPath) as! FeedCollectionViewCell
             cell.configure(feeds[indexPath.item])
             return cell
         }
@@ -86,7 +86,7 @@ extension FeedViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView is FeedContentCollectionView {
+        if collectionView is FeedCollectionView {
             let layout = collectionViewLayout as! UICollectionViewFlowLayout
             let width = (collectionView.bounds.width - layout.minimumLineSpacing) / 2
             return CGSize(width: width, height: width)

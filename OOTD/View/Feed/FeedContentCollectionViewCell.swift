@@ -8,11 +8,11 @@
 
 import UIKit
 
-class FeedContentCollectionView: UICollectionView { }
-class FeedContentCollectionViewCell: UICollectionViewCell {
+class FeedCollectionView: UICollectionView { }
+class FeedCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
 
-    func configure(_ content: Feed) {
-        imageView.backgroundColor = content.color
+    func configure(_ feed: Feed) {
+        imageView.backgroundColor = feed.color
     }
 }

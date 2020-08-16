@@ -27,10 +27,10 @@ extension TargetType {
     }
 
     var headers: [String: String]? {
-        return getHeaders()
+        getHeaders()
     }
 
     var sampleData: Data {
-        return Data(count: 0)
+        Data(count: 0)
     }
 }
