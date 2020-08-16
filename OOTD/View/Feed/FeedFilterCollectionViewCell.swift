@@ -12,8 +12,8 @@ class FeedFilterCollectionView: UICollectionView { }
 class FeedFilterCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
 
-    func configure(_ filter: FeedFilter) {
-        titleLabel.text = filter.title
+    func configure(_ filter: Tag) {
+        titleLabel.text = filter.name
     }
 
     override func prepareForReuse() {

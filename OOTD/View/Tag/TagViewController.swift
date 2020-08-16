@@ -8,7 +8,7 @@
 
 import UIKit
 
-typealias Tag = FeedFilter
+//typealias Tag = FeedFilter
 class TagViewController: UIViewController, StoryboardBuildable {
     @IBOutlet weak var collectionView: UICollectionView!
 

@@ -120,6 +120,7 @@ extension HomeViewController {
 
         reactor.state
             .map { $0.isSelectPicture }
+            .distinctUntilChanged()
             .filter { $0 }
             .subscribe(onNext: { [weak self] _ in self?.showActionSheet() })
             .disposed(by: disposeBag)
@@ -161,11 +162,11 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            selectedImageRelay.accept(originalImage)
+        imagePickerController.dismiss(animated: true) {
+            if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                self.selectedImageRelay.accept(originalImage)
+            }
         }
-
-        imagePickerController.dismiss(animated: true, completion: nil)
     }
 }
 

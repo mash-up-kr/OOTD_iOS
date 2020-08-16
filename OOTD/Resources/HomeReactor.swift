@@ -44,6 +44,7 @@ class HomeReactor: Reactor {
 
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
+        newState.isSelectPicture = false
         switch mutation {
         case .showSelectPictureStyleSheet:
             newState.isSelectPicture = true
