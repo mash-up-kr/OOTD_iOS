@@ -100,8 +100,8 @@
 		FE1F7E2924CC2BAD00306454 /* Home.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Home.xcassets; sourceTree = "<group>"; };
 		FE1F7E2B24CC4E9300306454 /* MainTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBar.storyboard; sourceTree = "<group>"; };
 		FE1F7E3424CC4F4500306454 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
-		FEB2F26524CC64100043A6F8 /* HomeReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeReactor.swift; path = OOTD/Resources/HomeReactor.swift; sourceTree = SOURCE_ROOT; };
-		FEB2F26924CC77850043A6F8 /* TagReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TagReactor.swift; path = OOTD/Reactor/MainTabBar/TagReactor.swift; sourceTree = SOURCE_ROOT; };
+		FEB2F26524CC64100043A6F8 /* HomeReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeReactor.swift; path = OOTD/Service/Home/Reactor/HomeReactor.swift; sourceTree = SOURCE_ROOT; };
+		FEB2F26924CC77850043A6F8 /* TagReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TagReactor.swift; path = OOTD/Service/Tag/Reactor/TagReactor.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,16 +137,9 @@
 		30A54CD724CCA19C00BCEE96 /* UploadFeed */ = {
 			isa = PBXGroup;
 			children = (
-				30A54CD824CCA21A00BCEE96 /* UploadFeedViewController.swift */,
-				30A54CDA24CCA22500BCEE96 /* UploadFeed.storyboard */,
-			);
-			path = UploadFeed;
-			sourceTree = "<group>";
-		};
-		30A54CDC24CCA2C800BCEE96 /* UploadFeed */ = {
-			isa = PBXGroup;
-			children = (
-				30A54CDD24CCA35000BCEE96 /* UploadFeedReactor.swift */,
+				6AA7DC3F24E93A510053B749 /* Model */,
+				6AA7DC4124E93A5D0053B749 /* Reactor */,
+				6AA7DC4024E93A560053B749 /* View */,
 			);
 			path = UploadFeed;
 			sourceTree = "<group>";
@@ -172,8 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				3006E2C724E929010033A404 /* Network */,
-				6A00561A24CC63150041C073 /* Reactor */,
-				FE1F7E2E24CC4F0500306454 /* View */,
+				FE1F7E2E24CC4F0500306454 /* Service */,
 				6AE5656C24CAE39D00D2FF23 /* Utils */,
 				6AE5656924CADABE00D2FF23 /* Extensions */,
 				6AE5656524CAD6F500D2FF23 /* Resources */,
@@ -212,53 +204,11 @@
 		57E91CBE24C59C1900A39E0E /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				57E91C9024C58EB600A39E0E /* Home.storyboard */,
-				FE1F7E2724CC1DF800306454 /* HomeViewController.swift */,
+				6AA7DC4724E93AEC0053B749 /* Model */,
+				6AA7DC4624E93AE60053B749 /* Reactor */,
+				6AA7DC4524E93ADC0053B749 /* View */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		6A00561A24CC63150041C073 /* Reactor */ = {
-			isa = PBXGroup;
-			children = (
-				30A54CDC24CCA2C800BCEE96 /* UploadFeed */,
-				6A00561E24CC63290041C073 /* Tag */,
-				6A00561D24CC63260041C073 /* Feed */,
-				6A00561C24CC63220041C073 /* Home */,
-				6A00561B24CC631D0041C073 /* MainTabBar */,
-			);
-			path = Reactor;
-			sourceTree = "<group>";
-		};
-		6A00561B24CC631D0041C073 /* MainTabBar */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MainTabBar;
-			sourceTree = "<group>";
-		};
-		6A00561C24CC63220041C073 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				FEB2F26524CC64100043A6F8 /* HomeReactor.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		6A00561D24CC63260041C073 /* Feed */ = {
-			isa = PBXGroup;
-			children = (
-				6AA7DC3A24E9234F0053B749 /* FeedReactor.swift */,
-			);
-			path = Feed;
-			sourceTree = "<group>";
-		};
-		6A00561E24CC63290041C073 /* Tag */ = {
-			isa = PBXGroup;
-			children = (
-				FEB2F26924CC77850043A6F8 /* TagReactor.swift */,
-			);
-			path = Tag;
 			sourceTree = "<group>";
 		};
 		6AA7DC3C24E92D1D0053B749 /* Model */ = {
@@ -267,6 +217,115 @@
 				6AA7DC3D24E92DA40053B749 /* Tag.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		6AA7DC3F24E93A510053B749 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6AA7DC4024E93A560053B749 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				30A54CDA24CCA22500BCEE96 /* UploadFeed.storyboard */,
+				30A54CD824CCA21A00BCEE96 /* UploadFeedViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		6AA7DC4124E93A5D0053B749 /* Reactor */ = {
+			isa = PBXGroup;
+			children = (
+				30A54CDD24CCA35000BCEE96 /* UploadFeedReactor.swift */,
+			);
+			path = Reactor;
+			sourceTree = "<group>";
+		};
+		6AA7DC4224E93A9F0053B749 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FE1F7E2B24CC4E9300306454 /* MainTabBar.storyboard */,
+				FE1F7E3424CC4F4500306454 /* MainTabBarViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6AA7DC4324E93AA70053B749 /* Reactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reactor;
+			sourceTree = "<group>";
+		};
+		6AA7DC4424E93AAD0053B749 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6AA7DC4524E93ADC0053B749 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				57E91C9024C58EB600A39E0E /* Home.storyboard */,
+				FE1F7E2724CC1DF800306454 /* HomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6AA7DC4624E93AE60053B749 /* Reactor */ = {
+			isa = PBXGroup;
+			children = (
+				FEB2F26524CC64100043A6F8 /* HomeReactor.swift */,
+			);
+			path = Reactor;
+			sourceTree = "<group>";
+		};
+		6AA7DC4724E93AEC0053B749 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6AA7DC4824E93B0F0053B749 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6AE5657224CAE91700D2FF23 /* Feed.storyboard */,
+				6AE5657424CAE92A00D2FF23 /* FeedViewController.swift */,
+				6AE5657624CC11B800D2FF23 /* FeedTagCollectionViewCell.swift */,
+				6ADFC13424CC2A9E0008C561 /* FeedContentCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6AA7DC4A24E93B190053B749 /* Reactor */ = {
+			isa = PBXGroup;
+			children = (
+				6AA7DC3A24E9234F0053B749 /* FeedReactor.swift */,
+			);
+			path = Reactor;
+			sourceTree = "<group>";
+		};
+		6AA7DC4B24E93B580053B749 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6ADFC13E24CC2D180008C561 /* Tag.storyboard */,
+				6ADFC14024CC2D2B0008C561 /* TagViewController.swift */,
+				6ADFC14424CC38EB0008C561 /* TagCollectionHeaderView.swift */,
+				6ADFC14224CC37340008C561 /* TagCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6AA7DC4C24E93B5D0053B749 /* Reactor */ = {
+			isa = PBXGroup;
+			children = (
+				FEB2F26924CC77850043A6F8 /* TagReactor.swift */,
+			);
+			path = Reactor;
 			sourceTree = "<group>";
 		};
 		6ADFC13624CC2ABC0008C561 /* Model */ = {
@@ -281,10 +340,8 @@
 			isa = PBXGroup;
 			children = (
 				6AA7DC3C24E92D1D0053B749 /* Model */,
-				6ADFC13E24CC2D180008C561 /* Tag.storyboard */,
-				6ADFC14024CC2D2B0008C561 /* TagViewController.swift */,
-				6ADFC14424CC38EB0008C561 /* TagCollectionHeaderView.swift */,
-				6ADFC14224CC37340008C561 /* TagCollectionViewCell.swift */,
+				6AA7DC4C24E93B5D0053B749 /* Reactor */,
+				6AA7DC4B24E93B580053B749 /* View */,
 			);
 			path = Tag;
 			sourceTree = "<group>";
@@ -327,10 +384,8 @@
 			isa = PBXGroup;
 			children = (
 				6ADFC13624CC2ABC0008C561 /* Model */,
-				6AE5657224CAE91700D2FF23 /* Feed.storyboard */,
-				6AE5657424CAE92A00D2FF23 /* FeedViewController.swift */,
-				6AE5657624CC11B800D2FF23 /* FeedTagCollectionViewCell.swift */,
-				6ADFC13424CC2A9E0008C561 /* FeedContentCollectionViewCell.swift */,
+				6AA7DC4A24E93B190053B749 /* Reactor */,
+				6AA7DC4824E93B0F0053B749 /* View */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -338,13 +393,14 @@
 		FE1F7E2D24CC4EFD00306454 /* MainTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				FE1F7E2B24CC4E9300306454 /* MainTabBar.storyboard */,
-				FE1F7E3424CC4F4500306454 /* MainTabBarViewController.swift */,
+				6AA7DC4424E93AAD0053B749 /* Model */,
+				6AA7DC4324E93AA70053B749 /* Reactor */,
+				6AA7DC4224E93A9F0053B749 /* View */,
 			);
 			path = MainTabBar;
 			sourceTree = "<group>";
 		};
-		FE1F7E2E24CC4F0500306454 /* View */ = {
+		FE1F7E2E24CC4F0500306454 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				30A54CD724CCA19C00BCEE96 /* UploadFeed */,
@@ -353,7 +409,7 @@
 				6AE5657124CAE90400D2FF23 /* Feed */,
 				6ADFC13B24CC2CD60008C561 /* Tag */,
 			);
-			path = View;
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
