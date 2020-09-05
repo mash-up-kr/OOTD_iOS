@@ -175,7 +175,7 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
 extension HomeViewController: FeedPanGestureDelegate {
     var height: (default: CGFloat, expanded: CGFloat) {
         let min = view.bounds.height - view.safeAreaInsets.top - headerWrapper.bounds.height
-        let max = view.bounds.height - view.safeAreaInsets.top - 60
+        let max = view.bounds.height - view.safeAreaInsets.top
         return (min, max)
     }
 
