@@ -278,14 +278,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mkf-P5-ADX">
                                 <rect key="frame" x="0.0" y="696" width="414" height="200"/>
                                 <subviews>
-                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHa-X2-iLl">
+                                    <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHa-X2-iLl">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="fKD-qv-zQM" kind="embed" identifier="toFeed" id="oVz-fx-qX6"/>
                                         </connections>
                                     </containerView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="06u-qj-Oeu"/>
                                     <constraint firstItem="aHa-X2-iLl" firstAttribute="leading" secondItem="Mkf-P5-ADX" secondAttribute="leading" id="ADR-Di-AzQ"/>
@@ -294,8 +298,17 @@
                                     <constraint firstAttribute="bottom" secondItem="aHa-X2-iLl" secondAttribute="bottom" id="rrL-6g-03G"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="-5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.12"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -316,6 +329,8 @@
                     <tabBarItem key="tabBarItem" title="Item" id="yby-KR-Vcv"/>
                     <connections>
                         <outlet property="averageTemperatureLabel" destination="7sU-Ov-1ki" id="PFO-zV-m6L"/>
+                        <outlet property="feedContainerView" destination="Mkf-P5-ADX" id="Anf-mr-cqx"/>
+                        <outlet property="feedView" destination="aHa-X2-iLl" id="f6D-gk-XhM"/>
                         <outlet property="feedViewHeightConstraint" destination="06u-qj-Oeu" id="Knn-KU-uG6"/>
                         <outlet property="headerAddButton" destination="UxP-4u-AmY" id="S9Q-ld-4T5"/>
                         <outlet property="headerWrapper" destination="EON-Zn-D7R" id="qEW-b7-RXf"/>
