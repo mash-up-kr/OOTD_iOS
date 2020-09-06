@@ -11,6 +11,7 @@ import Moya
 
 enum API {
     case getStyles
+    case signIn
 }
 
 extension API: TargetType {
@@ -18,6 +19,8 @@ extension API: TargetType {
         switch self {
         case .getStyles:
             return "api/styles"
+        case .signIn:
+            return "api/users/sign-in"
         }
     }
 
@@ -25,12 +28,16 @@ extension API: TargetType {
         switch self {
         case .getStyles:
             return .get
+        case .signIn:
+            return .post
         }
     }
 
     var task: Task {
         switch self {
         case .getStyles:
+            return .requestPlain
+        case .signIn:
             return .requestPlain
         }
     }

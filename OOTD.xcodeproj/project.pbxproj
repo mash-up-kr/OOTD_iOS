@@ -16,11 +16,16 @@
 		3006E2D224E92DBC0033A404 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3006E2D124E92DBC0033A404 /* UIApplication+Extension.swift */; };
 		3006E2D424E92ED30033A404 /* ObservableType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3006E2D324E92ED30033A404 /* ObservableType+Extension.swift */; };
 		3006E2D624E92F4D0033A404 /* Response+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3006E2D524E92F4D0033A404 /* Response+Extension.swift */; };
+		3084293E2504EC1500517216 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084293D2504EC1500517216 /* AccountManager.swift */; };
 		30A54CD324CC8FBB00BCEE96 /* Revision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A54CD224CC8FBB00BCEE96 /* Revision.swift */; };
 		30A54CD924CCA21A00BCEE96 /* UploadFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A54CD824CCA21A00BCEE96 /* UploadFeedViewController.swift */; };
 		30A54CDB24CCA22500BCEE96 /* UploadFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A54CDA24CCA22500BCEE96 /* UploadFeed.storyboard */; };
 		30A54CDE24CCA35000BCEE96 /* UploadFeedReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A54CDD24CCA35000BCEE96 /* UploadFeedReactor.swift */; };
 		30A54CE024CCA7AF00BCEE96 /* UploadFeed.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30A54CDF24CCA7AF00BCEE96 /* UploadFeed.xcassets */; };
+		30DCE4042504E5880065B379 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30DCE4032504E5880065B379 /* Login.storyboard */; };
+		30DCE4062504E5DE0065B379 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCE4052504E5DE0065B379 /* SplashViewController.swift */; };
+		30DCE4092504E6320065B379 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30DCE4082504E6320065B379 /* Splash.storyboard */; };
+		30DCE40B2504E6F20065B379 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCE40A2504E6F20065B379 /* LoginViewController.swift */; };
 		57E91C8B24C58EB600A39E0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E91C8A24C58EB600A39E0E /* AppDelegate.swift */; };
 		57E91C8D24C58EB600A39E0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E91C8C24C58EB600A39E0E /* SceneDelegate.swift */; };
 		57E91C9224C58EB600A39E0E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57E91C9024C58EB600A39E0E /* Home.storyboard */; };
@@ -66,11 +71,17 @@
 		3006E2D124E92DBC0033A404 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		3006E2D324E92ED30033A404 /* ObservableType+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+Extension.swift"; sourceTree = "<group>"; };
 		3006E2D524E92F4D0033A404 /* Response+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Response+Extension.swift"; sourceTree = "<group>"; };
+		3084293D2504EC1500517216 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		30A54CD224CC8FBB00BCEE96 /* Revision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Revision.swift; sourceTree = "<group>"; };
 		30A54CD824CCA21A00BCEE96 /* UploadFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFeedViewController.swift; sourceTree = "<group>"; };
 		30A54CDA24CCA22500BCEE96 /* UploadFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UploadFeed.storyboard; sourceTree = "<group>"; };
 		30A54CDD24CCA35000BCEE96 /* UploadFeedReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFeedReactor.swift; sourceTree = "<group>"; };
 		30A54CDF24CCA7AF00BCEE96 /* UploadFeed.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = UploadFeed.xcassets; sourceTree = "<group>"; };
+		30DCE4032504E5880065B379 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		30DCE4052504E5DE0065B379 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		30DCE4082504E6320065B379 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		30DCE40A2504E6F20065B379 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		30DCE40C2504EACF0065B379 /* OOTD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OOTD.entitlements; sourceTree = "<group>"; };
 		57E91C8724C58EB600A39E0E /* OOTD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OOTD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57E91C8A24C58EB600A39E0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57E91C8C24C58EB600A39E0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +155,49 @@
 			path = UploadFeed;
 			sourceTree = "<group>";
 		};
+		30DCE3FF2504DCBA0065B379 /* Signin */ = {
+			isa = PBXGroup;
+			children = (
+				30DCE4052504E5DE0065B379 /* SplashViewController.swift */,
+				30DCE4082504E6320065B379 /* Splash.storyboard */,
+				30DCE4072504E5F80065B379 /* Login */,
+			);
+			path = Signin;
+			sourceTree = "<group>";
+		};
+		30DCE4002504E50C0065B379 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				30DCE4032504E5880065B379 /* Login.storyboard */,
+				30DCE40A2504E6F20065B379 /* LoginViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		30DCE4012504E5110065B379 /* Reactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reactor;
+			sourceTree = "<group>";
+		};
+		30DCE4022504E51B0065B379 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		30DCE4072504E5F80065B379 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				30DCE4022504E51B0065B379 /* Model */,
+				30DCE4012504E5110065B379 /* Reactor */,
+				30DCE4002504E50C0065B379 /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		57E91C7E24C58EB600A39E0E = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +218,7 @@
 		57E91C8924C58EB600A39E0E /* OOTD */ = {
 			isa = PBXGroup;
 			children = (
+				30DCE40C2504EACF0065B379 /* OOTD.entitlements */,
 				3006E2C724E929010033A404 /* Network */,
 				FE1F7E2E24CC4F0500306454 /* Service */,
 				6AE5656C24CAE39D00D2FF23 /* Utils */,
@@ -375,6 +430,7 @@
 			children = (
 				6AE5656F24CAE3C800D2FF23 /* Reusable.swift */,
 				30A54CD224CC8FBB00BCEE96 /* Revision.swift */,
+				3084293D2504EC1500517216 /* AccountManager.swift */,
 				6AE5656D24CAE3AD00D2FF23 /* StoryboardBuildable.swift */,
 			);
 			path = Utils;
@@ -403,6 +459,7 @@
 		FE1F7E2E24CC4F0500306454 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				30DCE3FF2504DCBA0065B379 /* Signin */,
 				30A54CD724CCA19C00BCEE96 /* UploadFeed */,
 				FE1F7E2D24CC4EFD00306454 /* MainTabBar */,
 				57E91CBE24C59C1900A39E0E /* Home */,
@@ -496,6 +553,8 @@
 				6AE5656724CAD70600D2FF23 /* Color.xcassets in Resources */,
 				57E91C9224C58EB600A39E0E /* Home.storyboard in Resources */,
 				6ADFC13F24CC2D180008C561 /* Tag.storyboard in Resources */,
+				30DCE4092504E6320065B379 /* Splash.storyboard in Resources */,
+				30DCE4042504E5880065B379 /* Login.storyboard in Resources */,
 				6AD6CF8724CC1B790012745E /* Feed.xcassets in Resources */,
 				30A54CDB24CCA22500BCEE96 /* UploadFeed.storyboard in Resources */,
 				30A54CE024CCA7AF00BCEE96 /* UploadFeed.xcassets in Resources */,
@@ -560,6 +619,7 @@
 				FEB2F26624CC64100043A6F8 /* HomeReactor.swift in Sources */,
 				6AE5656E24CAE3AD00D2FF23 /* StoryboardBuildable.swift in Sources */,
 				6ADFC14524CC38EB0008C561 /* TagCollectionHeaderView.swift in Sources */,
+				30DCE40B2504E6F20065B379 /* LoginViewController.swift in Sources */,
 				3006E2C924E929450033A404 /* APITargetType.swift in Sources */,
 				6ADFC13124CC203E0008C561 /* UIColor+Assets.swift in Sources */,
 				3006E2D424E92ED30033A404 /* ObservableType+Extension.swift in Sources */,
@@ -570,10 +630,12 @@
 				57E91C8D24C58EB600A39E0E /* SceneDelegate.swift in Sources */,
 				6ADFC13A24CC2AD40008C561 /* Feed.swift in Sources */,
 				30A54CDE24CCA35000BCEE96 /* UploadFeedReactor.swift in Sources */,
+				3084293E2504EC1500517216 /* AccountManager.swift in Sources */,
 				6AE5656B24CADAD700D2FF23 /* UIViewController+Storyboard.swift in Sources */,
 				6AE5657724CC11B800D2FF23 /* FeedTagCollectionViewCell.swift in Sources */,
 				3006E2CE24E92A430033A404 /* API.swift in Sources */,
 				6AE5657524CAE92A00D2FF23 /* FeedViewController.swift in Sources */,
+				30DCE4062504E5DE0065B379 /* SplashViewController.swift in Sources */,
 				6ADFC14324CC37340008C561 /* TagCollectionViewCell.swift in Sources */,
 				6ADFC13524CC2A9E0008C561 /* FeedContentCollectionViewCell.swift in Sources */,
 				3006E2CC24E92A190033A404 /* APIRequest.swift in Sources */,
@@ -721,6 +783,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = OOTD/OOTD.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 4Y9G8Z76XC;
@@ -742,6 +805,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = OOTD/OOTD.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 4Y9G8Z76XC;

@@ -8,5 +8,10 @@
 
 import UIKit
 
-class MainTabBarViewController: UITabBarController {
+class MainTabBarViewController: UITabBarController, StoryboardBuildable {
+    static func newViewController() -> UIViewController {
+        let viewController = MainTabBarViewController.instantiate()
+
+        return viewController
+    }
 }
