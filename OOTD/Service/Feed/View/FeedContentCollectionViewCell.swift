@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FeedCollectionView: UICollectionView { }
 class FeedCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
 
     func configure(_ feed: Feed) {
-        imageView.backgroundColor = feed.color
+        imageView.kf.setImage(with: feed.photoUrl)
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.kf.cancelDownloadTask()
+        imageView.image = nil
     }
 }

@@ -29,4 +29,10 @@ extension APIRequest {
             .filterTimeOutError()
             .filterSuccessfulStatusCodes()
     }
+
+    static func getFeed() -> Single<Response> {
+        provider.rx.request(.feed)
+            .filterTimeOutError()
+            .filterSuccessfulStatusCodes()
+    }
 }

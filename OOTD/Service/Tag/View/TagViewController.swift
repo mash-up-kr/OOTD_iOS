@@ -11,12 +11,11 @@ import ReactorKit
 import RxSwift
 import RxCocoa
 
-//typealias Tag = FeedFilter
 class TagViewController: UIViewController, StoryboardBuildable, StoryboardView {
     @IBOutlet weak var collectionView: UICollectionView!
 
     private var userName = "포니"
-    private var tags = Tag.heavySamples
+    private var tags = [Tag]()
 
     var disposeBag = DisposeBag()
 

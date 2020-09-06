@@ -8,15 +8,17 @@
 
 import UIKit
 
-struct Feed {
-    let color: UIColor
+struct Feed: Decodable {
+    let id: Int
+    let photoUrl: URL?
+    let message: String
+    let weather: String
+    let temperature: String
+    let date: String
 }
 
-extension Feed {
-    static let samples = [
-        Feed(color: .red), Feed(color: .red), Feed(color: .red),
-        Feed(color: .red), Feed(color: .red), Feed(color: .red),
-        Feed(color: .red), Feed(color: .red), Feed(color: .red),
-        Feed(color: .red), Feed(color: .red), Feed(color: .red)
-    ]
+extension Feed: Equatable {
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.id == rhs.id
+    }
 }

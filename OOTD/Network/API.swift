@@ -12,6 +12,7 @@ import Moya
 enum API {
     case getStyles
     case signIn
+    case feed
 }
 
 extension API: TargetType {
@@ -21,6 +22,8 @@ extension API: TargetType {
             return "api/styles"
         case .signIn:
             return "api/users/sign-in"
+        case .feed:
+            return "api/posts"
         }
     }
 
@@ -30,6 +33,8 @@ extension API: TargetType {
             return .get
         case .signIn:
             return .post
+        case .feed:
+            return .get
         }
     }
 
@@ -38,6 +43,8 @@ extension API: TargetType {
         case .getStyles:
             return .requestPlain
         case .signIn:
+            return .requestPlain
+        case .feed:
             return .requestPlain
         }
     }

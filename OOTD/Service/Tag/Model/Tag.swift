@@ -21,20 +21,4 @@ extension Tag: Equatable {
 
 extension Tag {
     static let samples = [Tag(id: 1, name: "힙스터"), Tag(id: 2, name: "보헤미안"), Tag(id: 3, name: "차이나타운")]
-    static let heavySamples = [
-        Tag(id: 1, name: "힙스터"), Tag(id: 1, name: "보헤미안"), Tag(id: 1, name: "차이나타운"),
-        Tag(id: 1, name: "힙스터"), Tag(id: 1, name: "보헤미안"), Tag(id: 1, name: "차이나타운"),
-        Tag(id: 1, name: "힙스터"), Tag(id: 1, name: "보헤미안"), Tag(id: 1, name: "차이나타운"),
-        Tag(id: 1, name: "힙스터"), Tag(id: 1, name: "보헤미안"), Tag(id: 1, name: "차이나타운"),
-        Tag(id: 1, name: "힙스터"), Tag(id: 1, name: "보헤미안"), Tag(id: 1, name: "차이나타운"),
-        Tag(id: 1, name: "힙스터"), Tag(id: 1, name: "보헤미안"), Tag(id: 1, name: "차이나타운"),
-        Tag(id: 1, name: "힙스터"), Tag(id: 1, name: "보헤미안"), Tag(id: 1, name: "차이나타운"),
-        Tag(id: 1, name: "힙스터"), Tag(id: 1, name: "보헤미안"), Tag(id: 1, name: "차이나타운"),
-        Tag(id: 1, name: "힙스터"), Tag(id: 1, name: "보헤미안"), Tag(id: 1, name: "차이나타운"),
-        Tag(id: 1, name: "힙스터"), Tag(id: 1, name: "보헤미안"), Tag(id: 1, name: "차이나타운"),
-        Tag(id: 1, name: "힙스터"), Tag(id: 1, name: "보헤미안"), Tag(id: 1, name: "차이나타운"),
-        Tag(id: 1, name: "힙스터"), Tag(id: 1, name: "보헤미안"), Tag(id: 1, name: "차이나타운"),
-        Tag(id: 1, name: "힙스터"), Tag(id: 1, name: "보헤미안"), Tag(id: 1, name: "차이나타운"),
-        Tag(id: 1, name: "힙스터"), Tag(id: 1, name: "보헤미안"), Tag(id: 1, name: "차이나타운")
-    ]
 }
