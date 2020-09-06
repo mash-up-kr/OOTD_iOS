@@ -28,8 +28,12 @@ class FeedViewController: UIViewController, StoryboardBuildable, StoryboardView 
     weak var delegate: FeedPanGestureDelegate!
     var disposeBag = DisposeBag()
 
-    private var tags = Tag.samples
-    private var feed = [Feed]()
+    private var tags = Tag.samples {
+        didSet { tagCollectionView.reloadData() }
+    }
+    private var feed = [Feed]() {
+        didSet { collectionView.reloadData() }
+    }
     private var isExpanded: Bool = false {
         didSet { collectionView.isScrollEnabled = isExpanded }
     }
@@ -39,11 +43,19 @@ class FeedViewController: UIViewController, StoryboardBuildable, StoryboardView 
         reactor = FeedReactor()
         reactor?.action.onNext(.requestFeed)
 
+        let tagReactor = TagReactor()
+        tagReactor.tagsPublishSubject
+            .subscribe(onNext: { [weak self] tags in
+                guard let self = self else { return }
+                self.tags = tags
+            })
+            .disposed(by: self.disposeBag)
+
         filterButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
                 let tagViewController = TagViewController.instantiate(userName: "포니")
-                tagViewController.reactor = TagReactor()
+                tagViewController.reactor = tagReactor
                 self.present(tagViewController, animated: true)
             })
             .disposed(by: disposeBag)
@@ -75,7 +87,6 @@ extension FeedViewController {
             .subscribe(onNext: { [weak self] feed in
                 guard let self = self else { return }
                 self.feed = feed
-                self.collectionView.reloadData()
             })
             .disposed(by: disposeBag)
     }
@@ -111,6 +122,10 @@ extension FeedViewController: UICollectionViewDataSource, UICollectionViewDelega
             let layout = collectionViewLayout as! UICollectionViewFlowLayout
             let width = (collectionView.bounds.width - layout.minimumLineSpacing) / 2.0
             return CGSize(width: width, height: width)
+        }
+        if collectionView is FeedTagCollectionView {
+            let layout = collectionViewLayout as! UICollectionViewFlowLayout
+            return layout.estimatedItemSize
         }
         return .zero
     }

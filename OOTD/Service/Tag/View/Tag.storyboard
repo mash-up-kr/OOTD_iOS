@@ -35,7 +35,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스타일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJ5-Gt-gre">
-                                                    <rect key="frame" x="12" y="3" width="34" height="18"/>
+                                                    <rect key="frame" x="12" y="6" width="34" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -45,8 +45,8 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="DJ5-Gt-gre" secondAttribute="trailing" constant="12" id="2lD-uS-7iz"/>
                                                 <constraint firstItem="DJ5-Gt-gre" firstAttribute="leading" secondItem="tCk-wD-7IO" secondAttribute="leading" constant="12" id="HOD-Qw-HWX"/>
-                                                <constraint firstAttribute="bottom" secondItem="DJ5-Gt-gre" secondAttribute="bottom" constant="3" id="LEk-qj-ccJ"/>
-                                                <constraint firstItem="DJ5-Gt-gre" firstAttribute="top" secondItem="tCk-wD-7IO" secondAttribute="top" constant="3" id="h8A-fP-c6J"/>
+                                                <constraint firstAttribute="bottom" secondItem="DJ5-Gt-gre" secondAttribute="bottom" constant="6" id="LEk-qj-ccJ"/>
+                                                <constraint firstItem="DJ5-Gt-gre" firstAttribute="top" secondItem="tCk-wD-7IO" secondAttribute="top" constant="6" id="h8A-fP-c6J"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

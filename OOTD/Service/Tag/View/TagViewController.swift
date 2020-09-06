@@ -33,6 +33,8 @@ class TagViewController: UIViewController, StoryboardBuildable, StoryboardView {
     }
 
     @IBAction func actionComplete(_ sender: Any) {
+        let selectedTags = collectionView.indexPathsForSelectedItems?.map { tags[$0.item] } ?? []
+        reactor?.tagsPublishSubject.onNext(selectedTags)
         dismiss(animated: true, completion: nil)
     }
 }

@@ -59,7 +59,7 @@
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="whb-6v-ope">
                                     <size key="itemSize" width="128" height="128"/>
-                                    <size key="estimatedItemSize" width="58" height="24"/>
+                                    <size key="estimatedItemSize" width="58" height="30"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
