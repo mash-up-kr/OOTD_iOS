@@ -26,6 +26,10 @@
 		30DCE4062504E5DE0065B379 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCE4052504E5DE0065B379 /* SplashViewController.swift */; };
 		30DCE4092504E6320065B379 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30DCE4082504E6320065B379 /* Splash.storyboard */; };
 		30DCE40B2504E6F20065B379 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCE40A2504E6F20065B379 /* LoginViewController.swift */; };
+		5728EE492507E7EC00D38454 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5728EE482507E7EC00D38454 /* SignUp.storyboard */; };
+		5728EE4B2507E81800D38454 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5728EE4A2507E81800D38454 /* SignUpViewController.swift */; };
+		5728EE4D2507EC0E00D38454 /* SignIn.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5728EE4C2507EC0E00D38454 /* SignIn.xcassets */; };
+		5728EE4F2507EE0A00D38454 /* SignUpReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5728EE4E2507EE0A00D38454 /* SignUpReactor.swift */; };
 		57E91C8B24C58EB600A39E0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E91C8A24C58EB600A39E0E /* AppDelegate.swift */; };
 		57E91C8D24C58EB600A39E0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E91C8C24C58EB600A39E0E /* SceneDelegate.swift */; };
 		57E91C9224C58EB600A39E0E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57E91C9024C58EB600A39E0E /* Home.storyboard */; };
@@ -82,6 +86,10 @@
 		30DCE4082504E6320065B379 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		30DCE40A2504E6F20065B379 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		30DCE40C2504EACF0065B379 /* OOTD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OOTD.entitlements; sourceTree = "<group>"; };
+		5728EE482507E7EC00D38454 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		5728EE4A2507E81800D38454 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		5728EE4C2507EC0E00D38454 /* SignIn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SignIn.xcassets; sourceTree = "<group>"; };
+		5728EE4E2507EE0A00D38454 /* SignUpReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpReactor.swift; sourceTree = "<group>"; };
 		57E91C8724C58EB600A39E0E /* OOTD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OOTD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57E91C8A24C58EB600A39E0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57E91C8C24C58EB600A39E0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,14 +163,14 @@
 			path = UploadFeed;
 			sourceTree = "<group>";
 		};
-		30DCE3FF2504DCBA0065B379 /* Signin */ = {
+		30DCE3FF2504DCBA0065B379 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				30DCE4052504E5DE0065B379 /* SplashViewController.swift */,
-				30DCE4082504E6320065B379 /* Splash.storyboard */,
+				5728EE472507E7CE00D38454 /* SignUp */,
+				5728EE462507E7B800D38454 /* Splash */,
 				30DCE4072504E5F80065B379 /* Login */,
 			);
-			path = Signin;
+			path = SignIn;
 			sourceTree = "<group>";
 		};
 		30DCE4002504E50C0065B379 /* View */ = {
@@ -196,6 +204,25 @@
 				30DCE4002504E50C0065B379 /* View */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		5728EE462507E7B800D38454 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				30DCE4052504E5DE0065B379 /* SplashViewController.swift */,
+				30DCE4082504E6320065B379 /* Splash.storyboard */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		5728EE472507E7CE00D38454 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				5728EE482507E7EC00D38454 /* SignUp.storyboard */,
+				5728EE4A2507E81800D38454 /* SignUpViewController.swift */,
+				5728EE4E2507EE0A00D38454 /* SignUpReactor.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		57E91C7E24C58EB600A39E0E = {
@@ -408,6 +435,7 @@
 				6AD6CF8624CC1B790012745E /* Feed.xcassets */,
 				30A54CDF24CCA7AF00BCEE96 /* UploadFeed.xcassets */,
 				FE1F7E2924CC2BAD00306454 /* Home.xcassets */,
+				5728EE4C2507EC0E00D38454 /* SignIn.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -459,7 +487,7 @@
 		FE1F7E2E24CC4F0500306454 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				30DCE3FF2504DCBA0065B379 /* Signin */,
+				30DCE3FF2504DCBA0065B379 /* SignIn */,
 				30A54CD724CCA19C00BCEE96 /* UploadFeed */,
 				FE1F7E2D24CC4EFD00306454 /* MainTabBar */,
 				57E91CBE24C59C1900A39E0E /* Home */,
@@ -555,8 +583,10 @@
 				6ADFC13F24CC2D180008C561 /* Tag.storyboard in Resources */,
 				30DCE4092504E6320065B379 /* Splash.storyboard in Resources */,
 				30DCE4042504E5880065B379 /* Login.storyboard in Resources */,
+				5728EE492507E7EC00D38454 /* SignUp.storyboard in Resources */,
 				6AD6CF8724CC1B790012745E /* Feed.xcassets in Resources */,
 				30A54CDB24CCA22500BCEE96 /* UploadFeed.storyboard in Resources */,
+				5728EE4D2507EC0E00D38454 /* SignIn.xcassets in Resources */,
 				30A54CE024CCA7AF00BCEE96 /* UploadFeed.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -622,6 +652,7 @@
 				30DCE40B2504E6F20065B379 /* LoginViewController.swift in Sources */,
 				3006E2C924E929450033A404 /* APITargetType.swift in Sources */,
 				6ADFC13124CC203E0008C561 /* UIColor+Assets.swift in Sources */,
+				5728EE4F2507EE0A00D38454 /* SignUpReactor.swift in Sources */,
 				3006E2D424E92ED30033A404 /* ObservableType+Extension.swift in Sources */,
 				30A54CD924CCA21A00BCEE96 /* UploadFeedViewController.swift in Sources */,
 				57E91C8B24C58EB600A39E0E /* AppDelegate.swift in Sources */,
@@ -629,6 +660,7 @@
 				3006E2D024E92CD50033A404 /* RxMoyaNetworking+Extension.swift in Sources */,
 				57E91C8D24C58EB600A39E0E /* SceneDelegate.swift in Sources */,
 				6ADFC13A24CC2AD40008C561 /* Feed.swift in Sources */,
+				5728EE4B2507E81800D38454 /* SignUpViewController.swift in Sources */,
 				30A54CDE24CCA35000BCEE96 /* UploadFeedReactor.swift in Sources */,
 				3084293E2504EC1500517216 /* AccountManager.swift in Sources */,
 				6AE5656B24CADAD700D2FF23 /* UIViewController+Storyboard.swift in Sources */,
