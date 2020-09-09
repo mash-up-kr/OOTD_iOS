@@ -25,3 +25,20 @@ class FeedDetailViewController: UIViewController, StoryboardBuildable {
         return detailViewController
     }
 }
+
+extension FeedDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        feed.tags.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedTagCollectionViewCell.reusableIdentifier, for: indexPath) as! FeedTagCollectionViewCell
+        cell.configure(feed.tags[indexPath.item])
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let layout = collectionViewLayout as! UICollectionViewFlowLayout
+        return layout.estimatedItemSize
+    }
+}
