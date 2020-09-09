@@ -124,10 +124,11 @@ extension FeedViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let feedDetailViewController = FeedDetailViewController.instantiate(feed: feed[indexPath.item])
-        let navigationController = UINavigationController(rootViewController: feedDetailViewController)
-//        navigationController.modalPresentationStyle = .fullScreen
-        present(navigationController, animated: true, completion: nil)
+        if collectionView is FeedCollectionView {
+            let feedDetailViewController = FeedDetailViewController.instantiate(feed: feed[indexPath.item])
+            let navigationController = UINavigationController(rootViewController: feedDetailViewController)
+            present(navigationController, animated: true, completion: nil)
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
