@@ -24,11 +24,11 @@
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="50" height="200"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="53" minY="8" maxX="53" maxY="50"/>
+                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="50"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCollectionViewCell" id="YQr-vv-QiC" customClass="TagCollectionViewCell" customModule="OOTD" customModuleProvider="target">
-                                        <rect key="frame" x="53" y="208" width="58" height="24"/>
+                                        <rect key="frame" x="20" y="200" width="58" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tCk-wD-7IO">
                                             <rect key="frame" x="0.0" y="0.0" width="58" height="24"/>
@@ -67,14 +67,14 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Arn-DB-JSE">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="포니님의 스타일을 알려주세요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2V5-gZ-to0">
-                                                    <rect key="frame" x="121.5" y="71.5" width="171.5" height="57.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="포니님의 스타일을 알려주세요!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2V5-gZ-to0">
+                                                    <rect key="frame" x="20" y="80.5" width="171.5" height="57.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                     <color key="textColor" name="grey09"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘 옷은 어떤 스타일인가요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jl6-cu-hOX">
-                                                    <rect key="frame" x="125" y="144" width="164" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어떤 스타일의 옷을 좋아하시나요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jl6-cu-hOX">
+                                                    <rect key="frame" x="20" y="143" width="188" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" name="grey07"/>
                                                     <nil key="highlightedColor"/>
@@ -82,10 +82,10 @@
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
-                                                <constraint firstItem="Jl6-cu-hOX" firstAttribute="centerX" secondItem="2V5-gZ-to0" secondAttribute="centerX" id="Dzc-Cl-2pN"/>
-                                                <constraint firstItem="2V5-gZ-to0" firstAttribute="centerY" secondItem="Arn-DB-JSE" secondAttribute="centerY" id="P44-zb-7P1"/>
-                                                <constraint firstItem="Jl6-cu-hOX" firstAttribute="top" secondItem="2V5-gZ-to0" secondAttribute="bottom" constant="15" id="VWp-zD-bUd"/>
-                                                <constraint firstItem="2V5-gZ-to0" firstAttribute="centerX" secondItem="Arn-DB-JSE" secondAttribute="centerX" id="lfI-bA-wCh"/>
+                                                <constraint firstAttribute="bottom" secondItem="Jl6-cu-hOX" secondAttribute="bottom" constant="40" id="K40-NT-PpO"/>
+                                                <constraint firstItem="2V5-gZ-to0" firstAttribute="leading" secondItem="Arn-DB-JSE" secondAttribute="leading" constant="20" id="V13-84-vjh"/>
+                                                <constraint firstItem="Jl6-cu-hOX" firstAttribute="top" secondItem="2V5-gZ-to0" secondAttribute="bottom" constant="5" id="VWp-zD-bUd"/>
+                                                <constraint firstItem="Jl6-cu-hOX" firstAttribute="leading" secondItem="2V5-gZ-to0" secondAttribute="leading" id="rDW-A9-nyg"/>
                                             </constraints>
                                         </view>
                                     </subviews>

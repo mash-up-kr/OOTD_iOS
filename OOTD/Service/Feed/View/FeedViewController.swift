@@ -42,6 +42,12 @@ class FeedViewController: UIViewController, StoryboardBuildable, StoryboardView 
         super.viewDidLoad()
         reactor = FeedReactor()
         reactor?.action.onNext(.requestFeed)
+        
+        /* MOCK */
+        feed = [
+            Feed(id: 1, photoUrl: URL(string: "https://i.pinimg.com/564x/c3/05/f7/c305f75146aa50b7d6e558a55e073e7d.jpg"), message: "", weather: "", temperature: "", date: ""),
+            Feed(id: 2, photoUrl: URL(string: "https://i.pinimg.com/564x/c3/05/f7/c305f75146aa50b7d6e558a55e073e7d.jpg"), message: "", weather: "", temperature: "", date: "")
+        ]
 
         let tagReactor = TagReactor()
         tagReactor.tagsPublishSubject
@@ -115,6 +121,13 @@ extension FeedViewController: UICollectionViewDataSource, UICollectionViewDelega
             return cell
         }
         return collectionView.dequeueReusableCell(withReuseIdentifier: "NONE", for: indexPath)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let feedDetailViewController = FeedDetailViewController.instantiate(feed: feed[indexPath.item])
+        let navigationController = UINavigationController(rootViewController: feedDetailViewController)
+//        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true, completion: nil)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
