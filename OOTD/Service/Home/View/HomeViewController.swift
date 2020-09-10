@@ -152,9 +152,8 @@ extension HomeViewController {
     }
 
     private func showUploadFeedViewController(image: UIImage) {
-        let viewController = UploadFeedViewController.newViewController(image: image)
-
-        present(UINavigationController(rootViewController: viewController), animated: true, completion: nil)
+        let uploadFeedViewController = UploadFeedViewController.newViewController(image: image)
+        present(uploadFeedViewController, animated: true)
     }
 }
 

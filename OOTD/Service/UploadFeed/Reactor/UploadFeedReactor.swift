@@ -12,16 +12,23 @@ import ReactorKit
 
 final class UploadFeedReactor: Reactor {
     enum Action {
-        case asdf
+        case didTapImageButton
+        case contentTextDidChange(String)
+        case didTapNextButton
     }
+
     enum Mutation {
-        case asdf
+        case showImageDetail
         case setLoading(Bool)
+        case updateContentText(String)
+        case initiateFeedInfoViewController
     }
 
     struct State {
         var isLoading: Bool = false
         var feedImage: UIImage?
+        var content: String = ""
+        var feedInfoViewController: UIViewController?
     }
 
     var initialState = State()
@@ -32,24 +39,30 @@ final class UploadFeedReactor: Reactor {
 
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .asdf:
-            return Observable.just(.asdf)
+        case .didTapImageButton:
+            return Observable.just(.showImageDetail)
+        case .contentTextDidChange(let text):
+            return Observable.just(.updateContentText(text))
+        case .didTapNextButton:
+            return Observable.just(.initiateFeedInfoViewController)
         }
     }
 
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
+        newState.feedInfoViewController = nil
 
         switch mutation {
-        case .asdf:
-            break
-
+        case .showImageDetail:
+            print("showDetail")
         case let .setLoading(isLoading):
             newState.isLoading = isLoading
+        case .updateContentText(let text):
+            newState.content = text
+        case .initiateFeedInfoViewController:
+            newState.feedInfoViewController = UploadFeedInfoViewController.newViewController(newState.feedImage, newState.content)
         }
+
         return newState
     }
-}
-
-extension UploadFeedReactor {
 }

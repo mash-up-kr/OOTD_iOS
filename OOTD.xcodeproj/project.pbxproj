@@ -61,6 +61,16 @@
 		FE1F7E3524CC4F4500306454 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1F7E3424CC4F4500306454 /* MainTabBarViewController.swift */; };
 		FEB2F26624CC64100043A6F8 /* HomeReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB2F26524CC64100043A6F8 /* HomeReactor.swift */; };
 		FEB2F26A24CC77850043A6F8 /* TagReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB2F26924CC77850043A6F8 /* TagReactor.swift */; };
+		FEC5176A250A6A810014F245 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC51769250A6A810014F245 /* UINavigationController+Extension.swift */; };
+		FEC5176E250A71250014F245 /* UploadFeedInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEC5176D250A71250014F245 /* UploadFeedInfo.storyboard */; };
+		FEC51770250A749B0014F245 /* UploadFeedInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC5176F250A749B0014F245 /* UploadFeedInfoViewController.swift */; };
+		FEC51772250A75230014F245 /* UploadFeedInfoReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC51771250A75230014F245 /* UploadFeedInfoReactor.swift */; };
+		FEC51774250A78E70014F245 /* SelectDateCalendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEC51773250A78E70014F245 /* SelectDateCalendar.storyboard */; };
+		FEC51776250A7C030014F245 /* SelectTemperature.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEC51775250A7C030014F245 /* SelectTemperature.storyboard */; };
+		FEC51778250A7C110014F245 /* SelectDateCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC51777250A7C110014F245 /* SelectDateCalendarViewController.swift */; };
+		FEC5177A250A7C1D0014F245 /* SelectTemperatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC51779250A7C1D0014F245 /* SelectTemperatureViewController.swift */; };
+		FEC5177C250A7C430014F245 /* SelectDateCalendarReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC5177B250A7C430014F245 /* SelectDateCalendarReactor.swift */; };
+		FEC5177E250A7C4F0014F245 /* SelectTemperatureReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC5177D250A7C4F0014F245 /* SelectTemperatureReactor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +123,16 @@
 		FE1F7E3424CC4F4500306454 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		FEB2F26524CC64100043A6F8 /* HomeReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeReactor.swift; path = OOTD/Service/Home/Reactor/HomeReactor.swift; sourceTree = SOURCE_ROOT; };
 		FEB2F26924CC77850043A6F8 /* TagReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TagReactor.swift; path = OOTD/Service/Tag/Reactor/TagReactor.swift; sourceTree = SOURCE_ROOT; };
+		FEC51769250A6A810014F245 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		FEC5176D250A71250014F245 /* UploadFeedInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UploadFeedInfo.storyboard; sourceTree = "<group>"; };
+		FEC5176F250A749B0014F245 /* UploadFeedInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFeedInfoViewController.swift; sourceTree = "<group>"; };
+		FEC51771250A75230014F245 /* UploadFeedInfoReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFeedInfoReactor.swift; sourceTree = "<group>"; };
+		FEC51773250A78E70014F245 /* SelectDateCalendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectDateCalendar.storyboard; sourceTree = "<group>"; };
+		FEC51775250A7C030014F245 /* SelectTemperature.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectTemperature.storyboard; sourceTree = "<group>"; };
+		FEC51777250A7C110014F245 /* SelectDateCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateCalendarViewController.swift; sourceTree = "<group>"; };
+		FEC51779250A7C1D0014F245 /* SelectTemperatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTemperatureViewController.swift; sourceTree = "<group>"; };
+		FEC5177B250A7C430014F245 /* SelectDateCalendarReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateCalendarReactor.swift; sourceTree = "<group>"; };
+		FEC5177D250A7C4F0014F245 /* SelectTemperatureReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTemperatureReactor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +306,12 @@
 			children = (
 				30A54CDA24CCA22500BCEE96 /* UploadFeed.storyboard */,
 				30A54CD824CCA21A00BCEE96 /* UploadFeedViewController.swift */,
+				FEC5176D250A71250014F245 /* UploadFeedInfo.storyboard */,
+				FEC5176F250A749B0014F245 /* UploadFeedInfoViewController.swift */,
+				FEC51773250A78E70014F245 /* SelectDateCalendar.storyboard */,
+				FEC51777250A7C110014F245 /* SelectDateCalendarViewController.swift */,
+				FEC51775250A7C030014F245 /* SelectTemperature.storyboard */,
+				FEC51779250A7C1D0014F245 /* SelectTemperatureViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -294,6 +320,9 @@
 			isa = PBXGroup;
 			children = (
 				30A54CDD24CCA35000BCEE96 /* UploadFeedReactor.swift */,
+				FEC51771250A75230014F245 /* UploadFeedInfoReactor.swift */,
+				FEC5177B250A7C430014F245 /* SelectDateCalendarReactor.swift */,
+				FEC5177D250A7C4F0014F245 /* SelectTemperatureReactor.swift */,
 			);
 			path = Reactor;
 			sourceTree = "<group>";
@@ -421,6 +450,7 @@
 				3006E2D524E92F4D0033A404 /* Response+Extension.swift */,
 				3006E2D324E92ED30033A404 /* ObservableType+Extension.swift */,
 				6ADFC13224CC20F10008C561 /* UIView+Inspectable.swift */,
+				FEC51769250A6A810014F245 /* UINavigationController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -546,6 +576,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE1F7E2A24CC2BAD00306454 /* Home.xcassets in Resources */,
+				FEC51776250A7C030014F245 /* SelectTemperature.storyboard in Resources */,
 				6AE5657324CAE91700D2FF23 /* Feed.storyboard in Resources */,
 				57E91C9724C58EB900A39E0E /* LaunchScreen.storyboard in Resources */,
 				57E91C9424C58EB900A39E0E /* Assets.xcassets in Resources */,
@@ -557,7 +588,9 @@
 				30DCE4042504E5880065B379 /* Login.storyboard in Resources */,
 				6AD6CF8724CC1B790012745E /* Feed.xcassets in Resources */,
 				30A54CDB24CCA22500BCEE96 /* UploadFeed.storyboard in Resources */,
+				FEC51774250A78E70014F245 /* SelectDateCalendar.storyboard in Resources */,
 				30A54CE024CCA7AF00BCEE96 /* UploadFeed.xcassets in Resources */,
+				FEC5176E250A71250014F245 /* UploadFeedInfo.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,13 +645,17 @@
 				FE1F7E2824CC1DF800306454 /* HomeViewController.swift in Sources */,
 				6AE5657024CAE3C800D2FF23 /* Reusable.swift in Sources */,
 				3006E2D224E92DBC0033A404 /* UIApplication+Extension.swift in Sources */,
+				FEC51770250A749B0014F245 /* UploadFeedInfoViewController.swift in Sources */,
 				6ADFC13324CC20F10008C561 /* UIView+Inspectable.swift in Sources */,
 				6AA7DC3B24E9234F0053B749 /* FeedReactor.swift in Sources */,
 				FE1F7E3524CC4F4500306454 /* MainTabBarViewController.swift in Sources */,
 				3006E2D624E92F4D0033A404 /* Response+Extension.swift in Sources */,
 				FEB2F26624CC64100043A6F8 /* HomeReactor.swift in Sources */,
+				FEC5177A250A7C1D0014F245 /* SelectTemperatureViewController.swift in Sources */,
+				FEC51772250A75230014F245 /* UploadFeedInfoReactor.swift in Sources */,
 				6AE5656E24CAE3AD00D2FF23 /* StoryboardBuildable.swift in Sources */,
 				6ADFC14524CC38EB0008C561 /* TagCollectionHeaderView.swift in Sources */,
+				FEC5177E250A7C4F0014F245 /* SelectTemperatureReactor.swift in Sources */,
 				30DCE40B2504E6F20065B379 /* LoginViewController.swift in Sources */,
 				3006E2C924E929450033A404 /* APITargetType.swift in Sources */,
 				6ADFC13124CC203E0008C561 /* UIColor+Assets.swift in Sources */,
@@ -628,6 +665,7 @@
 				FEB2F26A24CC77850043A6F8 /* TagReactor.swift in Sources */,
 				3006E2D024E92CD50033A404 /* RxMoyaNetworking+Extension.swift in Sources */,
 				57E91C8D24C58EB600A39E0E /* SceneDelegate.swift in Sources */,
+				FEC51778250A7C110014F245 /* SelectDateCalendarViewController.swift in Sources */,
 				6ADFC13A24CC2AD40008C561 /* Feed.swift in Sources */,
 				30A54CDE24CCA35000BCEE96 /* UploadFeedReactor.swift in Sources */,
 				3084293E2504EC1500517216 /* AccountManager.swift in Sources */,
@@ -639,7 +677,9 @@
 				6ADFC14324CC37340008C561 /* TagCollectionViewCell.swift in Sources */,
 				6ADFC13524CC2A9E0008C561 /* FeedContentCollectionViewCell.swift in Sources */,
 				3006E2CC24E92A190033A404 /* APIRequest.swift in Sources */,
+				FEC5177C250A7C430014F245 /* SelectDateCalendarReactor.swift in Sources */,
 				6ADFC14124CC2D2B0008C561 /* TagViewController.swift in Sources */,
+				FEC5176A250A6A810014F245 /* UINavigationController+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

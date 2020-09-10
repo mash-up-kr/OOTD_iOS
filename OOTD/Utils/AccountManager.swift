@@ -11,7 +11,7 @@ import Foundation
 final class AccountManager {
     static var authToken: String? {
         get {
-            return UserDefaults.standard.string(forKey: "authToken")
+            UserDefaults.standard.string(forKey: "authToken")
         }
         set {
             if newValue == nil {
