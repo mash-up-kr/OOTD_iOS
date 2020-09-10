@@ -15,6 +15,7 @@ struct Feed: Decodable {
     let weather: String
     let temperature: String
     let date: String
+    let tags: [Tag]
 }
 
 extension Feed: Equatable {
