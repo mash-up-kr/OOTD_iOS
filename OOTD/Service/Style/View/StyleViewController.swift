@@ -1,5 +1,5 @@
 //
-//  TagViewController.swift
+//  StyleViewController.swift
 //  OOTD
 //
 //  Created by pony.tail on 2020/07/25.
@@ -11,11 +11,11 @@ import ReactorKit
 import RxSwift
 import RxCocoa
 
-class TagViewController: UIViewController, StoryboardBuildable, StoryboardView {
+class StyleViewController: UIViewController, StoryboardBuildable, StoryboardView {
     @IBOutlet weak var collectionView: UICollectionView!
 
     private var userName = "포니"
-    private var tags = [Tag]()
+    private var styles = [Style]()
 
     var disposeBag = DisposeBag()
 
@@ -23,48 +23,48 @@ class TagViewController: UIViewController, StoryboardBuildable, StoryboardView {
         super.viewDidLoad()
         collectionView.allowsMultipleSelection = true
 
-        reactor?.action.onNext(.requestTags)
+        reactor?.action.onNext(.requestStyles)
     }
 
     static func instantiate(userName: String) -> Self {
-        let tagViewController = instantiate()
-        tagViewController.userName = userName
-        return tagViewController
+        let styleViewController = instantiate()
+        styleViewController.userName = userName
+        return styleViewController
     }
 
     @IBAction func actionComplete(_ sender: Any) {
-        let selectedTags = collectionView.indexPathsForSelectedItems?.map { tags[$0.item] } ?? []
-        reactor?.tagsPublishSubject.onNext(selectedTags)
+        let style = collectionView.indexPathsForSelectedItems?.map { styles[$0.item] } ?? []
+        reactor?.stylesPublishSubject.onNext(style)
         dismiss(animated: true, completion: nil)
     }
 }
 
-extension TagViewController {
-    func bind(reactor: TagReactor) {
-        reactor.state.map { $0.tags }
+extension StyleViewController {
+    func bind(reactor: StyleReactor) {
+        reactor.state.map { $0.styles }
             .distinctUntilChanged()
-            .subscribe(onNext: { [weak self] tags in
+            .subscribe(onNext: { [weak self] styles in
                 guard let self = self else { return }
-                self.tags = tags
+                self.styles = styles
                 self.collectionView.reloadData()
             })
             .disposed(by: disposeBag)
     }
 }
 
-extension TagViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension StyleViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        tags.count
+        styles.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TagCollectionViewCell.reusableIdentifier, for: indexPath) as! TagCollectionViewCell
-        cell.configure(tags[indexPath.item])
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StyleCollectionViewCell.reusableIdentifier, for: indexPath) as! StyleCollectionViewCell
+        cell.configure(styles[indexPath.item])
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: TagCollectionHeaderView.reusableIdentifier, for: indexPath) as! TagCollectionHeaderView
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: StyleCollectionHeaderView.reusableIdentifier, for: indexPath) as! StyleCollectionHeaderView
         headerView.configure(userName: userName)
         return headerView
     }

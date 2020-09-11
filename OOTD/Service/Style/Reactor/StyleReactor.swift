@@ -1,5 +1,5 @@
 //
-//  TagReactor.swift
+//  StyleReactor.swift
 //  OOTD
 //
 //  Created by HyeonTae Kim on 2020/07/25.
@@ -10,34 +10,34 @@ import ReactorKit
 import RxSwift
 import Moya
 
-class TagReactor: Reactor {
+class StyleReactor: Reactor {
     enum Action {
-        case requestTags
+        case requestStyles
     }
 
     enum Mutation {
-        case setTags([Tag])
+        case setStyles([Style])
         case setIsLoading(Bool)
     }
 
     struct State {
-        var tags: [Tag] = []
+        var styles: [Style] = []
         var isLoading = false
     }
 
     var initialState: State = State()
-    var tagsPublishSubject = PublishSubject<[Tag]>()
+    var stylesPublishSubject = PublishSubject<[Style]>()
 
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .requestTags:
+        case .requestStyles:
             return Observable.concat([
                 Observable.just(.setIsLoading(true)),
 
                 getStyles()
                     .asObservable()
-                    .mapData([Tag].self)
-                    .map { .setTags($0) }
+                    .mapData([Style].self)
+                    .map { .setStyles($0) }
                     .catchErrorJustReturn(.setIsLoading(false)),
 
                 Observable.just(.setIsLoading(false))
@@ -49,8 +49,8 @@ class TagReactor: Reactor {
         var newState = state
 
         switch mutation {
-        case let .setTags(tags):
-            newState.tags = tags
+        case let .setStyles(styles):
+            newState.styles = styles
 
         case let .setIsLoading(isLoading):
             newState.isLoading = isLoading
@@ -60,7 +60,7 @@ class TagReactor: Reactor {
     }
 }
 
-extension TagReactor {
+extension StyleReactor {
     private func getStyles() -> Single<Response> {
         APIRequest.getStyles()
     }

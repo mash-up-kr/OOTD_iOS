@@ -128,11 +128,11 @@ extension HomeViewController {
             .disposed(by: disposeBag)
 
         reactor.state
-            .map { $0.tagViewController }
-            .subscribe(onNext: { [weak self] tagViewController in
+            .map { $0.styleViewController }
+            .subscribe(onNext: { [weak self] styleViewController in
                 guard let self = self,
-                    let tagViewController = tagViewController else { return }
-                self.present(tagViewController, animated: true, completion: nil)
+                    let styleViewController = styleViewController else { return }
+                self.present(styleViewController, animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
 

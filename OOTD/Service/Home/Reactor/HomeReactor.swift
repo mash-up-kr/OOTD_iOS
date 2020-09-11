@@ -19,13 +19,13 @@ class HomeReactor: Reactor {
     enum Mutation {
         // TODO: 이름 고민중
         case showSelectPictureStyleSheet
-        case showTagViewController
+        case showStyleViewController
         case createAddFeedViewController(UIImage)
     }
 
     struct State {
         var isSelectPicture: Bool = false
-        var tagViewController: TagViewController?
+        var styleViewController: StyleViewController?
         var selectedImage: UIImage?
     }
 
@@ -36,7 +36,7 @@ class HomeReactor: Reactor {
         case .didTapHeaderAddFeedButton:
             return .just(.showSelectPictureStyleSheet)
         case .didTapFilter:
-            return .just(.showTagViewController)
+            return .just(.showStyleViewController)
         case let .selectedPicture(image):
             return .just(.createAddFeedViewController(image))
         }
@@ -48,15 +48,15 @@ class HomeReactor: Reactor {
         switch mutation {
         case .showSelectPictureStyleSheet:
             newState.isSelectPicture = true
-        case .showTagViewController:
-            newState.tagViewController = tagViewController()
+        case .showStyleViewController:
+            newState.styleViewController = styleViewController()
         case let .createAddFeedViewController(image):
             newState.selectedImage = image
         }
         return newState
     }
 
-    private func tagViewController() -> TagViewController? {
-        TagViewController.instantiate()
+    private func styleViewController() -> StyleViewController? {
+        StyleViewController.instantiate()
     }
 }

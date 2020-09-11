@@ -20,7 +20,7 @@ protocol FeedPanGestureDelegate: AnyObject {
 class FeedViewController: UIViewController, StoryboardBuildable, StoryboardView {
     typealias Reactor = FeedReactor
 
-    @IBOutlet weak var tagCollectionView: FeedTagCollectionView!
+    @IBOutlet weak var styleCollectionView: FeedStyleCollectionView!
     @IBOutlet weak var collectionView: FeedCollectionView!
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet var panGestureRecognizer: UIPanGestureRecognizer!
@@ -28,8 +28,8 @@ class FeedViewController: UIViewController, StoryboardBuildable, StoryboardView 
     weak var delegate: FeedPanGestureDelegate!
     var disposeBag = DisposeBag()
 
-    private var tags = Tag.samples {
-        didSet { tagCollectionView.reloadData() }
+    private var styles = Style.samples {
+        didSet { styleCollectionView.reloadData() }
     }
     private var feed = [Feed]() {
         didSet { collectionView.reloadData() }
@@ -45,24 +45,24 @@ class FeedViewController: UIViewController, StoryboardBuildable, StoryboardView 
 
         /* MOCK */
         feed = [
-            Feed(id: 1, photoUrl: URL(string: "https://i.pinimg.com/564x/c3/05/f7/c305f75146aa50b7d6e558a55e073e7d.jpg"), message: "", weather: "", temperature: "", date: "", tags: Tag.samples),
-            Feed(id: 2, photoUrl: URL(string: "https://i.pinimg.com/564x/c3/05/f7/c305f75146aa50b7d6e558a55e073e7d.jpg"), message: "", weather: "", temperature: "", date: "", tags: Tag.samples)
+            Feed(id: 1, photoUrl: URL(string: "https://i.pinimg.com/564x/c3/05/f7/c305f75146aa50b7d6e558a55e073e7d.jpg"), message: "", weather: "", temperature: "", date: "", styles: Style.samples),
+            Feed(id: 2, photoUrl: URL(string: "https://i.pinimg.com/564x/c3/05/f7/c305f75146aa50b7d6e558a55e073e7d.jpg"), message: "", weather: "", temperature: "", date: "", styles: Style.samples)
         ]
 
-        let tagReactor = TagReactor()
-        tagReactor.tagsPublishSubject
-            .subscribe(onNext: { [weak self] tags in
+        let styleReactor = StyleReactor()
+        styleReactor.stylesPublishSubject
+            .subscribe(onNext: { [weak self] styles in
                 guard let self = self else { return }
-                self.tags = tags
+                self.styles = styles
             })
             .disposed(by: self.disposeBag)
 
         filterButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
-                let tagViewController = TagViewController.instantiate(userName: "포니")
-                tagViewController.reactor = tagReactor
-                self.present(tagViewController, animated: true)
+                let styleViewController = StyleViewController.instantiate(userName: "포니")
+                styleViewController.reactor = styleReactor
+                self.present(styleViewController, animated: true)
             })
             .disposed(by: disposeBag)
 
@@ -100,8 +100,8 @@ extension FeedViewController {
 
 extension FeedViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView is FeedTagCollectionView {
-            return tags.count
+        if collectionView is FeedStyleCollectionView {
+            return styles.count
         }
         if collectionView is FeedCollectionView {
             return feed.count
@@ -110,9 +110,9 @@ extension FeedViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView is FeedTagCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedTagCollectionViewCell.reusableIdentifier, for: indexPath) as! FeedTagCollectionViewCell
-            cell.configure(tags[indexPath.item])
+        if collectionView is FeedStyleCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedStyleCollectionViewCell.reusableIdentifier, for: indexPath) as! FeedStyleCollectionViewCell
+            cell.configure(styles[indexPath.item])
             return cell
         }
         if collectionView is FeedCollectionView {
@@ -137,7 +137,7 @@ extension FeedViewController: UICollectionViewDataSource, UICollectionViewDelega
             let width = (collectionView.bounds.width - layout.minimumLineSpacing) / 2.0
             return CGSize(width: width, height: width)
         }
-        if collectionView is FeedTagCollectionView {
+        if collectionView is FeedStyleCollectionView {
             let layout = collectionViewLayout as! UICollectionViewFlowLayout
             return layout.estimatedItemSize
         }

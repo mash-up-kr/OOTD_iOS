@@ -1,5 +1,5 @@
 //
-//  TagCollectionViewCell.swift
+//  StyleCollectionViewCell.swift
 //  OOTD
 //
 //  Created by pony.tail on 2020/07/25.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TagCollectionViewCell: UICollectionViewCell {
+class StyleCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
 
     override var isSelected: Bool {
@@ -23,7 +23,7 @@ class TagCollectionViewCell: UICollectionViewCell {
         }
     }
 
-    func configure(_ tag: Tag) {
-        titleLabel.text = tag.name
+    func configure(_ style: Style) {
+        titleLabel.text = style.name
     }
 }

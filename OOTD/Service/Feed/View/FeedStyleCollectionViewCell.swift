@@ -1,5 +1,5 @@
 //
-//  FeedTagCollectionViewCell.swift
+//  FeedStyleCollectionViewCell.swift
 //  OOTD
 //
 //  Created by pony.tail on 2020/07/25.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class FeedTagCollectionView: UICollectionView { }
-class FeedTagCollectionViewCell: UICollectionViewCell {
+class FeedStyleCollectionView: UICollectionView { }
+class FeedStyleCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
 
-    func configure(_ tag: Tag) {
-        titleLabel.text = tag.name
+    func configure(_ style: Style) {
+        titleLabel.text = style.name
     }
 
     override func prepareForReuse() {

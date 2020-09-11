@@ -1,5 +1,5 @@
 //
-//  TagCollectionHeaderView.swift
+//  StyleCollectionHeaderView.swift
 //  OOTD
 //
 //  Created by pony.tail on 2020/07/25.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TagCollectionHeaderView: UICollectionReusableView {
+class StyleCollectionHeaderView: UICollectionReusableView {
     @IBOutlet weak var titleLabel: UILabel!
 
     func configure(userName: String) {
