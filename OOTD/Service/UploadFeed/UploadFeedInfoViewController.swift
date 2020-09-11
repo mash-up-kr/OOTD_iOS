@@ -12,6 +12,16 @@ import RxCocoa
 import ReactorKit
 
 class UploadFeedInfoViewController: UIViewController, StoryboardBuildable, StoryboardView {
+    @IBOutlet weak var dateViewTargetButton: UIButton!
+    @IBOutlet weak var styleViewTargetButton: UIButton!
+    @IBOutlet weak var loactionViewTargetButton: UIButton!
+    @IBOutlet weak var weatherViewTargetButton: UIButton!
+
+    @IBOutlet weak var selectDateCalendarView: UIView!
+    @IBOutlet weak var selectStyleView: UIView!
+    @IBOutlet weak var selectLocationView: UIView!
+    @IBOutlet weak var selectWeatherView: UIView!
+
     var disposeBag = DisposeBag()
 
     static func newViewController(_ image: UIImage?, _ content: String) -> UIViewController {
@@ -50,17 +60,37 @@ extension UploadFeedInfoViewController {
         reactor.state
             .map { $0.showViewTarget }
             .subscribe(onNext: { [weak self] viewTarget in
+                self?.hideAllInfoContentView()
+                self?.deselectAllViewTargetButton()
                 switch viewTarget {
                 case .date:
-                    print("date")
+                    self?.dateViewTargetButton.isSelected = true
+                    self?.selectDateCalendarView.isHidden = false
                 case .style:
-                    print("style")
+                    self?.styleViewTargetButton.isSelected = true
+                    self?.selectStyleView.isHidden = false
                 case .location:
-                    print("location")
+                    self?.loactionViewTargetButton.isSelected = true
+                    self?.selectLocationView.isHidden = false
                 case .weather:
-                    print("weather")
+                    self?.weatherViewTargetButton.isSelected = true
+                    self?.selectWeatherView.isHidden = false
                 }
             })
         .disposed(by: disposeBag)
+    }
+
+    private func hideAllInfoContentView() {
+        selectDateCalendarView.isHidden = true
+        selectStyleView.isHidden = true
+        selectLocationView.isHidden = true
+        selectWeatherView.isHidden = true
+    }
+
+    private func deselectAllViewTargetButton() {
+        dateViewTargetButton.isSelected = false
+        styleViewTargetButton.isSelected = false
+        loactionViewTargetButton.isSelected = false
+        weatherViewTargetButton.isSelected = false
     }
 }

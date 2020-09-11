@@ -20,6 +20,7 @@ class SelectTemperatureViewController: UIViewController, StoryboardBuildable, St
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("good")
     }
 }
 

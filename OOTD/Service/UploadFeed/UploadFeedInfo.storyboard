@@ -70,7 +70,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="X6z-6H-2BT">
                                         <rect key="frame" x="20" y="5.5" width="203" height="34"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCK-Hc-GGw">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCK-Hc-GGw">
                                                 <rect key="frame" x="0.0" y="0.0" width="32" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -112,7 +112,7 @@
                                                     <action selector="didTapStyleLocationButtonAction:" destination="y7o-US-cB7" eventType="touchUpInside" id="ieq-aB-X6y"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5K-LF-la7">
+                                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5K-LF-la7">
                                                 <rect key="frame" x="171" y="0.0" width="32" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -139,7 +139,45 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yd4-P1-sAV">
                                 <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <subviews>
+                                    <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HAC-Ao-KeR">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="722"/>
+                                        <connections>
+                                            <segue destination="g8C-uM-OaN" kind="embed" id="FGz-Op-Gre"/>
+                                        </connections>
+                                    </containerView>
+                                    <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWd-HC-xER">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="722"/>
+                                    </containerView>
+                                    <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ikb-n6-V2e">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="722"/>
+                                    </containerView>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNT-Ys-qWz">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="722"/>
+                                        <connections>
+                                            <segue destination="jn0-xM-RM3" kind="embed" id="YZl-FP-ch0"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="HAC-Ao-KeR" secondAttribute="trailing" id="4ba-iM-uet"/>
+                                    <constraint firstItem="iNT-Ys-qWz" firstAttribute="leading" secondItem="Yd4-P1-sAV" secondAttribute="leading" id="8Br-1C-Sg6"/>
+                                    <constraint firstAttribute="bottom" secondItem="HAC-Ao-KeR" secondAttribute="bottom" id="EYS-iM-tOB"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ikb-n6-V2e" secondAttribute="trailing" id="IMx-NL-mhG"/>
+                                    <constraint firstItem="Ikb-n6-V2e" firstAttribute="leading" secondItem="Yd4-P1-sAV" secondAttribute="leading" id="JXD-2S-r1e"/>
+                                    <constraint firstItem="RWd-HC-xER" firstAttribute="top" secondItem="Yd4-P1-sAV" secondAttribute="top" id="OrG-xp-MSp"/>
+                                    <constraint firstItem="Ikb-n6-V2e" firstAttribute="top" secondItem="Yd4-P1-sAV" secondAttribute="top" id="SpW-bD-yL8"/>
+                                    <constraint firstAttribute="trailing" secondItem="RWd-HC-xER" secondAttribute="trailing" id="Zff-sX-Kq7"/>
+                                    <constraint firstAttribute="bottom" secondItem="RWd-HC-xER" secondAttribute="bottom" id="eUm-gO-0Wk"/>
+                                    <constraint firstAttribute="bottom" secondItem="iNT-Ys-qWz" secondAttribute="bottom" id="k3D-ao-29n"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ikb-n6-V2e" secondAttribute="bottom" id="m7x-Yi-QUy"/>
+                                    <constraint firstAttribute="trailing" secondItem="iNT-Ys-qWz" secondAttribute="trailing" id="okp-Tx-wpz"/>
+                                    <constraint firstItem="RWd-HC-xER" firstAttribute="leading" secondItem="Yd4-P1-sAV" secondAttribute="leading" id="uMP-AA-lEf"/>
+                                    <constraint firstItem="HAC-Ao-KeR" firstAttribute="top" secondItem="Yd4-P1-sAV" secondAttribute="top" id="vS6-1Z-gNN"/>
+                                    <constraint firstItem="HAC-Ao-KeR" firstAttribute="leading" secondItem="Yd4-P1-sAV" secondAttribute="leading" id="yyK-UH-3IR"/>
+                                    <constraint firstItem="iNT-Ys-qWz" firstAttribute="top" secondItem="Yd4-P1-sAV" secondAttribute="top" id="zli-JM-Ocb"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -160,10 +198,52 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VUe-3z-EJw"/>
                     </view>
+                    <connections>
+                        <outlet property="dateViewTargetButton" destination="MCK-Hc-GGw" id="7X2-fR-9Ws"/>
+                        <outlet property="loactionViewTargetButton" destination="oSI-Sc-7l6" id="DLx-Vq-PWf"/>
+                        <outlet property="selectDateCalendarView" destination="HAC-Ao-KeR" id="nP0-rQ-QgU"/>
+                        <outlet property="selectLocationView" destination="Ikb-n6-V2e" id="lpb-FC-BqG"/>
+                        <outlet property="selectStyleView" destination="RWd-HC-xER" id="VZc-YA-VHh"/>
+                        <outlet property="selectWeatherView" destination="iNT-Ys-qWz" id="Uh4-qY-F59"/>
+                        <outlet property="styleViewTargetButton" destination="dTf-FY-HKo" id="1pu-e5-l2c"/>
+                        <outlet property="weatherViewTargetButton" destination="i5K-LF-la7" id="2WH-Hk-jqz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qaL-sN-EzU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="339" y="-306"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="jOo-1i-o7a">
+            <objects>
+                <viewControllerPlaceholder id="daf-5o-1bN" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dWr-LM-tZJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1140" y="-343"/>
+        </scene>
+        <!--SelectTemperature-->
+        <scene sceneID="MOP-LH-ygs">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SelectTemperature" storyboardName="SelectTemperature" id="jn0-xM-RM3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g8s-Cg-Ju9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1122" y="-225"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="ugj-2D-Iyf">
+            <objects>
+                <viewControllerPlaceholder id="ZN4-aH-lJC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XNS-sX-BdP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1136" y="-283"/>
+        </scene>
+        <!--SelectDateCalendar-->
+        <scene sceneID="U5w-AK-YRL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SelectDateCalendar" id="g8C-uM-OaN" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9cv-jt-Izr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1127" y="-400"/>
         </scene>
     </scenes>
     <resources>
