@@ -14,14 +14,17 @@ import RxCocoa
 class StyleViewController: UIViewController, StoryboardBuildable, StoryboardView {
     @IBOutlet weak var collectionView: UICollectionView!
 
-    private var userName = "포니"
-    private var styles = [Style]()
+    private var userName = OOTD.shared.user.name
+    private var styles = OOTD.shared.styles
 
     var disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.allowsMultipleSelection = true
+
+        let selectedIndex = styles.enumerated().compactMap { OOTD.shared.user.preference.styles.contains($0.element) ? $0.offset : nil }
+        selectedIndex.forEach { collectionView.selectItem(at: IndexPath(item: $0, section: .zero), animated: false, scrollPosition: .top) }
     }
 
     static func instantiate(userName: String) -> Self {
@@ -39,14 +42,6 @@ class StyleViewController: UIViewController, StoryboardBuildable, StoryboardView
 
 extension StyleViewController {
     func bind(reactor: StyleReactor) {
-        reactor.state.map { $0.styles }
-            .distinctUntilChanged()
-            .subscribe(onNext: { [weak self] styles in
-                guard let self = self else { return }
-                self.styles = styles
-                self.collectionView.reloadData()
-            })
-            .disposed(by: disposeBag)
     }
 }
 
@@ -59,6 +54,20 @@ extension StyleViewController: UICollectionViewDataSource, UICollectionViewDeleg
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StyleCollectionViewCell.reusableIdentifier, for: indexPath) as! StyleCollectionViewCell
         cell.configure(styles[indexPath.item])
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(#function, indexPath)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        print(#function, indexPath)
+        return true
+    }
+
+    func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
+        print(#function, indexPath)
+        return true
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

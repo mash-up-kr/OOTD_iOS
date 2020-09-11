@@ -28,7 +28,7 @@ class FeedViewController: UIViewController, StoryboardBuildable, StoryboardView 
     weak var delegate: FeedPanGestureDelegate!
     var disposeBag = DisposeBag()
 
-    private var styles = Style.samples {
+    private var styles = OOTD.shared.user.preference.styles {
         didSet { styleCollectionView.reloadData() }
     }
     private var feed = [Feed]() {
@@ -41,23 +41,15 @@ class FeedViewController: UIViewController, StoryboardBuildable, StoryboardView 
     override func viewDidLoad() {
         super.viewDidLoad()
         reactor = FeedReactor()
-
-        let user = OOTD.shared.user
-        let parameters: [String: Any] =
-            [
-                "styleIds": user.preference.styles,
-                "weather": user.location.weather,
-                "minTemp": user.preference.temperature.min,
-                "maxTemp": user.preference.temperature.max,
-                "lastPostId": 10
-            ]
-        reactor?.action.onNext(.requestFeed(parameters: parameters))
+        requestFeed()
 
         let styleReactor = StyleReactor()
         styleReactor.stylesPublishSubject
             .subscribe(onNext: { [weak self] styles in
                 guard let self = self else { return }
+                OOTD.shared.user.preference.styles = styles
                 self.styles = styles
+                self.requestFeed()
             })
             .disposed(by: self.disposeBag)
 
@@ -79,6 +71,19 @@ class FeedViewController: UIViewController, StoryboardBuildable, StoryboardView 
                 }
             })
             .disposed(by: disposeBag)
+    }
+
+    private func requestFeed() {
+        let user = OOTD.shared.user
+        let parameters: [String: Any] =
+            [
+                "styleIds": user.preference.styles.map { String($0.id) }.joined(separator: ","),
+                "weather": user.location.weather,
+                "minTemp": user.preference.temperature.min,
+                "maxTemp": user.preference.temperature.max,
+                "lastPostId": 10
+            ]
+        reactor?.action.onNext(.requestFeed(parameters: parameters))
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
