@@ -22,8 +22,6 @@ class StyleViewController: UIViewController, StoryboardBuildable, StoryboardView
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.allowsMultipleSelection = true
-
-        reactor?.action.onNext(.requestStyles)
     }
 
     static func instantiate(userName: String) -> Self {

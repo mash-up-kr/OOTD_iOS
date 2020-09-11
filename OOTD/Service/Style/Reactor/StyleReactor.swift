@@ -21,7 +21,7 @@ class StyleReactor: Reactor {
     }
 
     struct State {
-        var styles: [Style] = []
+        var styles: [Style] = OOTD.shared.styles
         var isLoading = false
     }
 

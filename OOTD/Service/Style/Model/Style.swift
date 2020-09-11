@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 struct Style: Decodable {
     let id: Int
@@ -21,4 +22,12 @@ extension Style: Equatable {
 
 extension Style {
     static let samples = [Style(id: 1, name: "힙스터"), Style(id: 2, name: "보헤미안"), Style(id: 3, name: "차이나타운")]
+
+    static func initialize() {
+        APIRequest.getStyles()
+            .asObservable()
+            .mapData([Style].self)
+            .subscribe(onNext: { OOTD.shared.styles = $0 })
+            .disposed(by: OOTD.shared.disposeBag)
+    }
 }
