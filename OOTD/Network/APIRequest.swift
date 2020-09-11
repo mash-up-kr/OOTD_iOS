@@ -35,4 +35,16 @@ extension APIRequest {
             .filterTimeOutError()
             .filterSuccessfulStatusCodes()
     }
+
+    static func checkAuthToken() -> Single<Response> {
+        provider.rx.request(.checkAuthToken)
+            .filterTimeOutError()
+            .filterSuccessfulStatusCodes()
+    }
+
+    static func signUp(uId: String, authType: String, nickname: String, styleIds: [Int]) -> Single<Response> {
+        provider.rx.request(.signUp(uId: uId, authType: authType, nickname: nickname, styleIds: styleIds))
+            .filterTimeOutError()
+            .filterSuccessfulStatusCodes()
+      }
 }

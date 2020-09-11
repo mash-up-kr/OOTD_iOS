@@ -16,4 +16,10 @@ extension UIApplication {
         }
         return targetViewController
     }
+
+    static func changeRoot(viewController: UIViewController) {
+        guard let window = Self.targetViewController?.view?.window else { return }
+        window.rootViewController = viewController
+        UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {}, completion: nil)
+    }
 }

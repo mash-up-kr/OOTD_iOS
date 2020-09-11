@@ -13,6 +13,8 @@ enum API {
     case getStyles
     case signIn
     case feed(parameters: [String: Any])
+    case checkAuthToken
+    case signUp(uId: String, authType: String, nickname: String, styleIds: [Int])
 }
 
 extension API: TargetType {
@@ -22,8 +24,12 @@ extension API: TargetType {
             return "api/styles"
         case .signIn:
             return "api/users/sign-in"
+        case .signUp:
+            return "api/users/sign-up"
         case .feed:
             return "api/posts"
+        case .checkAuthToken:
+            return "api/users/access-token-info"
         }
     }
 
@@ -33,7 +39,11 @@ extension API: TargetType {
             return .get
         case .signIn:
             return .post
+        case .signUp:
+            return .post
         case .feed:
+            return .get
+        case .checkAuthToken:
             return .get
         }
     }
@@ -46,10 +56,23 @@ extension API: TargetType {
             return .requestPlain
         case .feed(let parameters):
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+        case .checkAuthToken:
+            return .requestPlain
+        case let .signUp(uId, authType, nickname, styleIds):
+            let parameter: [String: Any] = [
+                "uid": uId,
+                "authType": authType,
+                "nickname": nickname,
+                "styleIds": styleIds
+            ]
+            
+            print(parameter)
+
+            return .requestParameters(parameters: parameter, encoding: URLEncoding.default)
         }
     }
 
     var headers: [String: String]? {
-        ["Authorization": OOTD.shared.user.token]
+        ["Authorization": AccountManager.authToken ?? OOTD.shared.user.token]
     }
 }

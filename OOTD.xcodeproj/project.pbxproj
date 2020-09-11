@@ -30,6 +30,10 @@
 		5728EE4B2507E81800D38454 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5728EE4A2507E81800D38454 /* SignUpViewController.swift */; };
 		5728EE4D2507EC0E00D38454 /* SignIn.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5728EE4C2507EC0E00D38454 /* SignIn.xcassets */; };
 		5728EE4F2507EE0A00D38454 /* SignUpReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5728EE4E2507EE0A00D38454 /* SignUpReactor.swift */; };
+		5792E4C7250BAE59002CE537 /* OOTDApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5792E4C6250BAE59002CE537 /* OOTDApi.swift */; };
+		5792E4C9250BAF48002CE537 /* SplashReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5792E4C8250BAF48002CE537 /* SplashReactor.swift */; };
+		5792E4CB250BB037002CE537 /* UserId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5792E4CA250BB037002CE537 /* UserId.swift */; };
+		5792E4CE250BBD97002CE537 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5792E4CD250BBD97002CE537 /* UserInfo.swift */; };
 		57E91C8B24C58EB600A39E0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E91C8A24C58EB600A39E0E /* AppDelegate.swift */; };
 		57E91C8D24C58EB600A39E0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E91C8C24C58EB600A39E0E /* SceneDelegate.swift */; };
 		57E91C9224C58EB600A39E0E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57E91C9024C58EB600A39E0E /* Home.storyboard */; };
@@ -104,6 +108,10 @@
 		5728EE4A2507E81800D38454 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5728EE4C2507EC0E00D38454 /* SignIn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SignIn.xcassets; sourceTree = "<group>"; };
 		5728EE4E2507EE0A00D38454 /* SignUpReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpReactor.swift; sourceTree = "<group>"; };
+		5792E4C6250BAE59002CE537 /* OOTDApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDApi.swift; sourceTree = "<group>"; };
+		5792E4C8250BAF48002CE537 /* SplashReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashReactor.swift; sourceTree = "<group>"; };
+		5792E4CA250BB037002CE537 /* UserId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserId.swift; sourceTree = "<group>"; };
+		5792E4CD250BBD97002CE537 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		57E91C8724C58EB600A39E0E /* OOTD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OOTD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57E91C8A24C58EB600A39E0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57E91C8C24C58EB600A39E0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -238,6 +246,8 @@
 			isa = PBXGroup;
 			children = (
 				30DCE4052504E5DE0065B379 /* SplashViewController.swift */,
+				5792E4CC250BBD8B002CE537 /* Model */,
+				5792E4C8250BAF48002CE537 /* SplashReactor.swift */,
 				30DCE4082504E6320065B379 /* Splash.storyboard */,
 			);
 			path = Splash;
@@ -251,6 +261,15 @@
 				5728EE4E2507EE0A00D38454 /* SignUpReactor.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		5792E4CC250BBD8B002CE537 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5792E4CA250BB037002CE537 /* UserId.swift */,
+				5792E4CD250BBD97002CE537 /* UserInfo.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		57E91C7E24C58EB600A39E0E = {
@@ -507,6 +526,7 @@
 			children = (
 				6AE5656F24CAE3C800D2FF23 /* Reusable.swift */,
 				30A54CD224CC8FBB00BCEE96 /* Revision.swift */,
+				5792E4C6250BAE59002CE537 /* OOTDApi.swift */,
 				3084293D2504EC1500517216 /* AccountManager.swift */,
 				6AE5656D24CAE3AD00D2FF23 /* StoryboardBuildable.swift */,
 			);
@@ -705,18 +725,22 @@
 				3006E2D624E92F4D0033A404 /* Response+Extension.swift in Sources */,
 				FEB2F26624CC64100043A6F8 /* HomeReactor.swift in Sources */,
 				FEC5177A250A7C1D0014F245 /* SelectTemperatureViewController.swift in Sources */,
+				5792E4C7250BAE59002CE537 /* OOTDApi.swift in Sources */,
 				FEC51772250A75230014F245 /* UploadFeedInfoReactor.swift in Sources */,
 				6AE5656E24CAE3AD00D2FF23 /* StoryboardBuildable.swift in Sources */,
 				6ADFC14524CC38EB0008C561 /* StyleCollectionHeaderView.swift in Sources */,
 				FEC5177E250A7C4F0014F245 /* SelectTemperatureReactor.swift in Sources */,
+				5792E4CB250BB037002CE537 /* UserId.swift in Sources */,
 				30DCE40B2504E6F20065B379 /* LoginViewController.swift in Sources */,
 				3006E2C924E929450033A404 /* APITargetType.swift in Sources */,
 				6ADFC13124CC203E0008C561 /* UIColor+Assets.swift in Sources */,
 				5728EE4F2507EE0A00D38454 /* SignUpReactor.swift in Sources */,
 				3006E2D424E92ED30033A404 /* ObservableType+Extension.swift in Sources */,
 				30A54CD924CCA21A00BCEE96 /* UploadFeedViewController.swift in Sources */,
+				5792E4CE250BBD97002CE537 /* UserInfo.swift in Sources */,
 				57E91C8B24C58EB600A39E0E /* AppDelegate.swift in Sources */,
 				3006E2D024E92CD50033A404 /* RxMoyaNetworking+Extension.swift in Sources */,
+				5792E4C9250BAF48002CE537 /* SplashReactor.swift in Sources */,
 				57E91C8D24C58EB600A39E0E /* SceneDelegate.swift in Sources */,
 				FEC51778250A7C110014F245 /* SelectDateCalendarViewController.swift in Sources */,
 				6ADFC13A24CC2AD40008C561 /* Feed.swift in Sources */,
@@ -880,8 +904,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = OOTD/OOTD.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4Y9G8Z76XC;
 				INFOPLIST_FILE = "$(SRCROOT)/OOTD/Supports Items/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -891,7 +915,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fcs.OOTD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = FCSProvisioning;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -902,8 +926,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = OOTD/OOTD.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4Y9G8Z76XC;
 				INFOPLIST_FILE = "$(SRCROOT)/OOTD/Supports Items/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -913,7 +937,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fcs.OOTD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = FCSProvisioning;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

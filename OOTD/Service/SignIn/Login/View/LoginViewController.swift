@@ -59,8 +59,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
             let fullName = appleIDCredential.fullName
             let accessToken = String(decoding: appleIDCredential.identityToken ?? Data(), as: UTF8.self)
-
-            // 로그인 api 호출하기
+            UIApplication.changeRoot(viewController: SignUpViewController.newViewController(uId: appleIDCredential.user))
         default:
             break
         }
