@@ -12,7 +12,7 @@ import Moya
 
 class FeedReactor: Reactor {
     enum Action {
-        case requestFeed
+        case requestFeed(parameters: [String: Any])
     }
 
     enum Mutation {
@@ -29,11 +29,11 @@ class FeedReactor: Reactor {
 
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case.requestFeed:
+        case.requestFeed(let parameters):
             return Observable.concat([
                 Observable.just(.setLoading(true)),
 
-                getFeed()
+                getFeed(parameters: parameters)
                     .asObservable()
                     .mapData(FeedData.self)
                     .map { .setFeed($0.posts) }
@@ -59,7 +59,7 @@ class FeedReactor: Reactor {
 }
 
 extension FeedReactor {
-    private func getFeed() -> Single<Response> {
-        APIRequest.getFeed()
+    private func getFeed(parameters: [String: Any]) -> Single<Response> {
+        APIRequest.getFeed(parameters: parameters)
     }
 }

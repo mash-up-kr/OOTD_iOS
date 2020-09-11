@@ -41,7 +41,17 @@ class FeedViewController: UIViewController, StoryboardBuildable, StoryboardView 
     override func viewDidLoad() {
         super.viewDidLoad()
         reactor = FeedReactor()
-        reactor?.action.onNext(.requestFeed)
+
+        let user = OOTD.shared.user
+        let parameters: [String: Any] =
+            [
+                "styleIds": user.preference.styles,
+                "weather": user.location.weather,
+                "minTemp": user.preference.temperature.min,
+                "maxTemp": user.preference.temperature.max,
+                "lastPostId": 10
+            ]
+        reactor?.action.onNext(.requestFeed(parameters: parameters))
 
         let styleReactor = StyleReactor()
         styleReactor.stylesPublishSubject

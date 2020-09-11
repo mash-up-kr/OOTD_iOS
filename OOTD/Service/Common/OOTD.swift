@@ -28,5 +28,22 @@ class OOTD {
     struct User {
         // To. hochan 임시로 내 토큰 사용했음!
         let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.FdCGmwbTqAohz4OWA1CKdtZxsNhE9RDTXgAfoTliR6A"
+
+        let preference = Preference()
+        let location = Location()
+
+        struct Location {
+            let weather = "CLEAR"
+        }
+
+        struct Preference {
+            let styles = "1,2"
+            let temperature = Temperature()
+
+            struct Temperature {
+                let min = 21
+                let max = 23
+            }
+        }
     }
 }

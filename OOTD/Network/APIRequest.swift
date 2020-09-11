@@ -30,8 +30,8 @@ extension APIRequest {
             .filterSuccessfulStatusCodes()
     }
 
-    static func getFeed() -> Single<Response> {
-        provider.rx.request(.feed)
+    static func getFeed(parameters: [String: Any]) -> Single<Response> {
+        provider.rx.request(.feed(parameters: parameters))
             .filterTimeOutError()
             .filterSuccessfulStatusCodes()
     }

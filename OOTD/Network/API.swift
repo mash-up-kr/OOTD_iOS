@@ -12,7 +12,7 @@ import Moya
 enum API {
     case getStyles
     case signIn
-    case feed
+    case feed(parameters: [String: Any])
 }
 
 extension API: TargetType {
@@ -44,16 +44,8 @@ extension API: TargetType {
             return .requestPlain
         case .signIn:
             return .requestPlain
-        case .feed:
-            return .requestParameters(parameters:
-                                        [
-                                            "styleIds": "1,2",
-                                            "weather": "CLEAR",
-                                            "minTemp": 21,
-                                            "maxTemp": 23,
-                                            "lastPostId": 10
-                                        ],
-                                      encoding: URLEncoding.default)
+        case .feed(let parameters):
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         }
     }
 
