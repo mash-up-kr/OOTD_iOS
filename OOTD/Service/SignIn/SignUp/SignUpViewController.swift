@@ -46,9 +46,16 @@ extension SignUpViewController {
 
         nextButton.rx.tap
             .filter { !reactor.currentState.isLoading }
-            .map { Reactor.Action.requestSignUp }
-            .bind(to: reactor.action)
+            .subscribe(onNext: {
+                UIApplication.changeRoot(viewController: MainTabBarViewController.newViewController())
+            })
             .disposed(by: disposeBag)
+
+//        nextButton.rx.tap
+//            .filter { !reactor.currentState.isLoading }
+//            .map { Reactor.Action.requestSignUp }
+//            .bind(to: reactor.action)
+//            .disposed(by: disposeBag)
 
         reactor.state.map { $0.isAgree }
             .distinctUntilChanged()

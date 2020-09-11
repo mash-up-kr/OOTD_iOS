@@ -65,7 +65,7 @@ extension API: TargetType {
                 "nickname": nickname,
                 "styleIds": styleIds
             ]
-            
+
             print(parameter)
 
             return .requestParameters(parameters: parameter, encoding: URLEncoding.default)
