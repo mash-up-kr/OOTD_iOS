@@ -35,8 +35,8 @@ class FeedReactor: Reactor {
 
                 getFeed()
                     .asObservable()
-                    .mapData([Feed].self)
-                    .map { .setFeed($0) }
+                    .mapData(FeedData.self)
+                    .map { .setFeed($0.posts) }
                     .catchErrorJustReturn(.setLoading(false)),
 
                 Observable.just(.setLoading(false))
@@ -49,11 +49,6 @@ class FeedReactor: Reactor {
 
         switch mutation {
         case let .setFeed(feed):
-            // 임시로 피드 좀 늘림 ㅠㅠ
-            if let photo = feed.first {
-                newState.feed = Array(repeating: photo, count: 10)
-                return newState
-            }
             newState.feed = feed
 
         case let .setLoading(isLoading):

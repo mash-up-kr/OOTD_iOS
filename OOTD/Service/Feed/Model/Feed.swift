@@ -8,14 +8,20 @@
 
 import UIKit
 
+struct FeedData: Decodable {
+    let posts: [Feed]
+    let hasNext: Bool
+}
+
 struct Feed: Decodable {
     let id: Int
+    let nickname: String
     let photoUrl: URL?
     let message: String
     let weather: String
-    let temperature: String
+    let temperature: Int
     let date: String
-    let styles: [Style]
+    let styleIds: [Int]
 }
 
 extension Feed: Equatable {

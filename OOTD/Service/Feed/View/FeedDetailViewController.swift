@@ -28,12 +28,12 @@ class FeedDetailViewController: UIViewController, StoryboardBuildable {
 
 extension FeedDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        feed.styles.count
+        feed.styleIds.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedStyleCollectionViewCell.reusableIdentifier, for: indexPath) as! FeedStyleCollectionViewCell
-        cell.configure(feed.styles[indexPath.item])
+        cell.configure(Style(id: feed.styleIds[indexPath.item], name: "스타일 \(feed.styleIds[indexPath.item])"))
         return cell
     }
 

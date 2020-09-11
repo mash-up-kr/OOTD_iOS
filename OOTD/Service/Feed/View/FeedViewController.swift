@@ -43,12 +43,6 @@ class FeedViewController: UIViewController, StoryboardBuildable, StoryboardView 
         reactor = FeedReactor()
         reactor?.action.onNext(.requestFeed)
 
-        /* MOCK */
-        feed = [
-            Feed(id: 1, photoUrl: URL(string: "https://i.pinimg.com/564x/c3/05/f7/c305f75146aa50b7d6e558a55e073e7d.jpg"), message: "", weather: "", temperature: "", date: "", styles: Style.samples),
-            Feed(id: 2, photoUrl: URL(string: "https://i.pinimg.com/564x/c3/05/f7/c305f75146aa50b7d6e558a55e073e7d.jpg"), message: "", weather: "", temperature: "", date: "", styles: Style.samples)
-        ]
-
         let styleReactor = StyleReactor()
         styleReactor.stylesPublishSubject
             .subscribe(onNext: { [weak self] styles in

@@ -45,7 +45,19 @@ extension API: TargetType {
         case .signIn:
             return .requestPlain
         case .feed:
-            return .requestPlain
+            return .requestParameters(parameters:
+                                        [
+                                            "styleIds": "1,2",
+                                            "weather": "CLEAR",
+                                            "minTemp": 21,
+                                            "maxTemp": 23,
+                                            "lastPostId": 10
+                                        ],
+                                      encoding: URLEncoding.default)
         }
+    }
+
+    var headers: [String: String]? {
+        ["Authorization": OOTD.shared.user.token]
     }
 }
