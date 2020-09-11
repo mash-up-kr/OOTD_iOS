@@ -225,7 +225,10 @@
                     </view>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
+                        <outlet property="bodyLabel" destination="cjh-QK-5Jm" id="bEC-qw-eLG"/>
                         <outlet property="photoImageView" destination="Tge-cS-8nA" id="ZWf-Eh-Yhg"/>
+                        <outlet property="temperatureLabel" destination="zS3-ge-GVs" id="Hew-YL-uIe"/>
+                        <outlet property="userNicknameLabel" destination="e08-it-nj6" id="Veh-Md-1UJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SrX-iv-Glc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

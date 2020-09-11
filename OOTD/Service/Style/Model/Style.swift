@@ -31,3 +31,12 @@ extension Style {
             .disposed(by: OOTD.shared.disposeBag)
     }
 }
+
+extension Array where Element == Style {
+    func first(id: Int) -> Style? {
+        for style in self {
+            if style.id == id { return style }
+        }
+        return nil
+    }
+}

@@ -9,14 +9,20 @@
 import UIKit
 
 class FeedDetailViewController: UIViewController, StoryboardBuildable {
+    @IBOutlet weak var userNicknameLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var bodyLabel: UILabel!
 
     private var feed: Feed!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        userNicknameLabel.text = feed.nickname
         photoImageView.kf.setImage(with: feed.photoUrl)
+        temperatureLabel.text = "\(feed.temperature)°"
+        bodyLabel.text = feed.message
     }
 
     static func instantiate(feed: Feed) -> Self {
@@ -28,12 +34,12 @@ class FeedDetailViewController: UIViewController, StoryboardBuildable {
 
 extension FeedDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        feed.styleIds.count
+        feed.styles.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedStyleCollectionViewCell.reusableIdentifier, for: indexPath) as! FeedStyleCollectionViewCell
-        cell.configure(Style(id: feed.styleIds[indexPath.item], name: "스타일 \(feed.styleIds[indexPath.item])"))
+        cell.configure(feed.styles[indexPath.item])
         return cell
     }
 

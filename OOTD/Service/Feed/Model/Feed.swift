@@ -22,6 +22,10 @@ struct Feed: Decodable {
     let temperature: Int
     let date: String
     let styleIds: [Int]
+
+    var styles: [Style] {
+        styleIds.compactMap { OOTD.shared.styles.first(id: $0) }
+    }
 }
 
 extension Feed: Equatable {
