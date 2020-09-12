@@ -21,7 +21,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RwD-9F-p7q">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="57.5"/>
-                                        <string key="text">닉네임 님! 날씨와 온도가
+                                        <string key="text">포니 님! 날씨와 온도가
 이게 맞나요?</string>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <color key="textColor" name="grey09"/>

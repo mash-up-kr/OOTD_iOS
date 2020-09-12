@@ -190,8 +190,8 @@ extension HomeViewController: FeedPanGestureDelegate {
         feedViewHeightConstraint.constant = needsExpanded ? height.expanded : height.default
         feedContainerView.shadowOpacity = needsExpanded ? 0 : 0.12
         feedView.cornerRadius = needsExpanded ? 0 : 12
-        weatherSummaryView.alpha = needsExpanded ? 1 : 0
-        homeMainImageView.alpha = needsExpanded ? 0 : 1
+//        weatherSummaryView.alpha = needsExpanded ? 1 : 0
+//        homeMainImageView.alpha = needsExpanded ? 0 : 1
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
