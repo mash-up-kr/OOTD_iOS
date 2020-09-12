@@ -16,6 +16,7 @@ final class UploadFeedViewController: UIViewController, StoryboardBuildable, Sto
     @IBOutlet weak var feedContentTextField: UITextField!
 
     var disposeBag = DisposeBag()
+    weak var delegate: RefreshMainFeedDelegate?
 
     static func newViewController(image: UIImage) -> UIViewController {
         let viewController = UploadFeedViewController.instantiate()
@@ -49,9 +50,10 @@ extension UploadFeedViewController {
         reactor.state
             .map { $0.feedInfoViewController }
             .subscribe(onNext: { [weak self] uploadFeedInfoViewController in
-                guard let uploadFeedInfoViewController = uploadFeedInfoViewController else {
+                guard let uploadFeedInfoViewController = uploadFeedInfoViewController as? UploadFeedInfoViewController else {
                     return
                 }
+                uploadFeedInfoViewController.delegate = self?.delegate
                 self?.navigationController?.pushViewController(uploadFeedInfoViewController, animated: true)
             })
             .disposed(by: disposeBag)

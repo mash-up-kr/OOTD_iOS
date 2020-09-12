@@ -112,7 +112,7 @@
                                                     <action selector="didTapStyleLocationButtonAction:" destination="y7o-US-cB7" eventType="touchUpInside" id="ieq-aB-X6y"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5K-LF-la7">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5K-LF-la7">
                                                 <rect key="frame" x="171" y="0.0" width="32" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -152,7 +152,7 @@
                                     <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ikb-n6-V2e">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="722"/>
                                     </containerView>
-                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNT-Ys-qWz">
+                                    <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNT-Ys-qWz">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="722"/>
                                         <connections>
                                             <segue destination="jn0-xM-RM3" kind="embed" id="YZl-FP-ch0"/>

@@ -73,15 +73,15 @@ class FeedViewController: UIViewController, StoryboardBuildable, StoryboardView 
             .disposed(by: disposeBag)
     }
 
-    private func requestFeed() {
+    func requestFeed() {
         let user = OOTD.shared.user
         let parameters: [String: Any] =
             [
                 "styleIds": user.preference.styles.map { String($0.id) }.joined(separator: ","),
                 "weather": user.location.weather,
                 "minTemp": user.preference.temperature.min,
-                "maxTemp": user.preference.temperature.max,
-                "lastPostId": 10
+                "maxTemp": user.preference.temperature.max
+//                "lastPostId": 100
             ]
         reactor?.action.onNext(.requestFeed(parameters: parameters))
     }
@@ -152,4 +152,8 @@ extension FeedViewController: UICollectionViewDataSource, UICollectionViewDelega
         }
         return .zero
     }
+}
+
+protocol RefreshMainFeedDelegate: AnyObject {
+    func refresh()
 }

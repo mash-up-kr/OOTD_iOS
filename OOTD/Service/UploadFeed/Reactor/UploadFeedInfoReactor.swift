@@ -19,31 +19,41 @@ final class UploadFeedInfoReactor: Reactor {
         case weather
     }
 
+    enum UpdateBodyTaraget {
+        case weather(FeedWeatherType)
+        case temparature(Int)
+    }
+
     enum Action {
         case didTapInfoTargetButton(ViewInfoTarget)
         case didTapUploadButton
+        case didChangeWeatherInfo(FeedWeatherType)
+        case didChangeTemparature(Int)
     }
 
     enum Mutation {
         case changeInfoView(ViewInfoTarget)
-        case requestUpload
+//        case requestUpload
+        case changeBodyInfo
+        case uploadIsDone
+        case uploadIsFail
     }
 
     struct State {
-        var showViewTarget: ViewInfoTarget = .date
-
-        var feedBaseBody: FeedBaseBody
-        var feedWeatherBody: FeedWeatherInfoBody = FeedWeatherInfoBody(weather: .CLEAR, temparature: 24)
-        var styleIds: [Int] = []
+        var showViewTarget: ViewInfoTarget = .weather
 
         var uploadIsDone: Bool = false
         var uploadFail: Bool = false
     }
 
     var initialState: State
+    var feedBaseBody: FeedBaseBody
+    var feedWeatherBody: FeedWeatherInfoBody = FeedWeatherInfoBody(weather: .CLEAR, temparature: 24)
+    var styleIds: [Int] = []
 
     init(_ image: UIImage?, _ content: String) {
-        self.initialState = State(feedBaseBody: FeedBaseBody(image: image, content: content))
+        self.feedBaseBody = FeedBaseBody(image: image, content: content)
+        self.initialState = State()
     }
 
     func mutate(action: Action) -> Observable<Mutation> {
@@ -51,7 +61,22 @@ final class UploadFeedInfoReactor: Reactor {
         case .didTapInfoTargetButton(let target):
             return Observable.just(.changeInfoView(target))
         case .didTapUploadButton:
-            return Observable.just(.requestUpload)
+            return APIRequest
+                .uploadFeed(feedInfo: feedBaseBody, weathrerInfo: feedWeatherBody, styleIds: styleIds)
+                .asObservable()
+                .map({ res in
+                    if res.statusCode < 300 {
+                        return Mutation.uploadIsDone
+                    } else {
+                        return Mutation.uploadIsFail
+                    }
+                })
+        case .didChangeWeatherInfo(let weather):
+            feedWeatherBody.changeWeather(weather)
+            return Observable.just(.changeBodyInfo)
+        case .didChangeTemparature(let temparature):
+            feedWeatherBody.changeTemparature(temparature)
+            return Observable.just(.changeBodyInfo)
         }
     }
 
@@ -62,16 +87,12 @@ final class UploadFeedInfoReactor: Reactor {
         switch mutation {
         case .changeInfoView(let viewTarget):
             newState.showViewTarget = viewTarget
-        case .requestUpload:
-            APIRequest.uploadFeed(feedInfo: state.feedBaseBody, weathrerInfo: state.feedWeatherBody, styleIds: state.styleIds)
-                .subscribe(onSuccess: { [weak self] response in
-                    print("good")
-                    print(response.statusCode)
-                    newState.uploadIsDone = true
-                }, onError: { [weak self] err in
-                    print(err)
-                    newState.uploadFail = true
-                })
+        case .uploadIsDone:
+            newState.uploadIsDone = true
+        case .uploadIsFail:
+            newState.uploadFail = true
+        case .changeBodyInfo:
+            break
         }
         return newState
     }

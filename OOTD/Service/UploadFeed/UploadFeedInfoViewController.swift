@@ -23,6 +23,7 @@ class UploadFeedInfoViewController: UIViewController, StoryboardBuildable, Story
     @IBOutlet weak var selectWeatherView: UIView!
 
     var weatherInfoViewController: SelectTemperatureViewController?
+    weak var delegate: RefreshMainFeedDelegate?
 
     var disposeBag = DisposeBag()
 
@@ -34,14 +35,11 @@ class UploadFeedInfoViewController: UIViewController, StoryboardBuildable, Story
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dateViewTargetButton.isHidden = true
-        styleViewTargetButton.isHidden = true
-        loactionViewTargetButton.isHidden = true
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? SelectTemperatureViewController {
-            print("hear")
+        if let selectTemperatureViewController = segue.destination as? SelectTemperatureViewController {
+            selectTemperatureViewController.delegate = self
         }
     }
 
@@ -90,6 +88,15 @@ extension UploadFeedInfoViewController {
                 }
             })
         .disposed(by: disposeBag)
+
+        reactor.state
+            .map { $0.uploadIsDone }
+            .filter({ $0 })
+            .subscribe(onNext: { [weak self] _ in
+                self?.delegate?.refresh()
+                self?.dismiss(animated: true, completion: nil)
+            })
+        .disposed(by: disposeBag)
     }
 
     private func hideAllInfoContentView() {
@@ -104,5 +111,15 @@ extension UploadFeedInfoViewController {
         styleViewTargetButton.isSelected = false
         loactionViewTargetButton.isSelected = false
         weatherViewTargetButton.isSelected = false
+    }
+}
+
+extension UploadFeedInfoViewController: SelectTemparatureDelegate {
+    func didChangeTemparature(_ temp: Int) {
+        reactor?.action.onNext(.didChangeTemparature(temp))
+    }
+
+    func didChangeWeather(_ weather: FeedWeatherType) {
+        reactor?.action.onNext(.didChangeWeatherInfo(weather))
     }
 }

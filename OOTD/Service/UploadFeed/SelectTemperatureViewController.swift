@@ -19,6 +19,7 @@ class SelectTemperatureViewController: UIViewController, StoryboardBuildable, St
 
     var disposeBag = DisposeBag()
     var isFirstLoaded: Bool = true
+    weak var delegate: SelectTemparatureDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,22 +43,27 @@ class SelectTemperatureViewController: UIViewController, StoryboardBuildable, St
 
     @IBAction func didTapWeatherCleanButton(_ sender: UIButton) {
         didTapSelectWeatherButton(at: 0)
+        delegate?.didChangeWeather(.CLEAR)
     }
 
     @IBAction func didTapWeatherCloudButton(_ sender: UIButton) {
         didTapSelectWeatherButton(at: 1)
+        delegate?.didChangeWeather(.CLOUDS)
     }
 
     @IBAction func didTapWeatherRainButton(_ sender: UIButton) {
         didTapSelectWeatherButton(at: 2)
+        delegate?.didChangeWeather(.RAIN)
     }
 
     @IBAction func didTapWeatherSnowButton(_ sender: UIButton) {
         didTapSelectWeatherButton(at: 3)
+        delegate?.didChangeWeather(.SNOW)
     }
 
     @IBAction func didTapWeatherThunderstormButton(_ sender: UIButton) {
         didTapSelectWeatherButton(at: 4)
+        delegate?.didChangeWeather(.THUNDERSTORM)
     }
 
     // TODO: Text Color issue -> 왜 모든 텍스트의 컬러가 변경이 되는걸까?
@@ -75,10 +81,16 @@ class SelectTemperatureViewController: UIViewController, StoryboardBuildable, St
 
     @IBAction func temparatureValueChange(_ sender: UISlider) {
         temparatureLabel.text = String(Int(sender.value)) + "°"
+        delegate?.didChangeTemparature(Int(sender.value))
     }
 }
 
 extension SelectTemperatureViewController {
     func bind(reactor: SelectTemperatureReactor) {
     }
+}
+
+protocol SelectTemparatureDelegate: AnyObject {
+    func didChangeTemparature(_ temp: Int)
+    func didChangeWeather(_ weather: FeedWeatherType)
 }

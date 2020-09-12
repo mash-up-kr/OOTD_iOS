@@ -25,8 +25,8 @@ extension OOTD {
             let temperature = Temperature()
 
             struct Temperature {
-                let min = 21
-                let max = 23
+                let min = 20
+                let max = 28
             }
 
             private var styleIds: [Int] {

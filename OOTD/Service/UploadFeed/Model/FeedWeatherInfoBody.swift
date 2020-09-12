@@ -20,6 +20,14 @@ struct FeedWeatherInfoBody {
     var temparatureFormData: MultipartFormData? {
         String(temparature).multipartFormData("temperature")
     }
+
+    mutating func changeWeather(_ weather: FeedWeatherType) {
+        self.weather = weather
+    }
+
+    mutating func changeTemparature(_ temparature: Int) {
+        self.temparature = temparature
+    }
 }
 
 enum FeedWeatherType: String {

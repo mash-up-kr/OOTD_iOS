@@ -40,6 +40,8 @@ class HomeViewController: UIViewController, StoryboardView {
     typealias Reactor = HomeReactor
 
     var disposeBag: DisposeBag = DisposeBag()
+    var feedViewControllerRef: FeedViewController?
+
     lazy var selectPictureActionController: UIAlertController = {
         let alertController = UIAlertController(title: "사진 선택", message: "피드에 추가할 사진을 선택해주세요!", preferredStyle: .actionSheet)
 
@@ -86,6 +88,7 @@ class HomeViewController: UIViewController, StoryboardView {
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "icMenuFeedNormal"), selectedImage: UIImage(named: "icMenuFeedActive"))
+        tabBarController?.tabBar.isHidden = true
 
         imagePickerController.delegate = self
         imagePickerController.modalPresentationStyle = .fullScreen
@@ -106,6 +109,7 @@ extension HomeViewController {
         if segue.identifier == "toFeed" {
             let feedViewController = segue.destination as! FeedViewController
             feedViewController.delegate = self
+            feedViewControllerRef = feedViewController
         }
     }
 
@@ -152,8 +156,12 @@ extension HomeViewController {
     }
 
     private func showUploadFeedViewController(image: UIImage) {
-        let uploadFeedViewController = UploadFeedViewController.newViewController(image: image)
-        present(uploadFeedViewController, animated: true)
+        guard let naviController = UploadFeedViewController.newViewController(image: image) as? UINavigationController,
+            let feedViewController = naviController.viewControllers.first as? UploadFeedViewController else {
+            return
+        }
+        feedViewController.delegate = self
+        present(naviController, animated: true)
     }
 }
 
@@ -187,5 +195,11 @@ extension HomeViewController: FeedPanGestureDelegate {
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
+    }
+}
+
+extension HomeViewController: RefreshMainFeedDelegate {
+    func refresh() {
+        feedViewControllerRef?.requestFeed()
     }
 }
