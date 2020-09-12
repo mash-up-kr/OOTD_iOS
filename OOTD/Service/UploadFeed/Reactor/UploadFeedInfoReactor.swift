@@ -22,6 +22,7 @@ final class UploadFeedInfoReactor: Reactor {
     enum UpdateBodyTaraget {
         case weather(FeedWeatherType)
         case temparature(Int)
+        case styleIds([Int])
     }
 
     enum Action {
@@ -29,6 +30,7 @@ final class UploadFeedInfoReactor: Reactor {
         case didTapUploadButton
         case didChangeWeatherInfo(FeedWeatherType)
         case didChangeTemparature(Int)
+        case didChangeStyles([Int])
     }
 
     enum Mutation {
@@ -76,6 +78,9 @@ final class UploadFeedInfoReactor: Reactor {
             return Observable.just(.changeBodyInfo)
         case .didChangeTemparature(let temparature):
             feedWeatherBody.changeTemparature(temparature)
+            return Observable.just(.changeBodyInfo)
+        case .didChangeStyles(let styleIds):
+            self.styleIds = styleIds
             return Observable.just(.changeBodyInfo)
         }
     }

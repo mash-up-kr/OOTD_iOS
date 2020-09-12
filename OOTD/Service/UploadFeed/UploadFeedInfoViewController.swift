@@ -41,6 +41,11 @@ class UploadFeedInfoViewController: UIViewController, StoryboardBuildable, Story
         if let selectTemperatureViewController = segue.destination as? SelectTemperatureViewController {
             selectTemperatureViewController.delegate = self
         }
+
+        if let styleViewController = segue.destination as? StyleViewController {
+            styleViewController.hideCompleteButton()
+            styleViewController.delegate = self
+        }
     }
 
     @IBAction func didTapBeforeButtonAction(_ sender: Any) {
@@ -121,5 +126,11 @@ extension UploadFeedInfoViewController: SelectTemparatureDelegate {
 
     func didChangeWeather(_ weather: FeedWeatherType) {
         reactor?.action.onNext(.didChangeWeatherInfo(weather))
+    }
+}
+
+extension UploadFeedInfoViewController: SelectedStyleDelegate {
+    func selectedStyle(_ styleIds: [Int]) {
+        reactor?.action.onNext(.didChangeStyles(styleIds))
     }
 }
