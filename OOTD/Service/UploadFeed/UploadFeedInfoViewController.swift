@@ -22,6 +22,8 @@ class UploadFeedInfoViewController: UIViewController, StoryboardBuildable, Story
     @IBOutlet weak var selectLocationView: UIView!
     @IBOutlet weak var selectWeatherView: UIView!
 
+    var weatherInfoViewController: SelectTemperatureViewController?
+
     var disposeBag = DisposeBag()
 
     static func newViewController(_ image: UIImage?, _ content: String) -> UIViewController {
@@ -32,13 +34,23 @@ class UploadFeedInfoViewController: UIViewController, StoryboardBuildable, Story
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        dateViewTargetButton.isHidden = true
+        styleViewTargetButton.isHidden = true
+        loactionViewTargetButton.isHidden = true
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? SelectTemperatureViewController {
+            print("hear")
+        }
     }
 
     @IBAction func didTapBeforeButtonAction(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
+
     @IBAction func didTapUploadButtonAction(_ sender: Any) {
-        print("upload")
+        reactor?.action.on(.next(.didTapUploadButton))
     }
 
     @IBAction func didTapDateTargetButtonAction(_ sender: Any) {

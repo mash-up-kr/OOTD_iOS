@@ -47,4 +47,40 @@ extension APIRequest {
             .filterTimeOutError()
             .filterSuccessfulStatusCodes()
       }
+
+    static func uploadFeed(feedInfo: FeedBaseBody, weathrerInfo: FeedWeatherInfoBody, styleIds: [Int]) -> Single<Response> {
+        var formdata: [Moya.MultipartFormData] = []
+        if let imageFormData = feedInfo.imageMultipartFormData, let messageFormData = feedInfo.contentMultipartFormData {
+            formdata.append(imageFormData)
+            formdata.append(messageFormData)
+        }
+        if let dateString = Date().patternizedString("yyyy-MM-dd"), let dateFormData = dateString.multipartFormData("date") {
+            formdata.append(dateFormData)
+        }
+        if let weatherData = weathrerInfo.weatherMultipartFormData {
+            formdata.append(weatherData)
+        }
+        if let temparatureData = weathrerInfo.temparatureFormData {
+            formdata.append(temparatureData)
+        }
+        if !styleIds.isEmpty {
+            var styleString: String {
+                var resultString = ""
+                for (index, styleId) in styleIds.enumerated() {
+                    resultString += String(styleId)
+                    if index != styleIds.count - 1 {
+                        resultString += ","
+                    }
+                }
+                return resultString
+            }
+            if let styleFormData = styleString.multipartFormData("styleIds") {
+                formdata.append(styleFormData)
+            }
+        }
+
+        return provider.rx.request(.uploadFeed(data: formdata))
+            .filterTimeOutError()
+            .filterSuccessfulStatusCodes()
+    }
 }
