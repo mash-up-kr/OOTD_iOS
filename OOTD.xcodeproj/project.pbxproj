@@ -39,7 +39,6 @@
 		57E91C9224C58EB600A39E0E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57E91C9024C58EB600A39E0E /* Home.storyboard */; };
 		57E91C9424C58EB900A39E0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57E91C9324C58EB900A39E0E /* Assets.xcassets */; };
 		57E91C9724C58EB900A39E0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57E91C9524C58EB900A39E0E /* LaunchScreen.storyboard */; };
-		57E91CAC24C5940000A39E0E /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 57E91CAB24C5940000A39E0E /* ReactorKit */; };
 		57E91CAE24C5948100A39E0E /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 57E91CAD24C5948100A39E0E /* RxBlocking */; };
 		57E91CB024C5948100A39E0E /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 57E91CAF24C5948100A39E0E /* RxCocoa */; };
 		57E91CB224C5948100A39E0E /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 57E91CB124C5948100A39E0E /* RxRelay */; };
@@ -68,6 +67,7 @@
 		6AE5657324CAE91700D2FF23 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5657224CAE91700D2FF23 /* Feed.storyboard */; };
 		6AE5657524CAE92A00D2FF23 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5657424CAE92A00D2FF23 /* FeedViewController.swift */; };
 		6AE5657724CC11B800D2FF23 /* FeedStyleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5657624CC11B800D2FF23 /* FeedStyleCollectionViewCell.swift */; };
+		B1BD569B2525C31700E2F341 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1BD569A2525C31700E2F341 /* ReactorKit */; };
 		FE1F7E2824CC1DF800306454 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1F7E2724CC1DF800306454 /* HomeViewController.swift */; };
 		FE1F7E2A24CC2BAD00306454 /* Home.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE1F7E2924CC2BAD00306454 /* Home.xcassets */; };
 		FE1F7E2C24CC4E9300306454 /* MainTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE1F7E2B24CC4E9300306454 /* MainTabBar.storyboard */; };
@@ -174,7 +174,7 @@
 			files = (
 				57E91CB924C595AC00A39E0E /* Kingfisher in Frameworks */,
 				57E91CB024C5948100A39E0E /* RxCocoa in Frameworks */,
-				57E91CAC24C5940000A39E0E /* ReactorKit in Frameworks */,
+				B1BD569B2525C31700E2F341 /* ReactorKit in Frameworks */,
 				57E91CB424C5948100A39E0E /* RxSwift in Frameworks */,
 				57E91CB224C5948100A39E0E /* RxRelay in Frameworks */,
 				3006E2C424E928F30033A404 /* Moya in Frameworks */,
@@ -598,7 +598,6 @@
 			);
 			name = OOTD;
 			packageProductDependencies = (
-				57E91CAB24C5940000A39E0E /* ReactorKit */,
 				57E91CAD24C5948100A39E0E /* RxBlocking */,
 				57E91CAF24C5948100A39E0E /* RxCocoa */,
 				57E91CB124C5948100A39E0E /* RxRelay */,
@@ -606,6 +605,7 @@
 				57E91CB824C595AC00A39E0E /* Kingfisher */,
 				3006E2C324E928F30033A404 /* Moya */,
 				3006E2C524E928F30033A404 /* RxMoya */,
+				B1BD569A2525C31700E2F341 /* ReactorKit */,
 			);
 			productName = OOTD;
 			productReference = 57E91C8724C58EB600A39E0E /* OOTD.app */;
@@ -618,7 +618,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1160;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = fcs;
 				TargetAttributes = {
 					57E91C8624C58EB600A39E0E = {
@@ -636,10 +636,10 @@
 			);
 			mainGroup = 57E91C7E24C58EB600A39E0E;
 			packageReferences = (
-				57E91C9E24C5926F00A39E0E /* XCRemoteSwiftPackageReference "ReactorKit" */,
 				57E91CA124C592FC00A39E0E /* XCRemoteSwiftPackageReference "RxSwift" */,
 				57E91CB724C595AC00A39E0E /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				3006E2C224E928F30033A404 /* XCRemoteSwiftPackageReference "Moya" */,
+				B1BD56992525C31700E2F341 /* XCRemoteSwiftPackageReference "ReactorKit" */,
 			);
 			productRefGroup = 57E91C8824C58EB600A39E0E /* Products */;
 			projectDirPath = "";
@@ -827,6 +827,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -851,7 +852,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -887,6 +888,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -905,7 +907,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -991,14 +993,6 @@
 				minimumVersion = 14.0.0;
 			};
 		};
-		57E91C9E24C5926F00A39E0E /* XCRemoteSwiftPackageReference "ReactorKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactorKit/ReactorKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.0;
-			};
-		};
 		57E91CA124C592FC00A39E0E /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -1015,6 +1009,14 @@
 				minimumVersion = 5.14.1;
 			};
 		};
+		B1BD56992525C31700E2F341 /* XCRemoteSwiftPackageReference "ReactorKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dodgecm/ReactorKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1027,11 +1029,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3006E2C224E928F30033A404 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
-		};
-		57E91CAB24C5940000A39E0E /* ReactorKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57E91C9E24C5926F00A39E0E /* XCRemoteSwiftPackageReference "ReactorKit" */;
-			productName = ReactorKit;
 		};
 		57E91CAD24C5948100A39E0E /* RxBlocking */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1057,6 +1054,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 57E91CB724C595AC00A39E0E /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		B1BD569A2525C31700E2F341 /* ReactorKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1BD56992525C31700E2F341 /* XCRemoteSwiftPackageReference "ReactorKit" */;
+			productName = ReactorKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
