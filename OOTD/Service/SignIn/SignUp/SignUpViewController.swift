@@ -48,6 +48,7 @@ extension SignUpViewController {
             .filter { !reactor.currentState.isLoading }
             .subscribe(onNext: {
                 UIApplication.changeRoot(viewController: MainTabBarViewController.newViewController())
+//                self.pushToStyleViewController()
             })
             .disposed(by: disposeBag)
 
@@ -104,5 +105,17 @@ extension SignUpViewController {
                 self.reactor?.action.onNext(.toggleAgree)
             })
             .disposed(by: disposeBag)
+    }
+}
+
+extension SignUpViewController {
+    private func pushToStyleViewController() {
+        let styleViewController = StyleViewController.instantiate(userName: "포니")
+        let styleReactor = StyleReactor()
+        styleViewController.reactor = styleReactor
+
+//        navigationController?.pushViewController(styleViewController, animated: true)
+        
+        UIApplication.changeRoot(viewController: styleViewController)
     }
 }
