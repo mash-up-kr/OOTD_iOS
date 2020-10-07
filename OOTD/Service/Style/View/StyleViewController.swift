@@ -46,12 +46,11 @@ class StyleViewController: UIViewController, StoryboardBuildable, StoryboardView
     }
 
     @IBAction func actionComplete(_ sender: Any) {
-        let style = collectionView.indexPathsForSelectedItems?.map { styles[$0.item] } ?? []
         if reactor?.currentState.authType != nil {
-            let ids = style.map { $0.id }
+            let ids = selectedStyles.map { $0.id }
             reactor?.action.onNext(.requestSignUp(ids))
         } else {
-            reactor?.stylesPublishSubject.onNext(style)
+            reactor?.stylesPublishSubject.onNext(selectedStyles)
             dismiss(animated: true, completion: nil)
         }
     }
