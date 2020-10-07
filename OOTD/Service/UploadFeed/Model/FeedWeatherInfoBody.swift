@@ -30,10 +30,27 @@ struct FeedWeatherInfoBody {
     }
 }
 
-enum FeedWeatherType: String {
+enum FeedWeatherType: String, CaseIterable {
     case CLEAR
     case CLOUDS
     case RAIN
     case SNOW
     case THUNDERSTORM
+
+    var index: Int {
+        for (index, type) in Self.allCases.enumerated() where self == type {
+            return index
+        }
+        return .zero
+    }
+
+    var imageName: String {
+        switch self {
+        case .CLEAR: return "imgSun"
+        case .CLOUDS: return "imgCloud"
+        case .RAIN: return "imgRain"
+        case .SNOW: return "imgSnow"
+        case .THUNDERSTORM: return "imgThunderstorm"
+        }
+    }
 }

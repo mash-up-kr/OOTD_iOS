@@ -27,8 +27,9 @@ class StyleViewController: UIViewController, StoryboardBuildable, StoryboardView
         super.viewDidLoad()
         collectionView.allowsMultipleSelection = true
 
-        let selectedIndex = styles.enumerated().compactMap { OOTD.shared.user.preference.styles.contains($0.element) ? $0.offset : nil }
-        selectedIndex.forEach { collectionView.selectItem(at: IndexPath(item: $0, section: .zero), animated: false, scrollPosition: .top) }
+        let selectedStyles = styles.enumerated().compactMap { OOTD.shared.user.preference.styles.contains($0.element) ? $0 : nil }
+//        reactor?.stylesPublishSubject.onNext(selectedStyles.map { $0.element })
+        selectedStyles.forEach { collectionView.selectItem(at: IndexPath(item: $0.offset, section: .zero), animated: false, scrollPosition: .top) }
     }
 
     override func viewDidLayoutSubviews() {
@@ -53,6 +54,10 @@ class StyleViewController: UIViewController, StoryboardBuildable, StoryboardView
             reactor?.stylesPublishSubject.onNext(style)
             dismiss(animated: true, completion: nil)
         }
+    }
+
+    private var selectedStyles: [Style] {
+        collectionView.indexPathsForSelectedItems?.map { styles[$0.item] } ?? []
     }
 
     func hideCompleteButton() {
@@ -92,11 +97,13 @@ extension StyleViewController: UICollectionViewDataSource, UICollectionViewDeleg
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.selectedStyle(collectionView.indexPathsForSelectedItems?.map { styles[$0.item].id } ?? [])
+        reactor?.stylesPublishSubject.onNext(selectedStyles)
+        delegate?.selectedStyle(selectedStyles.map { $0.id })
     }
 
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        delegate?.selectedStyle(collectionView.indexPathsForSelectedItems?.map { styles[$0.item].id } ?? [])
+        reactor?.stylesPublishSubject.onNext(selectedStyles)
+        delegate?.selectedStyle(selectedStyles.map { $0.id })
     }
 }
 

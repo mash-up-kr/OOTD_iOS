@@ -30,7 +30,7 @@ final class SplashViewController: UIViewController, StoryboardView {
         if AccountManager.authToken != nil {
             reactor?.action.onNext(.checkAuthToken)
         } else {
-            UIApplication.changeRoot(viewController: LoginViewController.newViewController())
+//            UIApplication.changeRoot(viewController: LoginViewController.newViewController())
         }
     }
 }

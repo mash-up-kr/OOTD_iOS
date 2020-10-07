@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AOz-RM-LwK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AOz-RM-LwK">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -40,7 +42,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="8cJ-Rr-7mJ" firstAttribute="centerY" secondItem="wHy-ma-j0s" secondAttribute="centerY" id="5U8-Bu-l06"/>
                                     <constraint firstItem="8cJ-Rr-7mJ" firstAttribute="leading" secondItem="rgk-8m-Y13" secondAttribute="trailing" constant="6" id="Izw-FN-zMn"/>
@@ -53,7 +55,7 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KEt-Yv-0K7" customClass="FeedStyleCollectionView" customModule="OOTD" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="40" width="414" height="42"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="Qzr-GZ-tTP"/>
                                 </constraints>
@@ -104,7 +106,7 @@
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2j0-Ra-G4k" customClass="FeedCollectionView" customModule="OOTD" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="82" width="414" height="814"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="fBn-Rg-kmq">
                                     <size key="itemSize" width="185" height="185"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -148,7 +150,7 @@
                                         <state key="normal" image="filter"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="eYj-JK-fdj" firstAttribute="top" secondItem="2iK-pm-gRD" secondAttribute="top" id="063-Ek-A0f"/>
                                     <constraint firstAttribute="trailing" secondItem="eYj-JK-fdj" secondAttribute="trailing" id="7uf-4h-I5J"/>
@@ -160,7 +162,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="k7I-5e-Jly"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="KEt-Yv-0K7" firstAttribute="top" secondItem="wHy-ma-j0s" secondAttribute="bottom" id="2rs-0j-ra3"/>
@@ -177,7 +180,6 @@
                             <constraint firstAttribute="trailing" secondItem="2iK-pm-gRD" secondAttribute="trailing" id="vYI-BL-WDR"/>
                             <constraint firstAttribute="trailing" secondItem="KEt-Yv-0K7" secondAttribute="trailing" id="xbb-1v-b3U"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="k7I-5e-Jly"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="FSo-8u-9li" appends="YES" id="hPf-a4-Nwf"/>
                         </connections>
@@ -188,6 +190,9 @@
                         <outlet property="filterButton" destination="eYj-JK-fdj" id="fsf-bN-gK0"/>
                         <outlet property="panGestureRecognizer" destination="FSo-8u-9li" id="Xey-X0-d4R"/>
                         <outlet property="styleCollectionView" destination="KEt-Yv-0K7" id="34d-4G-LPa"/>
+                        <outlet property="temperatureLabel" destination="8cJ-Rr-7mJ" id="rKw-V4-fhb"/>
+                        <outlet property="temperatureRangeLabel" destination="34Y-Gr-HHq" id="aIg-Fz-1hb"/>
+                        <outlet property="weathreImageView" destination="rgk-8m-Y13" id="745-NA-Glq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mGY-Dm-UdC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -208,5 +213,8 @@
         <namedColor name="grey09">
             <color red="0.20784313725490197" green="0.20784313725490197" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
