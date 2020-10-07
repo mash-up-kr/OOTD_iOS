@@ -46,8 +46,13 @@ class StyleViewController: UIViewController, StoryboardBuildable, StoryboardView
 
     @IBAction func actionComplete(_ sender: Any) {
         let style = collectionView.indexPathsForSelectedItems?.map { styles[$0.item] } ?? []
-        reactor?.stylesPublishSubject.onNext(style)
-        dismiss(animated: true, completion: nil)
+        if reactor?.currentState.authType != nil {
+            let ids = style.map { $0.id }
+            reactor?.action.onNext(.requestSignUp(ids))
+        } else {
+            reactor?.stylesPublishSubject.onNext(style)
+            dismiss(animated: true, completion: nil)
+        }
     }
 
     func hideCompleteButton() {
@@ -57,6 +62,11 @@ class StyleViewController: UIViewController, StoryboardBuildable, StoryboardView
 
 extension StyleViewController {
     func bind(reactor: StyleReactor) {
+        reactor.state.compactMap { $0.userInfo }
+            .subscribe(onNext: { _ in
+                UIApplication.changeRoot(viewController: MainTabBarViewController.newViewController())
+            })
+            .disposed(by: disposeBag)
     }
 }
 

@@ -73,7 +73,7 @@ extension API: TargetType {
 
             print(parameter)
 
-            return .requestParameters(parameters: parameter, encoding: URLEncoding.default)
+            return .requestParameters(parameters: parameter, encoding: JSONEncoding.default)
         case .uploadFeed(let data):
             return .uploadMultipart(data)
         }

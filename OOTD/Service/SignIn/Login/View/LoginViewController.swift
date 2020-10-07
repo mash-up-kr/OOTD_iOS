@@ -59,7 +59,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
             let fullName = appleIDCredential.fullName
             let accessToken = String(decoding: appleIDCredential.identityToken ?? Data(), as: UTF8.self)
-            UIApplication.changeRoot(viewController: SignUpViewController.newViewController(uId: appleIDCredential.user))
+            UIApplication.changeRoot(viewController: SignUpViewController.newViewController(uId: appleIDCredential.user, type: "APPLE"))
         default:
             break
         }
