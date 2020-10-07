@@ -25,8 +25,14 @@ extension OOTD {
             var temperature = Temperature()
 
             struct Temperature {
-                var value = 24
-                var range = 3
+                var value: Int {
+                    get { UserDefaults.preference.value(forKey: "Preference::Temperature::value") as? Int ?? 24 }
+                    set { UserDefaults.preference.set(newValue, forKey: "Preference::Temperature::value") }
+                }
+                var range: Int {
+                    get { UserDefaults.preference.value(forKey: "Preference::Temperature::range") as? Int ?? 3 }
+                    set { UserDefaults.preference.set(newValue, forKey: "Preference::Temperature::range") }
+                }
 
                 var min: Int {
                     value - range

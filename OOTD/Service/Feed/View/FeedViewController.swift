@@ -32,8 +32,7 @@ class FeedViewController: UIViewController, StoryboardBuildable, StoryboardView 
     var disposeBag = DisposeBag()
 
     private var filterSubscription: Disposable?
-    private var filter = Filter(weather: FeedWeatherInfoBody(weather: OOTD.shared.user.location.weather, temparature: 24),
-                                styles: OOTD.shared.user.preference.styles) {
+    private var filter = Filter() {
         didSet {
             updateFilter()
             requestFeed()

@@ -13,7 +13,8 @@ struct Filter {
     var styles: [Style]
 
     init() {
-        weather = FeedWeatherInfoBody(weather: .CLEAR, temparature: 24)
+        weather = FeedWeatherInfoBody(weather: OOTD.shared.user.location.weather,
+                                      temparature: OOTD.shared.user.preference.temperature.value)
         styles = OOTD.shared.user.preference.styles
     }
 
