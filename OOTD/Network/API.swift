@@ -11,7 +11,7 @@ import Moya
 
 enum API {
     case getStyles
-    case signIn
+    case signIn(uId: String, authType: String)
     case feed(parameters: [String: Any])
     case checkAuthToken
     case signUp(uId: String, authType: String, nickname: String, styleIds: [Int])
@@ -57,8 +57,13 @@ extension API: TargetType {
         switch self {
         case .getStyles:
             return .requestPlain
-        case .signIn:
-            return .requestPlain
+        case let .signIn(uId, authType):
+            let parameter: [String: Any] = [
+                "uid": uId,
+                "authType": authType
+            ]
+
+            return .requestParameters(parameters: parameter, encoding: JSONEncoding.default)
         case .feed(let parameters):
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         case .checkAuthToken:
@@ -70,8 +75,6 @@ extension API: TargetType {
                 "nickname": nickname,
                 "styleIds": styleIds
             ]
-
-            print(parameter)
 
             return .requestParameters(parameters: parameter, encoding: JSONEncoding.default)
         case .uploadFeed(let data):

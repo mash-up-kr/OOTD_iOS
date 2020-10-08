@@ -71,6 +71,7 @@
 		6AE5657324CAE91700D2FF23 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5657224CAE91700D2FF23 /* Feed.storyboard */; };
 		6AE5657524CAE92A00D2FF23 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5657424CAE92A00D2FF23 /* FeedViewController.swift */; };
 		6AE5657724CC11B800D2FF23 /* FeedStyleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5657624CC11B800D2FF23 /* FeedStyleCollectionViewCell.swift */; };
+		B17A0635252F66D100A37933 /* LoginReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17A0634252F66D100A37933 /* LoginReactor.swift */; };
 		B1BD569B2525C31700E2F341 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1BD569A2525C31700E2F341 /* ReactorKit */; };
 		FE1F7E2824CC1DF800306454 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1F7E2724CC1DF800306454 /* HomeViewController.swift */; };
 		FE1F7E2A24CC2BAD00306454 /* Home.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE1F7E2924CC2BAD00306454 /* Home.xcassets */; };
@@ -154,6 +155,7 @@
 		6AE5657224CAE91700D2FF23 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		6AE5657424CAE92A00D2FF23 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		6AE5657624CC11B800D2FF23 /* FeedStyleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStyleCollectionViewCell.swift; sourceTree = "<group>"; };
+		B17A0634252F66D100A37933 /* LoginReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginReactor.swift; sourceTree = "<group>"; };
 		FE1F7E2724CC1DF800306454 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FE1F7E2924CC2BAD00306454 /* Home.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Home.xcassets; sourceTree = "<group>"; };
 		FE1F7E2B24CC4E9300306454 /* MainTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBar.storyboard; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 		30DCE4012504E5110065B379 /* Reactor */ = {
 			isa = PBXGroup;
 			children = (
+				B17A0634252F66D100A37933 /* LoginReactor.swift */,
 			);
 			path = Reactor;
 			sourceTree = "<group>";
@@ -800,6 +803,7 @@
 				5792E4CE250BBD97002CE537 /* UserInfo.swift in Sources */,
 				57E91C8B24C58EB600A39E0E /* AppDelegate.swift in Sources */,
 				3006E2D024E92CD50033A404 /* RxMoyaNetworking+Extension.swift in Sources */,
+				B17A0635252F66D100A37933 /* LoginReactor.swift in Sources */,
 				5792E4C9250BAF48002CE537 /* SplashReactor.swift in Sources */,
 				57E91C8D24C58EB600A39E0E /* SceneDelegate.swift in Sources */,
 				FEC51778250A7C110014F245 /* SelectDateCalendarViewController.swift in Sources */,

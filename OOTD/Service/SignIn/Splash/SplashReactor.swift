@@ -16,7 +16,7 @@ final class SplashReactor: Reactor {
         case checkAuthToken
     }
     enum Mutation {
-        case setVaild(OOTDApi<UserId>)
+        case setVaild(Bool)
         case setLoading(Bool)
     }
 
@@ -37,7 +37,9 @@ final class SplashReactor: Reactor {
             return checkAuthToken()
                 .asObservable()
                 .map(OOTDApi<UserId>.self)
+                .map { $0.code == 200 }
                 .map { Mutation.setVaild($0) }
+                .catchErrorJustReturn(.setVaild(false))
         }
     }
 
@@ -45,9 +47,8 @@ final class SplashReactor: Reactor {
         var newState = state
 
         switch mutation {
-        case let .setVaild(ootd):
-            print(ootd)
-            newState.isValid = ootd.code == 200
+        case let .setVaild(isValid):
+            newState.isValid = isValid
 
         case let .setLoading(isLoading):
             newState.isLoading = isLoading
