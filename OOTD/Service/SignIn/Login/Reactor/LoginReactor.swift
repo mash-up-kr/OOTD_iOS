@@ -70,6 +70,7 @@ final class LoginReactor: Reactor {
         switch mutation {
         case let .setUserInfo(userInfo):
             newState.userInfo = userInfo
+            OOTD.shared.user.name = userInfo.nickname
 
         case let .setLoading(isLoading):
             newState.isLoading = isLoading

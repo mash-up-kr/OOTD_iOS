@@ -94,6 +94,7 @@ class StyleReactor: Reactor {
 
         case let .setUserInfo(userInfo):
             newState.userInfo = userInfo
+            OOTD.shared.user.name = userInfo.nickname
         }
 
         return newState
