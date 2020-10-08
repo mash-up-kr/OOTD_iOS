@@ -31,6 +31,14 @@ final class SettingViewController: UIViewController, StoryboardBuildable, Storyb
         collectionView.indexPathsForSelectedItems?.map { styles[$0.item] } ?? []
     }
 
+    private lazy var imagePicker: UIImagePickerController = {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+
+        return picker
+    }()
+
     var disposeBag = DisposeBag()
 
     override func viewDidLoad() {
@@ -40,10 +48,47 @@ final class SettingViewController: UIViewController, StoryboardBuildable, Storyb
         let selectedStyles = styles.enumerated().compactMap { OOTD.shared.user.preference.styles.contains($0.element) ? $0 : nil }
         selectedStyles.forEach { collectionView.selectItem(at: IndexPath(item: $0.offset, section: .zero), animated: false, scrollPosition: .top) }
     }
+
+    @IBAction func changeImageAction(_ sender: UITapGestureRecognizer) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let selectAction = UIAlertAction(title: "라이브러리에서 선택", style: .default) { [weak self] _ in
+            guard let self = self else { return }
+            self.present(self.imagePicker, animated: true, completion: nil)
+        }
+
+        let deleteAction = UIAlertAction(title: "현재사진 삭제", style: .destructive) { [weak self] _ in
+            guard let self = self else { return }
+            self.reactor?.action.onNext(.updateProfileImage(nil))
+        }
+
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+
+        actionSheet.addAction(selectAction)
+        if reactor?.currentState.profileImage != nil {
+            actionSheet.addAction(deleteAction)
+        }
+        actionSheet.addAction(cancelAction)
+
+        present(actionSheet, animated: true, completion: nil)
+    }
 }
 
 extension SettingViewController {
     func bind(reactor: SettingReactor) {
+        reactor.state.map { $0.profileImage }
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                if $0 == nil {
+                    self.profileImageView.image = UIImage(named: "icProfileEdit")
+                    self.profileImageView.clipsToBounds = false
+                } else {
+                    self.profileImageView.image = $0
+                    self.profileImageView.clipsToBounds = true
+                    self.profileImageView.layer.cornerRadius = 48
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -74,5 +119,14 @@ extension SettingViewController: UICollectionViewDataSource, UICollectionViewDel
 
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         reactor?.action.onNext(.setSelectedStyles(selectedStyles))
+    }
+}
+
+extension SettingViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        if let originalImage: UIImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            reactor?.action.onNext(.updateProfileImage(originalImage))
+            picker.dismiss(animated: true, completion: nil)
+        }
     }
 }

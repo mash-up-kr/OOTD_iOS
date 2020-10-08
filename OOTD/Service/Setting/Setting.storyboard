@@ -19,12 +19,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icProfileEdit" translatesAutoresizingMaskIntoConstraints="NO" id="psf-rn-2Ip">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icProfileEdit" translatesAutoresizingMaskIntoConstraints="NO" id="psf-rn-2Ip">
                                 <rect key="frame" x="112" y="59" width="96" height="96"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="LwF-AG-2gT"/>
                                     <constraint firstAttribute="width" secondItem="psf-rn-2Ip" secondAttribute="height" id="vH0-UH-V0B"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="InB-1J-86I" appends="YES" id="B7s-Zh-juh"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLK-zl-Ls7">
                                 <rect key="frame" x="20" y="176" width="37" height="17"/>
@@ -145,13 +149,17 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8iN-xX-wat" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="InB-1J-86I">
+                    <connections>
+                        <action selector="changeImageAction:" destination="cG9-gt-FGt" id="foH-4V-ddZ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="699.375" y="39.08450704225352"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zs6-DR-Xud">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bnJ-NL-Vuc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="T3j-cE-Vnu" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xrT-Uq-ETt">
@@ -163,6 +171,7 @@
                         <segue destination="cG9-gt-FGt" kind="relationship" relationship="rootViewController" id="a7T-Zg-yJ0"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bnJ-NL-Vuc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-139" y="39"/>
         </scene>
