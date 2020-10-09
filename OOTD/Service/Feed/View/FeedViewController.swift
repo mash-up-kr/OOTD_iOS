@@ -20,6 +20,9 @@ protocol FeedPanGestureDelegate: AnyObject {
 class FeedViewController: UIViewController, StoryboardBuildable, StoryboardView {
     typealias Reactor = FeedReactor
 
+    @IBOutlet weak var weathreImageView: UIImageView!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var temperatureRangeLabel: UILabel!
     @IBOutlet weak var styleCollectionView: FeedStyleCollectionView!
     @IBOutlet weak var collectionView: FeedCollectionView!
     @IBOutlet weak var filterButton: UIButton!
@@ -28,8 +31,12 @@ class FeedViewController: UIViewController, StoryboardBuildable, StoryboardView 
     weak var delegate: FeedPanGestureDelegate!
     var disposeBag = DisposeBag()
 
-    private var styles = OOTD.shared.user.preference.styles {
-        didSet { styleCollectionView.reloadData() }
+    private var filterSubscription: Disposable?
+    private var filter = Filter() {
+        didSet {
+            updateFilter()
+            requestFeed()
+        }
     }
     private var feed = [Feed]() {
         didSet { collectionView.reloadData() }
@@ -42,23 +49,20 @@ class FeedViewController: UIViewController, StoryboardBuildable, StoryboardView 
         super.viewDidLoad()
         reactor = FeedReactor()
         requestFeed()
-
-        let styleReactor = StyleReactor()
-        styleReactor.stylesPublishSubject
-            .subscribe(onNext: { [weak self] styles in
-                guard let self = self else { return }
-                OOTD.shared.user.preference.styles = styles
-                self.styles = styles
-                self.requestFeed()
-            })
-            .disposed(by: self.disposeBag)
+        reloadWeather()
 
         filterButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
-                let styleViewController = StyleViewController.instantiate(userName: "포니")
-                styleViewController.reactor = styleReactor
-                self.present(styleViewController, animated: true)
+
+                let filterReactor = FilterReactor()
+                self.filterSubscription = filterReactor.filterPublishSubject
+                    .subscribe(onNext: { [weak self] filter in self?.filter = filter },
+                               onCompleted: { [weak self] in self?.filterSubscription?.dispose() })
+
+                let filterViewController = FilterViewController.instantiate()
+                filterViewController.reactor = filterReactor
+                self.present(filterViewController, animated: true)
             })
             .disposed(by: disposeBag)
 
@@ -71,6 +75,25 @@ class FeedViewController: UIViewController, StoryboardBuildable, StoryboardView 
                 }
             })
             .disposed(by: disposeBag)
+    }
+
+    private func updateFilter() {
+        let user = OOTD.shared.user
+        user.preference.styles = filter.styles
+        user.location.weather = filter.weather.weather
+        user.preference.temperature.value = filter.weather.temparature
+        user.preference.temperature.range = 3
+
+        styleCollectionView.reloadData()
+        reloadWeather()
+    }
+
+    private func reloadWeather() {
+        let weathre = OOTD.shared.user.location.weather
+        weathreImageView.image = UIImage(named: weathre.imageName)
+        let temperature = OOTD.shared.user.preference.temperature
+        temperatureLabel.text = "\(temperature.value)"
+        temperatureRangeLabel.text = "\(temperature.min)° - \(temperature.max)°"
     }
 
     func requestFeed() {
@@ -100,8 +123,7 @@ extension FeedViewController {
         reactor.state.map { $0.feed }
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] feed in
-                guard let self = self else { return }
-                self.feed = feed
+                self?.feed = feed
             })
             .disposed(by: disposeBag)
     }
@@ -110,7 +132,7 @@ extension FeedViewController {
 extension FeedViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView is FeedStyleCollectionView {
-            return styles.count
+            return filter.styles.count
         }
         if collectionView is FeedCollectionView {
             return feed.count
@@ -121,7 +143,7 @@ extension FeedViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView is FeedStyleCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedStyleCollectionViewCell.reusableIdentifier, for: indexPath) as! FeedStyleCollectionViewCell
-            cell.configure(styles[indexPath.item])
+            cell.configure(filter.styles[indexPath.item])
             return cell
         }
         if collectionView is FeedCollectionView {

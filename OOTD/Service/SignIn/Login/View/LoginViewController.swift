@@ -8,15 +8,20 @@
 
 import UIKit
 import AuthenticationServices
+import ReactorKit
 
-final class LoginViewController: UIViewController, StoryboardBuildable {
+final class LoginViewController: UIViewController, StoryboardBuildable, StoryboardView {
     static func newViewController() -> UIViewController {
         let viewController = LoginViewController.instantiate()
+        let reactor = LoginReactor()
+        viewController.reactor = reactor
 
         return viewController
     }
 
     private let appleLoginButton = ASAuthorizationAppleIDButton()
+
+    var disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,13 +58,46 @@ extension LoginViewController {
     }
 }
 
+extension LoginViewController {
+    func bind(reactor: LoginReactor) {
+        reactor.state.compactMap { $0.userInfo }
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.changeToMain()
+            })
+            .disposed(by: disposeBag)
+
+        reactor.state.compactMap { $0.goToSignUp }
+            .filter { $0 }
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.changeToSignUp()
+            })
+            .disposed(by: disposeBag)
+    }
+}
+
+extension LoginViewController {
+    private func changeToSignUp() {
+        guard let uId = reactor?.currentState.uId,
+              let authType = reactor?.currentState.authType else { return }
+        UIApplication.changeRoot(viewController: SignUpViewController.newViewController(uId: uId, type: authType))
+    }
+
+    private func changeToMain() {
+        UIApplication.changeRoot(viewController: MainTabBarViewController.newViewController())
+    }
+}
+
 extension LoginViewController: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
             let fullName = appleIDCredential.fullName
             let accessToken = String(decoding: appleIDCredential.identityToken ?? Data(), as: UTF8.self)
-            UIApplication.changeRoot(viewController: SignUpViewController.newViewController(uId: appleIDCredential.user))
+            print(appleIDCredential.user)
+            reactor?.action.onNext(.requestSignIn(appleIDCredential.user, "APPLE"))
+
         default:
             break
         }

@@ -15,6 +15,7 @@ class SelectTemperatureViewController: UIViewController, StoryboardBuildable, St
     @IBOutlet weak var weatherButtonsWrapperStackView: UIStackView!
 
     @IBOutlet weak var temparatureLabel: UILabel!
+    @IBOutlet weak var temperatureSlider: UISlider!
     @IBOutlet weak var sliderBackgroundView: UIView!
 
     var disposeBag = DisposeBag()
@@ -23,6 +24,12 @@ class SelectTemperatureViewController: UIViewController, StoryboardBuildable, St
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let weather = OOTD.shared.user.location.weather
+        didTapSelectWeatherButton(at: weather.index)
+        let temperature = OOTD.shared.user.preference.temperature.value
+        temperatureSlider.value = Float(temperature)
+        temparatureLabel.text = "\(temperature)°"
     }
 
     override func viewDidAppear(_ animated: Bool) {

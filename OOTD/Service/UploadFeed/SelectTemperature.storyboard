@@ -389,6 +389,7 @@
                     <connections>
                         <outlet property="sliderBackgroundView" destination="Aqi-Zd-lUa" id="Bc3-0h-Itn"/>
                         <outlet property="temparatureLabel" destination="ty6-fM-gC3" id="X3s-Db-n2b"/>
+                        <outlet property="temperatureSlider" destination="nK0-aI-gJz" id="x6x-hD-a3K"/>
                         <outlet property="weatherButtonsWrapperStackView" destination="Xub-Sh-gGg" id="sPE-vp-sIf"/>
                     </connections>
                 </viewController>

@@ -12,9 +12,9 @@ import RxCocoa
 import ReactorKit
 
 final class SignUpViewController: UIViewController, StoryboardBuildable, StoryboardView {
-    static func newViewController(uId: String) -> SignUpViewController {
+    static func newViewController(uId: String, type: String) -> SignUpViewController {
         let viewController = SignUpViewController.instantiate()
-        let reactor = SignUpReactor(uId: uId)
+        let reactor = SignUpReactor(uId: uId, type: type)
 
         viewController.reactor = reactor
         return viewController
@@ -47,7 +47,8 @@ extension SignUpViewController {
         nextButton.rx.tap
             .filter { !reactor.currentState.isLoading }
             .subscribe(onNext: {
-                UIApplication.changeRoot(viewController: MainTabBarViewController.newViewController())
+//                UIApplication.changeRoot(viewController: MainTabBarViewController.newViewController())
+                self.changeToStyleViewController()
             })
             .disposed(by: disposeBag)
 
@@ -84,12 +85,6 @@ extension SignUpViewController {
                 self.nextButton.backgroundColor = $0 ? .blueKey : .grey03
             })
             .disposed(by: disposeBag)
-
-        reactor.state.compactMap { $0.userInfo }
-            .subscribe(onNext: { _ in
-                UIApplication.changeRoot(viewController: MainTabBarViewController.newViewController())
-            })
-            .disposed(by: disposeBag)
     }
 }
 
@@ -104,5 +99,19 @@ extension SignUpViewController {
                 self.reactor?.action.onNext(.toggleAgree)
             })
             .disposed(by: disposeBag)
+    }
+}
+
+extension SignUpViewController {
+    private func changeToStyleViewController() {
+        guard let reactor = reactor else { return }
+        let styleViewController = StyleViewController.instantiate(userName: reactor.currentState.text ?? "")
+        let styleReactor = StyleReactor(uId: reactor.currentState.uId,
+                                        authType: reactor.currentState.authType,
+                                        nickname: reactor.currentState.text ?? "")
+
+        styleViewController.reactor = styleReactor
+
+        UIApplication.changeRoot(viewController: styleViewController)
     }
 }

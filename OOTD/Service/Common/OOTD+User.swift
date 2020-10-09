@@ -9,24 +9,37 @@
 import Foundation
 
 extension OOTD {
-    struct User {
+    class User {
         // To. hochan 임시로 내 토큰 사용했음!
-        let name = "포니"
+        var name = "포니"
         let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.FdCGmwbTqAohz4OWA1CKdtZxsNhE9RDTXgAfoTliR6A"
 
         var preference = Preference()
-        let location = Location()
+        var location = Location()
 
         struct Location {
-            let weather = "CLEAR"
+            var weather: FeedWeatherType = .CLEAR
         }
 
         struct Preference {
-            let temperature = Temperature()
+            var temperature = Temperature()
 
             struct Temperature {
-                let min = 20
-                let max = 28
+                var value: Int {
+                    get { UserDefaults.preference.value(forKey: "Preference::Temperature::value") as? Int ?? 24 }
+                    set { UserDefaults.preference.set(newValue, forKey: "Preference::Temperature::value") }
+                }
+                var range: Int {
+                    get { UserDefaults.preference.value(forKey: "Preference::Temperature::range") as? Int ?? 3 }
+                    set { UserDefaults.preference.set(newValue, forKey: "Preference::Temperature::range") }
+                }
+
+                var min: Int {
+                    value - range
+                }
+                var max: Int {
+                    value + range
+                }
             }
 
             private var styleIds: [Int] {

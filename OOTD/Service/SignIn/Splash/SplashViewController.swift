@@ -26,7 +26,7 @@ final class SplashViewController: UIViewController, StoryboardView {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        reactor?.action.onNext(.checkAuthToken)
+//        UIApplication.changeRoot(viewController: SettingViewController.newViewController())
         if AccountManager.authToken != nil {
             reactor?.action.onNext(.checkAuthToken)
         } else {
