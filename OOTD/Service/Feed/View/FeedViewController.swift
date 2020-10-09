@@ -48,8 +48,9 @@ class FeedViewController: UIViewController, StoryboardBuildable, StoryboardView 
     override func viewDidLoad() {
         super.viewDidLoad()
         reactor = FeedReactor()
-        requestFeed()
+        
         reloadWeather()
+        requestFeed()
 
         filterButton.rx.tap
             .subscribe(onNext: { [weak self] in
