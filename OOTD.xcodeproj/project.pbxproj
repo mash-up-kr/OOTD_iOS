@@ -76,6 +76,8 @@
 		FE23473D250C58B600D26F23 /* FeedWeatherInfoBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE23473C250C58B600D26F23 /* FeedWeatherInfoBody.swift */; };
 		FE23473F250C620600D26F23 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE23473E250C620600D26F23 /* Date+Extension.swift */; };
 		FE234741250C628B00D26F23 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE234740250C628B00D26F23 /* String+Extension.swift */; };
+		FE40385025286207008D20B3 /* SelectDateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE40384E25286207008D20B3 /* SelectDateCollectionViewCell.swift */; };
+		FE40385125286207008D20B3 /* SelectDateCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE40384F25286207008D20B3 /* SelectDateCollectionViewCell.xib */; };
 		FEB2F26624CC64100043A6F8 /* HomeReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB2F26524CC64100043A6F8 /* HomeReactor.swift */; };
 		FEC5176A250A6A810014F245 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC51769250A6A810014F245 /* UINavigationController+Extension.swift */; };
 		FEC5176E250A71250014F245 /* UploadFeedInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEC5176D250A71250014F245 /* UploadFeedInfo.storyboard */; };
@@ -154,6 +156,8 @@
 		FE23473C250C58B600D26F23 /* FeedWeatherInfoBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedWeatherInfoBody.swift; sourceTree = "<group>"; };
 		FE23473E250C620600D26F23 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		FE234740250C628B00D26F23 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		FE40384E25286207008D20B3 /* SelectDateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateCollectionViewCell.swift; sourceTree = "<group>"; };
+		FE40384F25286207008D20B3 /* SelectDateCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectDateCollectionViewCell.xib; sourceTree = "<group>"; };
 		FEB2F26524CC64100043A6F8 /* HomeReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeReactor.swift; path = OOTD/Service/Home/Reactor/HomeReactor.swift; sourceTree = SOURCE_ROOT; };
 		FEC51769250A6A810014F245 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		FEC5176D250A71250014F245 /* UploadFeedInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UploadFeedInfo.storyboard; sourceTree = "<group>"; };
@@ -374,6 +378,8 @@
 				FEC5176F250A749B0014F245 /* UploadFeedInfoViewController.swift */,
 				FEC51773250A78E70014F245 /* SelectDateCalendar.storyboard */,
 				FEC51777250A7C110014F245 /* SelectDateCalendarViewController.swift */,
+				FE40384F25286207008D20B3 /* SelectDateCollectionViewCell.xib */,
+				FE40384E25286207008D20B3 /* SelectDateCollectionViewCell.swift */,
 				FEC51775250A7C030014F245 /* SelectTemperature.storyboard */,
 				FEC51779250A7C1D0014F245 /* SelectTemperatureViewController.swift */,
 			);
@@ -667,6 +673,7 @@
 				6ADFC13F24CC2D180008C561 /* Style.storyboard in Resources */,
 				30DCE4092504E6320065B379 /* Splash.storyboard in Resources */,
 				30DCE4042504E5880065B379 /* Login.storyboard in Resources */,
+				FE40385125286207008D20B3 /* SelectDateCollectionViewCell.xib in Resources */,
 				5728EE492507E7EC00D38454 /* SignUp.storyboard in Resources */,
 				6AD6CF8724CC1B790012745E /* Feed.xcassets in Resources */,
 				30A54CDB24CCA22500BCEE96 /* UploadFeed.storyboard in Resources */,
@@ -763,6 +770,7 @@
 				3084293E2504EC1500517216 /* AccountManager.swift in Sources */,
 				6AE5656B24CADAD700D2FF23 /* UIViewController+Storyboard.swift in Sources */,
 				6AE5657724CC11B800D2FF23 /* FeedStyleCollectionViewCell.swift in Sources */,
+				FE40385025286207008D20B3 /* SelectDateCollectionViewCell.swift in Sources */,
 				3006E2CE24E92A430033A404 /* API.swift in Sources */,
 				6AE5657524CAE92A00D2FF23 /* FeedViewController.swift in Sources */,
 				FE23473F250C620600D26F23 /* Date+Extension.swift in Sources */,

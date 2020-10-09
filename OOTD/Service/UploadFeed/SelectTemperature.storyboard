@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R2d-EB-uZD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R2d-EB-uZD">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -61,14 +63,14 @@
                                                                 <color key="textColor" name="grey06"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5t-cu-vWS">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5t-cu-vWS">
                                                                 <rect key="frame" x="0.0" y="0.0" width="42" height="56"/>
                                                                 <connections>
                                                                     <action selector="didTapWeatherCleanButton:" destination="R2d-EB-uZD" eventType="touchUpInside" id="NB3-uF-46w"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstItem="L5t-cu-vWS" firstAttribute="leading" secondItem="xrM-x0-rr1" secondAttribute="leading" id="1fR-F6-5dM"/>
                                                             <constraint firstAttribute="bottom" secondItem="L5t-cu-vWS" secondAttribute="bottom" id="2kP-6b-nJp"/>
@@ -103,7 +105,7 @@
                                                                 <color key="textColor" name="grey06"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="50b-Cx-rXg">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="50b-Cx-rXg">
                                                                 <rect key="frame" x="0.0" y="0.0" width="42" height="56"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -112,7 +114,7 @@
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="9Og-PG-aeb" secondAttribute="trailing" constant="5" id="GIH-Bj-10T"/>
                                                             <constraint firstAttribute="bottom" secondItem="50b-Cx-rXg" secondAttribute="bottom" id="O7f-0L-SI7"/>
@@ -147,14 +149,14 @@
                                                                 <color key="textColor" name="grey06"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFd-za-Ctm">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFd-za-Ctm">
                                                                 <rect key="frame" x="0.0" y="0.0" width="42" height="56"/>
                                                                 <connections>
                                                                     <action selector="didTapWeatherRainButton:" destination="R2d-EB-uZD" eventType="touchUpInside" id="dlz-8v-wKG"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstItem="Fbv-Hz-df3" firstAttribute="top" secondItem="4HE-xO-4yn" secondAttribute="top" constant="2" id="0ni-hN-Xlp"/>
                                                             <constraint firstAttribute="trailing" secondItem="fFd-za-Ctm" secondAttribute="trailing" id="1BY-Tf-2Hz"/>
@@ -189,14 +191,14 @@
                                                                 <color key="textColor" name="grey06"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZaV-Yu-C8g">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZaV-Yu-C8g">
                                                                 <rect key="frame" x="0.0" y="0.0" width="42" height="56"/>
                                                                 <connections>
                                                                     <action selector="didTapWeatherSnowButton:" destination="R2d-EB-uZD" eventType="touchUpInside" id="90g-su-lEr"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="sbV-ht-iFc" secondAttribute="trailing" constant="5" id="25n-CF-bg4"/>
                                                             <constraint firstAttribute="bottom" secondItem="ZaV-Yu-C8g" secondAttribute="bottom" id="31Q-bZ-dvl"/>
@@ -231,14 +233,14 @@
                                                                 <color key="textColor" name="grey06"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTI-Jm-81K">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTI-Jm-81K">
                                                                 <rect key="frame" x="0.0" y="0.0" width="42" height="56"/>
                                                                 <connections>
                                                                     <action selector="didTapWeatherThunderstormButton:" destination="R2d-EB-uZD" eventType="touchUpInside" id="KBh-OH-s2w"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="ewm-wv-7WM" secondAttribute="trailing" constant="5" id="31G-3c-LDT"/>
                                                             <constraint firstAttribute="bottom" secondItem="EFv-oY-EgV" secondAttribute="bottom" constant="5" id="7TQ-0I-cK0"/>
@@ -260,7 +262,7 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="Xub-Sh-gGg" firstAttribute="top" secondItem="MgF-MC-HSp" secondAttribute="bottom" constant="5" id="36c-Gh-8Ab"/>
                                             <constraint firstItem="MgF-MC-HSp" firstAttribute="leading" secondItem="ixn-Ef-8Nb" secondAttribute="leading" id="GcH-sd-wAH"/>
@@ -332,7 +334,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="Aqi-Zd-lUa" firstAttribute="trailing" secondItem="nK0-aI-gJz" secondAttribute="trailing" id="2aL-IC-FbK"/>
                                             <constraint firstItem="nK0-aI-gJz" firstAttribute="leading" secondItem="whN-8J-FpC" secondAttribute="leading" id="3zG-3p-39Z"/>
@@ -358,7 +360,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="jWO-zN-BYj" firstAttribute="top" secondItem="RwD-9F-p7q" secondAttribute="bottom" constant="5" id="2t1-JX-PTq"/>
                                     <constraint firstItem="RwD-9F-p7q" firstAttribute="top" secondItem="0Ud-7P-gwp" secondAttribute="top" id="6bP-Fa-FSN"/>
@@ -375,14 +377,14 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="gEb-tE-qhB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="0Ud-7P-gwp" firstAttribute="leading" secondItem="gEb-tE-qhB" secondAttribute="leading" constant="20" id="9LK-i6-sf5"/>
                             <constraint firstItem="gEb-tE-qhB" firstAttribute="trailing" secondItem="0Ud-7P-gwp" secondAttribute="trailing" constant="20" id="MKG-p5-BIn"/>
                             <constraint firstItem="gEb-tE-qhB" firstAttribute="bottom" secondItem="0Ud-7P-gwp" secondAttribute="bottom" id="OCH-YT-5r1"/>
                             <constraint firstItem="0Ud-7P-gwp" firstAttribute="top" secondItem="gEb-tE-qhB" secondAttribute="top" constant="40" id="ybl-8o-qaB"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="gEb-tE-qhB"/>
                     </view>
                     <connections>
                         <outlet property="sliderBackgroundView" destination="Aqi-Zd-lUa" id="Bc3-0h-Itn"/>
@@ -416,5 +418,8 @@
         <namedColor name="grey09">
             <color red="0.20784313725490197" green="0.20784313725490197" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
