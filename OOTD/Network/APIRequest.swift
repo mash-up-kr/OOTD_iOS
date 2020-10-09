@@ -36,6 +36,12 @@ extension APIRequest {
             .filterSuccessfulStatusCodes()
     }
 
+    static func getComments(feed: Feed) -> Single<Response> {
+        provider.rx.request(.comments(feed: feed))
+            .filterTimeOutError()
+            .filterSuccessfulStatusCodes()
+    }
+
     static func checkAuthToken() -> Single<Response> {
         provider.rx.request(.checkAuthToken)
             .filterTimeOutError()

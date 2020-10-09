@@ -9,10 +9,16 @@
 import UIKit
 
 class FeedCommentViewController: UIViewController, StoryboardBuildable {
-    private var comments = FeedComment.samples
+    private var comments: [FeedComment]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    static func instantiate(comments: [FeedComment]) -> Self {
+        let commentViewController = instantiate()
+        commentViewController.comments = comments
+        return commentViewController
     }
 }
 
