@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bcd-Uw-Z0x">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <inset key="separatorInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="S6D-Bh-WJb">
@@ -95,10 +95,39 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Wg-5L-X16">
-                                <rect key="frame" x="0.0" y="842" width="414" height="54"/>
+                                <rect key="frame" x="0.0" y="808" width="414" height="54"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="댓글 작성하기..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XnH-cw-ZRf">
+                                        <rect key="frame" x="20" y="7" width="374" height="40"/>
+                                        <color key="textColor" name="grey10"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="RVK-me-cPS" id="2dU-7L-0bq"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDr-6v-cO6">
+                                        <rect key="frame" x="365" y="15" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="P05-jt-zON"/>
+                                            <constraint firstAttribute="width" constant="24" id="bMa-eG-ouy"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="send_able"/>
+                                        <state key="disabled" image="send_disable"/>
+                                        <connections>
+                                            <action selector="actionUploadComment:" destination="RVK-me-cPS" eventType="touchUpInside" id="kv3-il-iw6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="rDr-6v-cO6" firstAttribute="centerY" secondItem="XnH-cw-ZRf" secondAttribute="centerY" id="1gC-Vw-yky"/>
+                                    <constraint firstAttribute="trailing" secondItem="XnH-cw-ZRf" secondAttribute="trailing" constant="20" id="HvI-di-8DY"/>
                                     <constraint firstAttribute="height" constant="54" id="MXR-r7-AZk"/>
+                                    <constraint firstAttribute="bottom" secondItem="XnH-cw-ZRf" secondAttribute="bottom" constant="7" id="S56-6u-xsr"/>
+                                    <constraint firstItem="XnH-cw-ZRf" firstAttribute="leading" secondItem="1Wg-5L-X16" secondAttribute="leading" constant="20" id="h04-JR-8Ev"/>
+                                    <constraint firstItem="XnH-cw-ZRf" firstAttribute="top" secondItem="1Wg-5L-X16" secondAttribute="top" constant="7" id="oOx-yc-Sz6"/>
+                                    <constraint firstItem="XnH-cw-ZRf" firstAttribute="trailing" secondItem="rDr-6v-cO6" secondAttribute="trailing" constant="5" id="vDz-gC-hUl"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -109,12 +138,19 @@
                             <constraint firstItem="Bcd-Uw-Z0x" firstAttribute="leading" secondItem="kNt-Hh-eno" secondAttribute="leading" id="5RT-S7-f9D"/>
                             <constraint firstItem="1Wg-5L-X16" firstAttribute="trailing" secondItem="mmz-6y-Zbb" secondAttribute="trailing" id="8xS-tZ-Cuq"/>
                             <constraint firstItem="1Wg-5L-X16" firstAttribute="leading" secondItem="mmz-6y-Zbb" secondAttribute="leading" id="UDs-ig-75p"/>
-                            <constraint firstItem="1Wg-5L-X16" firstAttribute="top" secondItem="Bcd-Uw-Z0x" secondAttribute="bottom" id="brQ-uB-c2h"/>
-                            <constraint firstAttribute="bottom" secondItem="1Wg-5L-X16" secondAttribute="bottom" id="qZz-nN-U3R"/>
+                            <constraint firstItem="mmz-6y-Zbb" firstAttribute="bottom" secondItem="Bcd-Uw-Z0x" secondAttribute="bottom" id="brQ-uB-c2h"/>
+                            <constraint firstItem="mmz-6y-Zbb" firstAttribute="bottom" secondItem="1Wg-5L-X16" secondAttribute="bottom" id="qZz-nN-U3R"/>
                             <constraint firstItem="Bcd-Uw-Z0x" firstAttribute="trailing" secondItem="kNt-Hh-eno" secondAttribute="trailing" id="r3H-6y-OyM"/>
                         </constraints>
                     </view>
                     <size key="freeformSize" width="414" height="896"/>
+                    <connections>
+                        <outlet property="commentSendButton" destination="rDr-6v-cO6" id="F9D-bE-bni"/>
+                        <outlet property="commentTextField" destination="XnH-cw-ZRf" id="8gx-jA-zve"/>
+                        <outlet property="commentTextFieldView" destination="1Wg-5L-X16" id="l9c-vn-5vX"/>
+                        <outlet property="commentTextFieldViewBottomConstraint" destination="qZz-nN-U3R" id="nRf-UF-a4V"/>
+                        <outlet property="tableView" destination="Bcd-Uw-Z0x" id="rhY-Zi-S7X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0tz-AS-ouw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -123,6 +159,8 @@
     </scenes>
     <resources>
         <image name="person.circle" catalog="system" width="128" height="121"/>
+        <image name="send_able" width="24" height="24"/>
+        <image name="send_disable" width="24" height="24"/>
         <namedColor name="grey05">
             <color red="0.6588235294117647" green="0.6588235294117647" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

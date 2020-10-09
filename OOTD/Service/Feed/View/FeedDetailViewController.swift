@@ -21,8 +21,8 @@ class FeedDetailViewController: UIViewController, StoryboardBuildable, Storyboar
     private var feed: Feed!
     private var comments = [FeedComment]() {
         didSet {
-            commentsButton.isHidden = comments.isEmpty
-            commentsButton.setTitle("댓글보기 +\(comments.count)", for: .normal)
+            let title = comments.isEmpty ? "댓글달기" : "댓글보기 +\(comments.count)"
+            commentsButton.setTitle(title, for: .normal)
         }
     }
 
@@ -30,9 +30,7 @@ class FeedDetailViewController: UIViewController, StoryboardBuildable, Storyboar
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         reactor = FeedDetailReactor(feed: feed)
-        reactor?.action.onNext(.requestComments(feed: feed))
 
         userNicknameLabel.text = feed.nickname
         photoImageView.kf.setImage(with: feed.photoUrl)
@@ -42,10 +40,15 @@ class FeedDetailViewController: UIViewController, StoryboardBuildable, Storyboar
         commentsButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
-                let commentViewController = FeedCommentViewController.instantiate(comments: self.comments)
+                let commentViewController = FeedCommentViewController.instantiate(comments: self.comments, for: self.feed)
                 self.navigationController?.pushViewController(commentViewController, animated: true)
             })
             .disposed(by: disposeBag)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reactor?.action.onNext(.requestComments(feed: feed))
     }
 
     func bind(reactor: FeedDetailReactor) {

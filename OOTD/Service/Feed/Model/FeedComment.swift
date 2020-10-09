@@ -14,6 +14,24 @@ struct FeedComment: Decodable {
     let message: String
     let createdDate: String
 
+    init(id: Int, userNickname: String, message: String, createdDate: String) {
+        self.id = id
+        self.userNickname = userNickname
+        self.message = message
+        self.createdDate = createdDate
+    }
+
+    init(id: Int, userNickname: String, message: String, createdDate: Date) {
+        self.id = id
+        self.userNickname = userNickname
+        self.message = message
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ko")
+        dateFormatter.dateFormat = "YY년 M월 d일 E요일"
+        self.createdDate = dateFormatter.string(from: createdDate)
+    }
+
     private var date: Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko")
