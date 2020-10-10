@@ -33,10 +33,6 @@ class UploadFeedInfoViewController: UIViewController, StoryboardBuildable, Story
         return viewController
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let selectTemperatureViewController = segue.destination as? SelectTemperatureViewController {
             selectTemperatureViewController.delegate = self
@@ -85,7 +81,7 @@ extension UploadFeedInfoViewController {
                     self?.styleViewTargetButton.isSelected = true
                     self?.selectStyleView.isHidden = false
                 case .location:
-                    self?.loactionViewTargetButton.isSelected = true
+//                    self?.loactionViewTargetButton.isSelected = true
                     self?.selectLocationView.isHidden = false
                 case .weather:
                     self?.weatherViewTargetButton.isSelected = true
@@ -114,7 +110,7 @@ extension UploadFeedInfoViewController {
     private func deselectAllViewTargetButton() {
         dateViewTargetButton.isSelected = false
         styleViewTargetButton.isSelected = false
-        loactionViewTargetButton.isSelected = false
+//        loactionViewTargetButton.isSelected = false
         weatherViewTargetButton.isSelected = false
     }
 }

@@ -30,11 +30,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRb-EA-0fN">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2E-qo-YD5">
-                                                <rect key="frame" x="10" y="6.5" width="32" height="27"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <state key="normal" title="저번달">
-                                                    <color key="titleColor" name="blue"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2E-qo-YD5">
+                                                <rect key="frame" x="10" y="9" width="30" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="wa7-o9-vKX"/>
+                                                </constraints>
+                                                <color key="tintColor" name="grey07"/>
+                                                <state key="normal" image="chevron.left" catalog="system">
+                                                    <color key="titleColor" name="grey05"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="didTapPreviosMonth:" destination="ekx-sC-H6q" eventType="touchUpInside" id="BQG-ui-sZ6"/>
@@ -46,10 +49,13 @@
                                                 <color key="textColor" name="grey09"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWU-FY-Ojh">
-                                                <rect key="frame" x="332" y="6.5" width="32" height="27"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <state key="normal" title="다음달">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWU-FY-Ojh">
+                                                <rect key="frame" x="334" y="9" width="30" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="2EB-zf-mDF"/>
+                                                </constraints>
+                                                <color key="tintColor" name="grey07"/>
+                                                <state key="normal" image="chevron.right" catalog="system">
                                                     <color key="titleColor" name="blue"/>
                                                 </state>
                                                 <connections>
@@ -196,11 +202,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <namedColor name="blue">
             <color red="0.22352941176470589" green="0.46666666666666667" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="grey03">
             <color red="0.87450980392156863" green="0.87450980392156863" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grey05">
+            <color red="0.6588235294117647" green="0.6588235294117647" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="grey07">
             <color red="0.41960784313725491" green="0.42352941176470588" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

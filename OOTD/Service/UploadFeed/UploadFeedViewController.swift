@@ -84,6 +84,13 @@ final class UploadFeedViewController: UIViewController, StoryboardBuildable, Sto
     @IBAction func didTapNextButtonAction(_ sender: Any) {
         reactor?.action.onNext(.didTapNextButton)
     }
+
+    private func showImageIsRequiredAlert() {
+        let alert = UIAlertController(title: "이런 !", message: "스타일을 위해서 사진을 꼭 포함시켜주세요.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
 }
 
 extension UploadFeedViewController {
@@ -111,6 +118,15 @@ extension UploadFeedViewController {
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] in
                         self?.feedImageButton.setImage($0, for: .normal)
+            })
+            .disposed(by: disposeBag)
+
+        reactor.state
+            .map({ $0.imageIsRequired })
+            .subscribe(onNext: { [weak self] isRequired in
+                if isRequired {
+                    self?.showImageIsRequiredAlert()
+                }
             })
             .disposed(by: disposeBag)
 

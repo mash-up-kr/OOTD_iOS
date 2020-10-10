@@ -32,6 +32,7 @@ final class UploadFeedReactor: Reactor {
         var feedImage: UIImage?
         var content: String = ""
         var feedInfoViewController: UIViewController?
+        var imageIsRequired: Bool = false
     }
 
     var initialState = State()
@@ -57,6 +58,7 @@ final class UploadFeedReactor: Reactor {
         var newState = state
         newState.feedInfoViewController = nil
         newState.showSelectPictureStyleSheet = false
+        newState.imageIsRequired = false
 
         switch mutation {
         case .showSelectPictureStyleSheet:
@@ -66,7 +68,11 @@ final class UploadFeedReactor: Reactor {
         case .updateContentText(let text):
             newState.content = text
         case .initiateFeedInfoViewController:
-            newState.feedInfoViewController = UploadFeedInfoViewController.newViewController(newState.feedImage, newState.content)
+            if newState.feedImage == nil {
+                newState.imageIsRequired = true
+            } else {
+                newState.feedInfoViewController = UploadFeedInfoViewController.newViewController(newState.feedImage, newState.content)
+            }
         case .setImage(let selectedImage):
             newState.feedImage = selectedImage
         }

@@ -54,7 +54,7 @@ class SelectDateCalendarViewController: UIViewController, StoryboardBuildable, S
         let year = Calendar.current.component(.year, from: selectedDate) % 100
         let month = Calendar.current.component(.month, from: selectedDate)
         let day = Calendar.current.component(.day, from: selectedDate)
-        headerSelectedDateLabel.text = "\(year)년 \(month)월 \(day)일"
+        headerSelectedDateLabel.text = "\(year)년 \(month)월 \(day)일 \(selectedDate.koreaWeekDay())"
     }
 
     private func setCalendarMonthLabel(_ calendarDate: Date) {
