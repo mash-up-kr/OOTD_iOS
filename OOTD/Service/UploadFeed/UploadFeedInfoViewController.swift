@@ -64,6 +64,16 @@ class UploadFeedInfoViewController: UIViewController, StoryboardBuildable, Story
     @IBAction func didTapStyleWeatherButtonAction(_ sender: Any) {
         reactor?.action.on(.next(.didTapInfoTargetButton(.weather)))
     }
+
+    private func uploadDoneAlert() {
+        let alert = UIAlertController(title: "업로드 완료", message: "스타일 업로드가 완료 되었습니다.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: {
+            self.navigationController?.popToRootViewController(animated: false)
+            self.tabBarController?.selectedIndex = 0
+        })
+    }
 }
 
 extension UploadFeedInfoViewController {
@@ -95,7 +105,7 @@ extension UploadFeedInfoViewController {
             .filter({ $0 })
             .subscribe(onNext: { [weak self] _ in
                 self?.delegate?.refresh()
-                self?.dismiss(animated: true, completion: nil)
+                self?.uploadDoneAlert()
             })
         .disposed(by: disposeBag)
     }
