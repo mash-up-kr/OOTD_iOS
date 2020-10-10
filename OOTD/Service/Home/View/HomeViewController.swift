@@ -134,8 +134,6 @@ extension HomeViewController {
         homeMainImageView.image = weatherData.weather.homeImage
 
         let nowDate = Date()
-
-        nowDate.test()
         let month = Calendar.current.component(.month, from: nowDate)
         let day = Calendar.current.component(.day, from: nowDate)
         let hour = Calendar.current.component(.hour, from: nowDate)
