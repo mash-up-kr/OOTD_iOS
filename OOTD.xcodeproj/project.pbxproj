@@ -81,6 +81,7 @@
 		FE1F7E2A24CC2BAD00306454 /* Home.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE1F7E2924CC2BAD00306454 /* Home.xcassets */; };
 		FE1F7E2C24CC4E9300306454 /* MainTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE1F7E2B24CC4E9300306454 /* MainTabBar.storyboard */; };
 		FE1F7E3524CC4F4500306454 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1F7E3424CC4F4500306454 /* MainTabBarViewController.swift */; };
+		FE22EBF3253128CD00FFFC45 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE22EBF2253128CD00FFFC45 /* Weather.swift */; };
 		FE23473B250C588000D26F23 /* FeedBaseBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE23473A250C588000D26F23 /* FeedBaseBody.swift */; };
 		FE23473D250C58B600D26F23 /* FeedWeatherInfoBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE23473C250C58B600D26F23 /* FeedWeatherInfoBody.swift */; };
 		FE23473F250C620600D26F23 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE23473E250C620600D26F23 /* Date+Extension.swift */; };
@@ -170,6 +171,7 @@
 		FE1F7E2924CC2BAD00306454 /* Home.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Home.xcassets; sourceTree = "<group>"; };
 		FE1F7E2B24CC4E9300306454 /* MainTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBar.storyboard; sourceTree = "<group>"; };
 		FE1F7E3424CC4F4500306454 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		FE22EBF2253128CD00FFFC45 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Weather.swift; path = OOTD/Service/Home/Model/Weather.swift; sourceTree = SOURCE_ROOT; };
 		FE23473A250C588000D26F23 /* FeedBaseBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBaseBody.swift; sourceTree = "<group>"; };
 		FE23473C250C58B600D26F23 /* FeedWeatherInfoBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedWeatherInfoBody.swift; sourceTree = "<group>"; };
 		FE23473E250C620600D26F23 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -364,7 +366,7 @@
 		57E91CBE24C59C1900A39E0E /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				6AA7DC4724E93AEC0053B749 /* Model */,
+				FE22EBF5253128D200FFFC45 /* Model */,
 				6AA7DC4624E93AE60053B749 /* Reactor */,
 				6AA7DC4524E93ADC0053B749 /* View */,
 			);
@@ -489,13 +491,6 @@
 				FEB2F26524CC64100043A6F8 /* HomeReactor.swift */,
 			);
 			path = Reactor;
-			sourceTree = "<group>";
-		};
-		6AA7DC4724E93AEC0053B749 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		6AA7DC4824E93B0F0053B749 /* View */ = {
@@ -641,6 +636,14 @@
 				6ADFC13B24CC2CD60008C561 /* Style */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		FE22EBF5253128D200FFFC45 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FE22EBF2253128CD00FFFC45 /* Weather.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		FE234737250C586C00D26F23 /* Model */ = {
@@ -821,6 +824,7 @@
 				6ADFC14524CC38EB0008C561 /* StyleCollectionHeaderView.swift in Sources */,
 				FEC5177E250A7C4F0014F245 /* SelectTemperatureReactor.swift in Sources */,
 				5792E4CB250BB037002CE537 /* UserId.swift in Sources */,
+				FE22EBF3253128CD00FFFC45 /* Weather.swift in Sources */,
 				30DCE40B2504E6F20065B379 /* LoginViewController.swift in Sources */,
 				6A433FAA252A1C02006C2C67 /* Filter.swift in Sources */,
 				3006E2C924E929450033A404 /* APITargetType.swift in Sources */,

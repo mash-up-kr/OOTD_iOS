@@ -93,6 +93,11 @@ class HomeViewController: UIViewController, StoryboardView {
         imagePickerController.delegate = self
         imagePickerController.modalPresentationStyle = .fullScreen
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reactor?.action.onNext(.requestWeather)
+    }
 }
 
 extension HomeViewController {
@@ -147,6 +152,20 @@ extension HomeViewController {
                 self.showUploadFeedViewController(image: $0)
             })
             .disposed(by: disposeBag)
+
+        reactor.state.map({ $0.isFailToNetwork })
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] in
+                self?.failToNetworkUI($0)
+            })
+            .disposed(by: disposeBag)
+
+        reactor.state.compactMap({ $0.weatherData })
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] in
+                self?.weatherDataUI($0)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -162,6 +181,14 @@ extension HomeViewController {
         }
         feedViewController.delegate = self
         present(naviController, animated: true)
+    }
+
+    private func failToNetworkUI(_ isFail: Bool) {
+        print("fail \(isFail)")
+    }
+
+    private func weatherDataUI(_ weatherData: WeatherData) {
+        nowWeatherImageView.image = weatherData.weather.homeImage
     }
 }
 

@@ -89,4 +89,10 @@ extension APIRequest {
             .filterTimeOutError()
             .filterSuccessfulStatusCodes()
     }
+
+    static func getWeather() -> Single<Response> {
+        provider.rx.request(.weather)
+            .filterTimeOutError()
+            .filterSuccessfulStatusCodes()
+    }
 }

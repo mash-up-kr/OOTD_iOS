@@ -2,13 +2,13 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "imgThunderstom.png"
+      "filename" : "imgThunderstom.png",
+      "scale" : "1x"
     },
     {
-      "idiom" : "universal",
       "filename" : "imgThunderstom@2x.png",
-      "scale" : "2x"
+      "scale" : "2x",
+      "idiom" : "universal"
     },
     {
       "idiom" : "universal",

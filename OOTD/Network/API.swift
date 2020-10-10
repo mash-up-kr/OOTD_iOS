@@ -16,6 +16,7 @@ enum API {
     case checkAuthToken
     case signUp(uId: String, authType: String, nickname: String, styleIds: [Int])
     case uploadFeed(data: [MultipartFormData])
+    case weather
 }
 
 extension API: TargetType {
@@ -33,6 +34,8 @@ extension API: TargetType {
             return "api/users/access-token-info"
         case .uploadFeed:
             return "api/posts"
+        case .weather:
+            return "api/weather"
         }
     }
 
@@ -50,6 +53,8 @@ extension API: TargetType {
             return .get
         case .uploadFeed:
             return .post
+        case .weather:
+            return .get
         }
     }
 
@@ -79,6 +84,8 @@ extension API: TargetType {
             return .requestParameters(parameters: parameter, encoding: JSONEncoding.default)
         case .uploadFeed(let data):
             return .uploadMultipart(data)
+        case .weather:
+            return .requestParameters(parameters: ["lat": "37.566535", "lon": "126.977969"], encoding: URLEncoding.default)
         }
     }
 
