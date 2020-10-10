@@ -39,11 +39,6 @@ class FilterViewController: UIViewController, StoryboardBuildable, StoryboardVie
         if let styleViewController = segue.destination as? StyleViewController {
             styleViewController.hideCompleteButton()
             styleViewController.reactor = StyleReactor()
-            styleViewController.reactor?.stylesPublishSubject
-                .subscribe(onNext: { [weak self] styles in
-                    self?.reactor?.action.onNext(.didChangeStyles(styles))
-                })
-                .disposed(by: disposeBag)
         }
     }
 
@@ -83,6 +78,14 @@ class FilterViewController: UIViewController, StoryboardBuildable, StoryboardVie
             .subscribe(onNext: { [weak self] complete in
                 guard complete else { return }
                 self?.dismiss(animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
+
+        OOTD.shared.stylesPublishSubject
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] styles in
+                print(styles)
+                self?.reactor?.action.onNext(.didChangeStyles(styles))
             })
             .disposed(by: disposeBag)
     }

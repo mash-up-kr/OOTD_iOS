@@ -20,6 +20,7 @@ class OOTD {
 
     var styles: [Style]
     var user: User
+    var stylesPublishSubject = PublishSubject<[Style]>()
 
     static func initialize() {
         Style.initialize()
