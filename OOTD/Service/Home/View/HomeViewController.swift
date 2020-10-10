@@ -188,7 +188,24 @@ extension HomeViewController {
     }
 
     private func weatherDataUI(_ weatherData: WeatherData) {
-        nowWeatherImageView.image = weatherData.weather.homeImage
+        nowTemperatureLabel.text = String(weatherData.temp) + "°"
+        lowestTemperatureLabel.text = String(weatherData.minTemp) + "°"
+        highestTemperatureLabel.text = String(weatherData.maxTemp) + "°"
+        averageTemperatureLabel.text = "체감온도 " + String(weatherData.windChillTemp) + "°"
+        nowWeatherAdditionalInfoLabel.text = "강수량 " + weatherData.precipitation + " mm"
+
+        homeMainImageView.image = weatherData.weather.homeImage
+
+        let nowDate = Date()
+
+        nowDate.test()
+        let month = Calendar.current.component(.month, from: nowDate)
+        let day = Calendar.current.component(.day, from: nowDate)
+        let hour = Calendar.current.component(.hour, from: nowDate)
+        let minutes = Calendar.current.component(.minute, from: nowDate)
+
+        nowDateLabel.text = "20년 \(month)월 \(day)일 " + nowDate.koreaWeekDay()
+        updatedDateLabel.text = "업데이트 \(month)/\(day) \(hour):\(minutes)"
     }
 }
 

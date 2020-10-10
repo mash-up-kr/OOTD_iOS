@@ -32,7 +32,7 @@ enum Weather: String, Decodable {
     case RAIN
     case SNOW
     case THUNDERSTORM
-    
+
     var homeImage: UIImage? {
         switch self {
         case .CLEAR:
