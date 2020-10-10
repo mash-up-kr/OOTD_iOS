@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="34N-EP-rYa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="34N-EP-rYa">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,7 +28,7 @@
                                             <action selector="didTapCloseButtonAction:" destination="34N-EP-rYa" eventType="touchUpInside" id="Icr-HA-fpF"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vfz-JK-E1h">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vfz-JK-E1h">
                                         <rect key="frame" x="358" y="9" width="30" height="32"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <state key="normal" title="다음">
@@ -43,7 +45,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="2Jx-hO-MGl" firstAttribute="leading" secondItem="g4o-6i-JMF" secondAttribute="leading" constant="20" id="4Th-AO-zJW"/>
                                     <constraint firstItem="Vfz-JK-E1h" firstAttribute="centerY" secondItem="g4o-6i-JMF" secondAttribute="centerY" id="5G7-BH-PgR"/>
@@ -72,7 +74,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="Sr3-cy-MsD" firstAttribute="top" secondItem="2jh-zi-4ii" secondAttribute="top" constant="20" id="C9R-EU-Y5y"/>
                                     <constraint firstItem="qX1-fW-Pt4" firstAttribute="leading" secondItem="2jh-zi-4ii" secondAttribute="leading" constant="20" id="I4w-3q-5fZ"/>
@@ -83,7 +85,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="uSv-7n-7JS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="g4o-6i-JMF" firstAttribute="leading" secondItem="uSv-7n-7JS" secondAttribute="leading" id="Jjs-UI-juT"/>
                             <constraint firstItem="uSv-7n-7JS" firstAttribute="trailing" secondItem="2jh-zi-4ii" secondAttribute="trailing" id="VbB-2N-7cf"/>
@@ -93,7 +96,6 @@
                             <constraint firstItem="g4o-6i-JMF" firstAttribute="top" secondItem="uSv-7n-7JS" secondAttribute="top" id="peV-yY-khX"/>
                             <constraint firstItem="uSv-7n-7JS" firstAttribute="bottom" secondItem="2jh-zi-4ii" secondAttribute="bottom" id="yvp-tH-9cS"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="uSv-7n-7JS"/>
                     </view>
                     <navigationItem key="navigationItem" id="vSf-jy-E3u"/>
                     <connections>
@@ -107,7 +109,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera" catalog="system" width="128" height="96"/>
+        <image name="camera" catalog="system" width="128" height="94"/>
         <image name="icNavigationCloseNormal" width="24" height="24"/>
         <namedColor name="blueKey">
             <color red="0.40784313725490196" green="0.88235294117647056" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -115,5 +117,8 @@
         <namedColor name="grey08">
             <color red="0.31372549019607843" green="0.31764705882352939" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

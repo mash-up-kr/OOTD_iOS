@@ -48,7 +48,7 @@ class FeedViewController: UIViewController, StoryboardBuildable, StoryboardView 
     override func viewDidLoad() {
         super.viewDidLoad()
         reactor = FeedReactor()
-        
+
         reloadWeather()
         requestFeed()
 

@@ -87,9 +87,6 @@ class HomeViewController: UIViewController, StoryboardView {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "icMenuFeedNormal"), selectedImage: UIImage(named: "icMenuFeedActive"))
-        tabBarController?.tabBar.isHidden = true
-
         imagePickerController.delegate = self
         imagePickerController.modalPresentationStyle = .fullScreen
     }
