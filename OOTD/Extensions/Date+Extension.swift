@@ -36,6 +36,50 @@ extension Date {
         }
     }
 
+    func previousMonth() -> Date {
+        Calendar.current.date(byAdding: .month, value: -1, to: self)!
+    }
+
+    func nextMonth() -> Date {
+        Calendar.current.date(byAdding: .month, value: 1, to: self)!
+    }
+
+    func changeDay(_ day: Int) -> Date {
+        let components = Calendar.current.dateComponents(in: .current, from: self)
+        let newDateComponents = DateComponents(year: components.year,
+                                       month: components.month,
+                                       day: day)
+        guard let newDate = Calendar.current.date(from: newDateComponents) else {
+            return Date()
+        }
+        return newDate
+    }
+
+    func firstDateWeekDay() -> Int {
+        let components = Calendar.current.dateComponents(in: .current, from: self)
+
+        let firstDateComponents = DateComponents(year: components.year,
+                                       month: components.month,
+                                       day: 1)
+        guard let firstDate = Calendar.current.date(from: firstDateComponents) else {
+            return 0
+        }
+
+        return Calendar.current.component(.weekday, from: firstDate)
+    }
+
+    func getDaysInMonth() -> Int {
+        let calendar = Calendar.current
+
+        let dateComponents = DateComponents(year: calendar.component(.year, from: self), month: calendar.component(.month, from: self))
+        let date = calendar.date(from: dateComponents)!
+
+        let range = calendar.range(of: .day, in: .month, for: date)!
+        let numDays = range.count
+
+        return numDays
+    }
+
     func test() {
         // Get right now as it's `DateComponents`.
         let now = Calendar.current.dateComponents(in: .current, from: Date())

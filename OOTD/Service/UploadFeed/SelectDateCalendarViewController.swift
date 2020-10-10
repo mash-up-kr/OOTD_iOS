@@ -12,6 +12,8 @@ import RxCocoa
 import ReactorKit
 
 class SelectDateCalendarViewController: UIViewController, StoryboardBuildable, StoryboardView {
+    @IBOutlet weak var headerSelectedDateLabel: UILabel!
+    @IBOutlet weak var calendarMonthLabel: UILabel!
     @IBOutlet weak var dateCollectionView: UICollectionView!
 
     var disposeBag = DisposeBag()
@@ -19,7 +21,13 @@ class SelectDateCalendarViewController: UIViewController, StoryboardBuildable, S
         ( dateCollectionView.bounds.width - 210 ) / 7
     }()
 
-    var testLength: Int = 0
+    var dayOffset: Int = 0
+    var numberOfCalendarCell: Int = 0
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        reactor = SelectDateCalendarReactor()
+    }
 
     static func newViewController() -> UIViewController {
         let viewController = SelectDateCalendarViewController.instantiate()
@@ -31,32 +39,71 @@ class SelectDateCalendarViewController: UIViewController, StoryboardBuildable, S
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         dateCollectionView.register(UINib(nibName: "SelectDateCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SelectDateCollectionViewCell")
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        testLength = 100
-        dateCollectionView.reloadData()
+    @IBAction func didTapPreviosMonth(_ sender: Any) {
+        reactor?.action.onNext(.changePreviousMonth)
+    }
+
+    @IBAction func didTapNextMonth(_ sender: Any) {
+        reactor?.action.onNext(.changeNextMonth)
+    }
+
+    private func setSelectedDateUI(_ selectedDate: Date) {
+        let year = Calendar.current.component(.year, from: selectedDate) % 100
+        let month = Calendar.current.component(.month, from: selectedDate)
+        let day = Calendar.current.component(.day, from: selectedDate)
+        headerSelectedDateLabel.text = "\(year)년 \(month)월 \(day)일"
+    }
+
+    private func setCalendarMonthLabel(_ calendarDate: Date) {
+        let year = Calendar.current.component(.year, from: calendarDate)
+        let month = Calendar.current.component(.month, from: calendarDate)
+        calendarMonthLabel.text = "\(year)년 \(month)월"
     }
 }
 
 extension SelectDateCalendarViewController {
     func bind(reactor: SelectDateCalendarReactor) {
+        reactor.state
+            .map({ $0.dateForCalendarUI })
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] date in
+                self?.dayOffset = date.firstDateWeekDay()
+                self?.numberOfCalendarCell = date.getDaysInMonth()
+                self?.dateCollectionView.reloadData()
+                self?.setCalendarMonthLabel(date)
+            })
+            .disposed(by: disposeBag)
+
+        reactor.state
+            .map { $0.selectedDate }
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] selectedDate in
+                self?.setSelectedDateUI(selectedDate)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
 extension SelectDateCalendarViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        testLength
+        dayOffset + numberOfCalendarCell
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectDateCollectionViewCell", for: indexPath) as? SelectDateCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.setDate("1")
+
+        let dateDay = indexPath.row - dayOffset + 1
+
+        if dateDay >= 1 {
+            cell.setDate(String(dateDay))
+        } else {
+            cell.setDate("")
+        }
 
         return cell
     }
@@ -68,7 +115,12 @@ extension SelectDateCalendarViewController: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
+        let dateDay = indexPath.row - dayOffset + 1
+        if dateDay >= 1 {
+            reactor?.action.onNext(.selectDay(dateDay))
+        } else {
+            collectionView.deselectItem(at: indexPath, animated: false)
+        }
     }
 }
 
