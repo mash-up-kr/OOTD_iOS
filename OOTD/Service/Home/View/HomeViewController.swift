@@ -42,35 +42,6 @@ class HomeViewController: UIViewController, StoryboardView {
     var disposeBag: DisposeBag = DisposeBag()
     var feedViewControllerRef: FeedViewController?
 
-    lazy var selectPictureActionController: UIAlertController = {
-        let alertController = UIAlertController(title: "사진 선택", message: "피드에 추가할 사진을 선택해주세요!", preferredStyle: .actionSheet)
-
-        let takePictureAction = UIAlertAction(title: "사진 찍기", style: .default) { [weak self] _ in
-            guard let self = self else { return }
-            if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                self.imagePickerController.sourceType = .camera
-            }
-            self.present(self.imagePickerController, animated: true, completion: nil)
-        }
-        let selectPictureFromGallery = UIAlertAction(title: "갤러리에서 선택하기", style: .default) { [weak self] _ in
-            guard let self = self else { return }
-            self.imagePickerController.sourceType = .photoLibrary
-            self.present(self.imagePickerController, animated: true, completion: nil)
-        }
-        let cancelAction = UIAlertAction(title: "취소하기", style: .cancel) {    _ in
-            print("취소 하기")
-        }
-
-        alertController.addAction(takePictureAction)
-        alertController.addAction(selectPictureFromGallery)
-        alertController.addAction(cancelAction)
-
-        return alertController
-    }()
-    lazy var imagePickerController = UIImagePickerController()
-
-    private let selectedImageRelay = PublishRelay<UIImage>()
-
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         commonInit()
@@ -85,15 +56,13 @@ class HomeViewController: UIViewController, StoryboardView {
         self.reactor = HomeReactor()
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        imagePickerController.delegate = self
-        imagePickerController.modalPresentationStyle = .fullScreen
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         reactor?.action.onNext(.requestWeather)
+    }
+
+    @IBAction func didTapMainCenterButton(_ sender: Any) {
+        tabBarController?.selectedIndex = 1
     }
 }
 
@@ -116,37 +85,12 @@ extension HomeViewController {
     }
 
     func bind(reactor: HomeReactor) {
-        headerAddButton.rx.tap
-            .map { HomeReactor.Action.didTapHeaderAddFeedButton }
-            .bind(to: reactor.action )
-            .disposed(by: disposeBag)
-
-        selectedImageRelay
-            .map { HomeReactor.Action.selectedPicture($0) }
-            .bind(to: reactor.action)
-            .disposed(by: disposeBag)
-
-        reactor.state
-            .map { $0.isSelectPicture }
-            .distinctUntilChanged()
-            .filter { $0 }
-            .subscribe(onNext: { [weak self] _ in self?.showActionSheet() })
-            .disposed(by: disposeBag)
-
         reactor.state
             .map { $0.styleViewController }
             .subscribe(onNext: { [weak self] styleViewController in
                 guard let self = self,
                     let styleViewController = styleViewController else { return }
                 self.present(styleViewController, animated: true, completion: nil)
-            })
-            .disposed(by: disposeBag)
-
-        reactor.state.compactMap { $0.selectedImage }
-            .distinctUntilChanged()
-            .subscribe(onNext: { [weak self] in
-                guard let self = self else { return }
-                self.showUploadFeedViewController(image: $0)
             })
             .disposed(by: disposeBag)
 
@@ -167,10 +111,6 @@ extension HomeViewController {
 }
 
 extension HomeViewController {
-    private func showActionSheet() {
-        present(selectPictureActionController, animated: true, completion: nil)
-    }
-
     private func showUploadFeedViewController(image: UIImage) {
         guard let naviController = UploadFeedViewController.newViewController(image: image) as? UINavigationController,
             let feedViewController = naviController.viewControllers.first as? UploadFeedViewController else {
@@ -203,20 +143,6 @@ extension HomeViewController {
 
         nowDateLabel.text = "20년 \(month)월 \(day)일 " + nowDate.koreaWeekDay()
         updatedDateLabel.text = "업데이트 \(month)/\(day) \(hour):\(minutes)"
-    }
-}
-
-extension HomeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        imagePickerController.dismiss(animated: true, completion: nil)
-    }
-
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        imagePickerController.dismiss(animated: true) {
-            if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                self.selectedImageRelay.accept(originalImage)
-            }
-        }
     }
 }
 

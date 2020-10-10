@@ -15,17 +15,20 @@ final class UploadFeedReactor: Reactor {
         case didTapImageButton
         case contentTextDidChange(String)
         case didTapNextButton
+        case userSelectImage(UIImage)
     }
 
     enum Mutation {
-        case showImageDetail
+        case showSelectPictureStyleSheet
         case setLoading(Bool)
         case updateContentText(String)
         case initiateFeedInfoViewController
+        case setImage(UIImage)
     }
 
     struct State {
         var isLoading: Bool = false
+        var showSelectPictureStyleSheet: Bool = false
         var feedImage: UIImage?
         var content: String = ""
         var feedInfoViewController: UIViewController?
@@ -40,27 +43,32 @@ final class UploadFeedReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .didTapImageButton:
-            return Observable.just(.showImageDetail)
+            return Observable.just(.showSelectPictureStyleSheet)
         case .contentTextDidChange(let text):
             return Observable.just(.updateContentText(text))
         case .didTapNextButton:
             return Observable.just(.initiateFeedInfoViewController)
+        case .userSelectImage(let selectedImage):
+            return .just(.setImage(selectedImage))
         }
     }
 
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         newState.feedInfoViewController = nil
+        newState.showSelectPictureStyleSheet = false
 
         switch mutation {
-        case .showImageDetail:
-            print("showDetail")
+        case .showSelectPictureStyleSheet:
+            newState.showSelectPictureStyleSheet = true
         case let .setLoading(isLoading):
             newState.isLoading = isLoading
         case .updateContentText(let text):
             newState.content = text
         case .initiateFeedInfoViewController:
             newState.feedInfoViewController = UploadFeedInfoViewController.newViewController(newState.feedImage, newState.content)
+        case .setImage(let selectedImage):
+            newState.feedImage = selectedImage
         }
 
         return newState
