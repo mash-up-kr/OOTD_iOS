@@ -50,7 +50,7 @@ class StyleViewController: UIViewController, StoryboardBuildable, StoryboardView
             let ids = selectedStyles.map { $0.id }
             reactor?.action.onNext(.requestSignUp(ids))
         } else {
-            reactor?.stylesPublishSubject.onNext(selectedStyles)
+            OOTD.shared.stylesPublishSubject.onNext(selectedStyles)
             dismiss(animated: true, completion: nil)
         }
     }
@@ -96,12 +96,12 @@ extension StyleViewController: UICollectionViewDataSource, UICollectionViewDeleg
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        reactor?.stylesPublishSubject.onNext(selectedStyles)
+        OOTD.shared.stylesPublishSubject.onNext(selectedStyles)
         delegate?.selectedStyle(selectedStyles.map { $0.id })
     }
 
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        reactor?.stylesPublishSubject.onNext(selectedStyles)
+        OOTD.shared.stylesPublishSubject.onNext(selectedStyles)
         delegate?.selectedStyle(selectedStyles.map { $0.id })
     }
 }

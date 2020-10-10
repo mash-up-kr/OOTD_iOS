@@ -43,10 +43,12 @@ final class SettingViewController: UIViewController, StoryboardBuildable, Storyb
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.allowsMultipleSelection = true
 
-        let selectedStyles = styles.enumerated().compactMap { OOTD.shared.user.preference.styles.contains($0.element) ? $0 : nil }
-        selectedStyles.forEach { collectionView.selectItem(at: IndexPath(item: $0.offset, section: .zero), animated: false, scrollPosition: .top) }
+        reactor = SettingReactor()
+
+        nicknameTextField.text = userName
+        setCollectionView()
+        setNavigationBar()
     }
 
     @IBAction func changeImageAction(_ sender: UITapGestureRecognizer) {
@@ -74,6 +76,24 @@ final class SettingViewController: UIViewController, StoryboardBuildable, Storyb
 }
 
 extension SettingViewController {
+    private func setCollectionView() {
+        collectionView.allowsMultipleSelection = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+
+        let selectedStyles = styles.enumerated().compactMap { OOTD.shared.user.preference.styles.contains($0.element) ? $0 : nil }
+        selectedStyles.forEach { collectionView.selectItem(at: IndexPath(item: $0.offset, section: .zero), animated: false, scrollPosition: .top) }
+    }
+
+    private func setNavigationBar() {
+        guard let bar = navigationController?.navigationBar else { return }
+        bar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        bar.shadowImage = UIImage()
+        bar.backgroundColor = UIColor.clear
+    }
+}
+
+extension SettingViewController {
     func bind(reactor: SettingReactor) {
         reactor.state.map { $0.profileImage }
             .distinctUntilChanged()
@@ -89,6 +109,22 @@ extension SettingViewController {
                 }
             })
             .disposed(by: disposeBag)
+
+        nicknameTextField.rx.controlEvent(.editingDidEndOnExit)
+            .subscribe(onNext: { [weak self] in
+                self?.view.endEditing(true)
+            })
+            .disposed(by: disposeBag)
+
+        OOTD.shared.stylesPublishSubject
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] styles in
+                guard let self = self else { return }
+
+                let selectedStyles = self.styles.enumerated().compactMap { styles.contains($0.element) ? $0 : nil }
+                selectedStyles.forEach { self.collectionView.selectItem(at: IndexPath(item: $0.offset, section: .zero), animated: false, scrollPosition: .top) }
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -101,16 +137,6 @@ extension SettingViewController: UICollectionViewDataSource, UICollectionViewDel
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StyleCollectionViewCell.reusableIdentifier, for: indexPath) as! StyleCollectionViewCell
         cell.configure(styles[indexPath.item])
         return cell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: StyleCollectionHeaderView.reusableIdentifier, for: indexPath) as! StyleCollectionHeaderView
-        headerView.configure(userName: userName)
-        return headerView
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height * 200 / 667)
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

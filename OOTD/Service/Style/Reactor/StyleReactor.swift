@@ -40,7 +40,7 @@ class StyleReactor: Reactor {
     }
 
     var initialState: State = State()
-    var stylesPublishSubject = PublishSubject<[Style]>()
+//    var stylesPublishSubject = PublishSubject<[Style]>()
 
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {

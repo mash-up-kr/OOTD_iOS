@@ -50,6 +50,7 @@ final class SettingReactor: Reactor {
         switch mutation {
         case let .setSelectedStyles(styles):
             newState.selectedStyles = styles
+            OOTD.shared.stylesPublishSubject.onNext(styles)
 
         case let .setProfileImage(image):
             newState.profileImage = image
