@@ -13,6 +13,8 @@ enum API {
     case getStyles
     case signIn(uId: String, authType: String)
     case feed(parameters: [String: Any])
+    case getComments(feed: Feed)
+    case setComment(message: String, feed: Feed)
     case checkAuthToken
     case signUp(uId: String, authType: String, nickname: String, styleIds: [Int])
     case uploadFeed(data: [MultipartFormData])
@@ -30,6 +32,10 @@ extension API: TargetType {
             return "api/users/sign-up"
         case .feed:
             return "api/posts"
+        case .getComments(let feed):
+            return "/api/comments/\(feed.id)"
+        case .setComment(_, let feed):
+            return "/api/comments/\(feed.id)"
         case .checkAuthToken:
             return "api/users/access-token-info"
         case .uploadFeed:
@@ -49,6 +55,10 @@ extension API: TargetType {
             return .post
         case .feed:
             return .get
+        case .getComments:
+            return .get
+        case .setComment:
+            return .post
         case .checkAuthToken:
             return .get
         case .uploadFeed:
@@ -71,6 +81,10 @@ extension API: TargetType {
             return .requestParameters(parameters: parameter, encoding: JSONEncoding.default)
         case .feed(let parameters):
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+        case .getComments:
+            return .requestPlain
+        case .setComment(let message, _):
+            return .requestParameters(parameters: ["message": message], encoding: JSONEncoding.default)
         case .checkAuthToken:
             return .requestPlain
         case let .signUp(uId, authType, nickname, styleIds):
